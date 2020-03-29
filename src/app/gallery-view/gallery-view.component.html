@@ -1,0 +1,11 @@
+<swiper
+	class="swiper-container"
+	[config]="config"
+	(indexChange)="onIndexChange($event)"
+	(swiperTransitionStart)="onSwiperEvent('transitionStart')"
+	(swiperTransitionEnd)="onSwiperEvent('transitionEnd')"
+	>
+	<div *ngFor="let slide of slides" class="wine-slide">
+		<img [attr.data-src]="slide.image" class="swiper-lazy wine-image">
+	</div>
+</swiper>

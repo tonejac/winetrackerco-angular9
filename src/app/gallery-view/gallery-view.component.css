@@ -1,0 +1,16 @@
+swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.wine-slide {
+	position: relative;
+}
+
+.wine-image {
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, 0);
+}

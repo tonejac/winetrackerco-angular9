@@ -1,1 +1,416 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #000000;
+	height: 100%;
+	overflow-x: hidden;
+	max-width: 100%;
+	-webkit-overflow-scrolling: touch;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+html {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	background-color: #302613;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'San Francisco', 'Helvetica Neue', Helvetica, arial, sans-serif;
+	-webkit-font-smoothing: subpixel-antialiased;
+	background: url(//winetrackerco.imgix.net/winetracker-background-2560x1785.jpg) center/cover no-repeat fixed;
+}
+
+html, body, .body-container {
+	height: 100%;
+	overflow-x: hidden;
+	max-width: 100%;
+	-webkit-overflow-scrolling: touch;
+}
+
+* {
+	outline: none;
+}
+
+input,
+textarea,
+button,
+select,
+a,
+div {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.clear {
+	clear: both;
+}
+
+swiper .swiper .swiper-pagination {
+	display: none !important;
+}
+
+#system-message {
+	background-color: red;
+	border: 2px dotted #ffffff;
+	border-radius: 5px;
+	padding: 5px 8px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #ffffff;
+	width: 270px;
+	box-sizing: border-box;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+
+#addToHomeScreen {
+	background-color: #000000;
+	color: #ffffff;
+	width: 290px;
+	box-sizing: border-box;
+	border-radius: 6px;
+	padding: 10px 20px 10px 20px;
+	border: 1px solid #ffffff;
+}
+
+#login-message {
+	padding-bottom: 20px;
+	cursor: pointer;
+}
+
+#login-link {
+	color: #59db00;
+	text-decoration: underline;
+	font-weight: 700;
+}
+
+.loading-icon-container {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.loading-icon-container span {
+	opacity: 0.8;
+	color: #ffffff;
+	top: 50%;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	margin-top: 35px;
+	margin-left: 5px;
+}
+
+#loading-icon {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -25px;
+	margin-left: -25px;
+}
+
+#loading-icon .leaf {
+	fill: #ffffff;
+	opacity: 0;
+	display: none;
+}
+
+#loading-icon #leaf-1 {
+	-webkit-animation: fadeOpacity 1.0s infinite;
+	-moz-animation:	fadeOpacity 1.0s infinite;
+	-ms-animation:	 fadeOpacity 1.0s infinite;
+	-o-animation:	  fadeOpacity 1.0s infinite;
+	animation:		 fadeOpacity 1.0s infinite;
+	display: block;
+	opacity: 0;
+}
+
+#loading-icon #leaf-2 {
+	-webkit-animation: fadeOpacity 1.0s infinite;
+	-moz-animation:	fadeOpacity 1.0s infinite;
+	-ms-animation:	 fadeOpacity 1.0s infinite;
+	-o-animation:	  fadeOpacity 1.0s infinite;
+	animation:		 fadeOpacity 1.0s infinite;
+	-webkit-animation-delay: 0.125s;
+	-moz-animation-delay: 0.125s;
+	-ms-animation-delay: 0.125s;
+	-o-animation-delay: 0.125s;
+	animation-delay: 0.125s;
+	display: block;
+	opacity: 0;
+}
+
+#loading-icon #leaf-3 {
+	-webkit-animation: fadeOpacity 1.0s infinite;
+	-moz-animation:	fadeOpacity 1.0s infinite;
+	-ms-animation:	 fadeOpacity 1.0s infinite;
+	-o-animation:	  fadeOpacity 1.0s infinite;
+	animation:		 fadeOpacity 1.0s infinite;
+	-webkit-animation-delay: 0.250s;
+	-moz-animation-delay: 0.250s;
+	-ms-animation-delay: 0.250s;
+	-o-animation-delay: 0.250s;
+	animation-delay: 0.250s;
+	display: block;
+	opacity: 0;
+}
+
+#loading-icon #leaf-4 {
+	-webkit-animation: fadeOpacity 1.0s infinite;
+	-moz-animation:	fadeOpacity 1.0s infinite;
+	-ms-animation:	 fadeOpacity 1.0s infinite;
+	-o-animation:	  fadeOpacity 1.0s infinite;
+	animation:		 fadeOpacity 1.0s infinite;
+	-webkit-animation-delay: 0.375s;
+	-moz-animation-delay: 0.375s;
+	-ms-animation-delay: 0.375s;
+	-o-animation-delay: 0.375s;
+	animation-delay: 0.375s;
+	display: block;
+	opacity: 0;
+}
+
+#loading-icon #leaf-5 {
+	-webkit-animation: fadeOpacity 1.0s infinite;
+	-moz-animation:	fadeOpacity 1.0s infinite;
+	-ms-animation:	 fadeOpacity 1.0s infinite;
+	-o-animation:	  fadeOpacity 1.0s infinite;
+	animation:		 fadeOpacity 1.0s infinite;
+	-webkit-animation-delay: 0.500s;
+	-moz-animation-delay: 0.500s;
+	-ms-animation-delay: 0.500s;
+	-o-animation-delay: 0.500s;
+	animation-delay: 0.500s;
+	display: block;
+}
+
+#loading-icon #leaf-6 {
+	-webkit-animation: fadeOpacity 1.0s infinite;
+	-moz-animation:	fadeOpacity 1.0s infinite;
+	-ms-animation:	 fadeOpacity 1.0s infinite;
+	-o-animation:	  fadeOpacity 1.0s infinite;
+	animation:		 fadeOpacity 1.0s infinite;
+	-webkit-animation-delay: 0.625s;
+	-moz-animation-delay: 0.625s;
+	-ms-animation-delay: 0.625s;
+	-o-animation-delay: 0.625s;
+	animation-delay: 0.625s;
+	display: block;
+}
+
+#loading-icon #leaf-7 {
+	-webkit-animation: fadeOpacity 1.0s infinite;
+	-moz-animation:	fadeOpacity 1.0s infinite;
+	-ms-animation:	 fadeOpacity 1.0s infinite;
+	-o-animation:	  fadeOpacity 1.0s infinite;
+	animation:		 fadeOpacity 1.0s infinite;
+	-webkit-animation-delay: 0.750s;
+	-moz-animation-delay: 0.750s;
+	-ms-animation-delay: 0.750s;
+	-o-animation-delay: 0.750s;
+	animation-delay: 0.750s;
+	display: block;
+}
+
+#loading-icon #leaf-8 {
+	-webkit-animation: fadeOpacity 1.0s infinite;
+	-moz-animation:	fadeOpacity 1.0s infinite;
+	-ms-animation:	 fadeOpacity 1.0s infinite;
+	-o-animation:	  fadeOpacity 1.0s infinite;
+	animation:		 fadeOpacity 1.0s infinite;
+	-webkit-animation-delay: 0.875s;
+	-moz-animation-delay: 0.875s;
+	-ms-animation-delay: 0.875s;
+	-o-animation-delay: 0.875s;
+	animation-delay: 0.875s;
+	display: block;
+}
+
+@-webkit-keyframes fadeOpacity {
+	0%   { opacity: 0; }
+	10% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes fadeOpacity {
+	0%   { opacity: 0; }
+	10% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@-ms-keyframes fadeOpacity {
+	0%   { opacity: 0; }
+	10% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@-o-keyframes fadeOpacity {
+	0%   { opacity: 0; }
+	10% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes fadeOpacity {
+	0%   { opacity: 0; }
+	10% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+
+/* Button Styles */
+
+form.signin button,
+.button-submit-review,
+a.btn,
+button.btn,
+button.button-link {
+	height: 44px;
+	width: auto;
+	border: none;
+	color: #ffffff;
+	background-color: #6dbb00;
+	padding: 0px 10px 0px 10px;
+	margin: 20px auto 20px auto;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	text-align: center;
+	font-size: 17px;
+	-webkit-appearance: none;
+	font-family: 'San Francisco', 'Helvetica Neue', Helvetica, arial, sans-serif;
+	font-weight: 300;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.button-submit-review.group-tasting {
+	width: 140px;
+}
+
+#cancel-edit {
+	width: 100px;
+	border: none;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.65);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	padding: 10px 20px 13px 20px;
+	margin: 0 5px 0 0;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	text-align: center;
+	font-size: 17px;
+	-webkit-appearance: none;
+	font-family: 'San Francisco', 'Helvetica Neue', Helvetica, arial, sans-serif;
+	font-weight: 300;
+	cursor: pointer;
+	margin-right: 5px;
+	display: inline-block;
+}
+
+#cancel-edit.event {
+	width: auto;
+}
+
+#cancel-edit.create {
+	position: relative;
+	top: -1px;
+}
+
+#cancel-edit.step-2 {
+	width: auto !important;
+}
+
+.events #cancel-edit {
+	background-color: rgba(0, 0, 0, 0.0);
+	border-color: #a48d61;
+	color: #a48d61;
+}
+
+form.signin button:active,
+.button-submit-review:active {
+	background-color: #599c00;
+}
+
+.auto-width {
+	width: auto !important;
+}
+
+.wine-title button.button-link { /* used in the wine details panel */
+	width: auto;
+	margin: 10px 0 0 20px;
+}
+
+button.button-link.shorter {
+	font-size: 14px;
+	font-weight: 500;
+	height: auto;
+	padding: 4px 10px 5px 10px;
+}
+
+.button-link.shorter.empty-bg {
+	box-sizing: border-box;
+	border: 1px solid #a48d61;
+	background-color: transparent;
+	color: #a48d61;
+	font-size: 14px;
+	white-space: nowrap;
+	font-weight: 500;
+	height: auto;
+	padding: 4px 10px 5px 10px;
+}
+
+.button-link.back-button {
+	width: auto;
+	margin-left: 20px;
+	display: none;
+}
+
+
+.cell.choice {
+	font-size: 0;
+}
+
+a.btn,
+button.btn {
+	-webkit-appearance: none;
+	appearance: none;
+	display: inline-block;
+	padding: 10px 0;
+	box-sizing: border-box;
+	width: 110px;
+	margin: 10px 5px 0;
+	position: relative;
+	text-decoration: none;
+}
+
+a.btn.signin,
+button.btn.signin {
+	background-color: rgba(48, 38, 19, 0.8);
+	border: 1px solid rgba(164, 141, 81, 0.5);
+}
+
+/* panel style */
+
+.panelbg {
+	background-color: rgba(48, 38, 19, 0.8);
+	border-radius: 6px;
+	padding: 10px;
+}
+
+.white {
+	color: #ffffff;
+}
