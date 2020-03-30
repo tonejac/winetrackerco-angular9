@@ -1,0 +1,212 @@
+button.menu-icon {
+	-webkit-appearance: none;
+	display: block;
+	float: left;
+	background: none;
+	box-sizing: border-box;
+	border: 1px solid rgba(164, 141, 81, 0.5);
+	border-width: 1px 1px 1px 0;
+	cursor: pointer;
+	outline: none;
+	z-index: 2;
+	position: absolute;
+	border-radius: 0 6px 6px 0;
+	padding: 6px 6px 8px 6px;
+	color: rgba(255, 255, 255, 0.5);
+	top: 4px;
+	font-size: 11px;
+	height: 29px;
+	-webkit-transition: translate3d(0,0,0);
+	-webkit-backface-visibility: hidden;
+	left: 260px;
+}
+
+button.menu-icon:active {
+	color: #6DBB00;
+	border-color: #6DBB00;
+}
+
+.navigation-menu-container {
+	
+	/*-webkit-backface-visibility: hidden;*/
+	/*-moz-backface-visibility: hidden;*/
+	/*-ms-backface-visibility: hidden;*/
+	/*-o-backface-visibility: hidden;*/
+	/*backface-visibility: hidden;*/
+	/*-webkit-perspective: 1000;*/
+	/*-webkit-transform: translate(-260px, 0px);*/
+	/*-moz-transform: translate(-260px, 0px);*/
+	/*-ms-transform: translate(-260px, 0px);*/
+	/*-o-transform: translate(-260px, 0px);*/
+	/*transform: translate(-260px, 0px);*/
+	
+}
+
+.body-container {
+	display: block;
+	position: relative;
+	/*-webkit-backface-visibility: hidden;*/
+	/*-moz-backface-visibility: hidden;*/
+	/*-ms-backface-visibility: hidden;*/
+	/*-o-backface-visibility: hidden;*/
+	/*backface-visibility: hidden;*/
+	/*-webkit-perspective: 1000;*/
+	/*-webkit-transform: translate(0px, 0px);*/
+	/*-moz-transform: translate(0px, 0px);*/
+	/*-ms-transform: translate(0px, 0px);*/
+	/*-o-transform: translate(0px, 0px);*/
+	/*transform: translate(0px, 0px);*/
+	left: 0;
+}
+
+.navigation-separator {
+	width: 92%;
+	height: 1px;
+	background-color: #a48d61;
+	box-sizing: border-box;
+	margin: 40px 0 10px 20px;
+	opacity: 0.5;
+}
+
+.transparent-bg-backdrop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+ul.navigation-list-container {
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	top: 0;
+}
+
+ul.navigation-list-container li {
+	padding: 10px 20px;
+	line-height: 30px;
+	clear: both;
+}
+
+ul.navigation-list-container li a,
+ul.navigation-list-container li div.nav-links,
+ul.navigation-list-container li section {
+	color: #ffffff;
+	font-weight: 300;
+	text-decoration: none;
+	/*transition: color 0.2s linear;*/
+	display: block;
+	cursor: pointer;
+}
+
+ul.navigation-list-container li div.nav-links {
+	width: auto;
+}
+
+ul.navigation-list-container li:active a,
+ul.navigation-list-container li:active section {
+	color: #6DBB00;
+	cursor: pointer;
+}
+
+ul.navigation-list-container li a svg path,
+ul.navigation-list-container li a svg rect,
+ul.navigation-list-container li section svg path,
+ul.navigation-list-container li section svg rect {
+	/*transition: fill 0.2s linear;*/
+}
+
+ul.navigation-list-container li:active a svg path,
+ul.navigation-list-container li:active a svg rect,
+ul.navigation-list-container li:active section svg path,
+ul.navigation-list-container li:active section svg rect {
+	fill: #6DBB00;
+}
+
+.navigation-menu-container li div {
+	width: 40px;
+	height: 40px;
+	float: left;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.navigation-menu-container li svg {
+	max-width: 40px;
+	display: inline-block;
+	position: relative;
+}
+
+.navigation-menu-container .camera-svg-icon {
+	top: 3px;
+	left: -3px;
+}
+
+.navigation-menu-container .glass-svg-icon {
+	top: 2px;
+}
+
+.navigation-menu-container .barrel-svg-icon {
+	height: 28px;
+	top: 3px;
+	left: 4px;
+}
+
+.navigation-menu-container .wishlist-svg-icon {
+	height: 26px;
+	top: 7px;
+}
+
+.navigation-menu-container .logo-winetracker {
+	width: 42px;
+	height: 22px;
+	top: 4px;
+}
+
+.navigation-menu-container .trash-svg-icon {
+	height: 21px;
+	top: 5px;
+}
+
+.navigation-menu-container .send-svg-icon {
+	height: 25px;
+	top: 4px;
+}
+
+.navigation-menu-container .my-scores-svg-icon {
+	height: 34px;
+}
+
+.navigation-menu-container .menu-item-drink-it-now,
+.navigation-menu-container .menu-item-move-to-cellar,
+.navigation-menu-container .menu-item-add-to-wishlist,
+.navigation-menu-container .menu-item-remove-this-wine,
+.navigation-menu-container .menu-item-send-this-wine {
+	display: none;
+}
+
+.navigation-menu-container .menu-item-track-a-wine {
+	position: relative;
+}
+.navigation-menu-container .menu-item-track-a-wine a {
+	position: relative;
+	width: 100%;
+	text-align: left;
+}
+
+.navigation-menu-container .menu-item-track-a-wine #form-nav-set-photo {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	width: 100%;
+}
+
+.navigation-menu-container .menu-item-track-a-wine #form-nav-set-photo #input-side-menu-track-a-wine {
+	background-color: red;
+	opacity: 0.0;
+	cursor: pointer;
+	width: 100%;
+	height: 40px;
+}

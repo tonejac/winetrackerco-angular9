@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $:any;
 
 @Component({
 	selector: 'app-nav-menu',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavMenuComponent implements OnInit {
 	
+	public _menuState = 'closed';
+	
 	constructor() { }
 	
 	ngOnInit(): void {
+	}
+	
+	public menuClick() {
+		if (this._menuState == 'closed') {
+			$('app-nav-menu').transition({
+				'left': 0
+			}, 300, 'easeOutQuad');
+			$('.main-container').transition({
+				'left': 260
+			}, 300, 'easeOutQuad');
+			this._menuState = 'open';
+		} else if (this._menuState == 'open') {
+			$('app-nav-menu').transition({
+				'left': -260
+			}, 300, 'easeOutQuad');
+			$('.main-container').transition({
+				'left': 0
+			}, 300, 'easeOutQuad');
+			this._menuState = 'closed';
+		}
 	}
 	
 	navigateBack() {
