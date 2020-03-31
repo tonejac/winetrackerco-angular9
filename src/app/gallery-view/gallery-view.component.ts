@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
 	selector: 'app-gallery-view',
@@ -9,7 +10,6 @@ import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginati
 export class GalleryViewComponent implements OnInit {
 	
 	public type: string = 'component';
-	
 	
 	public slides = [
 		{
@@ -54,10 +54,18 @@ export class GalleryViewComponent implements OnInit {
 	@ViewChild(SwiperComponent, { static: false }) componentRef?: SwiperComponent;
 	@ViewChild(SwiperDirective, { static: false }) directiveRef?: SwiperDirective;
 	
+	@ViewChild(NavBarComponent, {static:false}) _navBarComponent:NavBarComponent;
+	
+	
 	constructor() { }
 	
 	ngOnInit(): void {
+		
 		setTimeout(()=> {
+			this._navBarComponent.setTitle({
+				"title": "My Past Wines"
+			});
+			
 			this.componentRef.directiveRef.setIndex(0);
 		}, 0);
 	}

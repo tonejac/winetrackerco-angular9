@@ -109,7 +109,7 @@ ul.navigation-list-container li a svg path,
 ul.navigation-list-container li a svg rect,
 ul.navigation-list-container li section svg path,
 ul.navigation-list-container li section svg rect {
-	/*transition: fill 0.2s linear;*/
+	pointer-events: none;
 }
 
 ul.navigation-list-container li:active a svg path,

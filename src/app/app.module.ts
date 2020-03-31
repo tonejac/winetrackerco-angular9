@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { GalleryViewComponent } from './gallery-view/gallery-view.component';
 import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -23,7 +24,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		AppComponent,
 		GalleryViewComponent,
 		HomeComponent,
-		NavMenuComponent
+		NavMenuComponent,
+		NavBarComponent
 	],
 	imports: [
 		SwiperModule,
