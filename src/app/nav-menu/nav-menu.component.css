@@ -26,22 +26,6 @@ button.menu-icon:active {
 	border-color: #6DBB00;
 }
 
-.navigation-menu-container {
-	
-	/*-webkit-backface-visibility: hidden;*/
-	/*-moz-backface-visibility: hidden;*/
-	/*-ms-backface-visibility: hidden;*/
-	/*-o-backface-visibility: hidden;*/
-	/*backface-visibility: hidden;*/
-	/*-webkit-perspective: 1000;*/
-	/*-webkit-transform: translate(-260px, 0px);*/
-	/*-moz-transform: translate(-260px, 0px);*/
-	/*-ms-transform: translate(-260px, 0px);*/
-	/*-o-transform: translate(-260px, 0px);*/
-	/*transform: translate(-260px, 0px);*/
-	
-}
-
 .body-container {
 	display: block;
 	position: relative;
@@ -64,7 +48,7 @@ button.menu-icon:active {
 	height: 1px;
 	background-color: #a48d61;
 	box-sizing: border-box;
-	margin: 40px 0 10px 20px;
+	margin: 28px 0 10px 20px;
 	opacity: 0.5;
 }
 
@@ -83,15 +67,15 @@ ul.navigation-list-container {
 	top: 0;
 }
 
-ul.navigation-list-container li {
+li {
 	padding: 10px 20px;
 	line-height: 30px;
-	clear: both;
+	/*clear: both;*/
 }
 
-ul.navigation-list-container li a,
-ul.navigation-list-container li div.nav-links,
-ul.navigation-list-container li section {
+li a,
+.nav-links,
+li section {
 	color: #ffffff;
 	font-weight: 300;
 	text-decoration: none;
@@ -100,8 +84,19 @@ ul.navigation-list-container li section {
 	cursor: pointer;
 }
 
-ul.navigation-list-container li div.nav-links {
-	width: auto;
+.nav-links {
+	display: flex;
+	width: 100%;
+	align-items: center;
+}
+
+.nav-links svg {
+	flex-basis: 50px;
+	max-height: 34px;
+}
+
+.nav-links label {
+	flex-basis: auto;
 }
 
 ul.navigation-list-container li:active a,
@@ -158,7 +153,7 @@ ul.navigation-list-container li:active section svg rect {
 	top: 7px;
 }
 
-.navigation-menu-container .logo-winetracker {
+.logo-winetracker {
 	width: 42px;
 	height: 22px;
 	top: 4px;
@@ -209,4 +204,20 @@ ul.navigation-list-container li:active section svg rect {
 	cursor: pointer;
 	width: 100%;
 	height: 40px;
+}
+
+#feedback-container {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+}
+
+#feedback-container a {
+	color: #6DBB00;
+	opacity: 0.7;
+	text-decoration: underline;
+}
+
+.icon-search {
+	max-height: 27px;
 }

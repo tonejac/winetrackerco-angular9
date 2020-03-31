@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var $:any;
 
 @Component({
@@ -10,7 +11,9 @@ export class NavMenuComponent implements OnInit {
 	
 	public _menuState = 'closed';
 	
-	constructor() { }
+	constructor(
+		private _router:Router
+		) { }
 	
 	ngOnInit(): void {
 	}
@@ -40,7 +43,8 @@ export class NavMenuComponent implements OnInit {
 	}
 	
 	navigateToHome() {
-		console.log('go home');
+		this.menuClick();
+		this._router.navigate(['/']);
 	}
 	
 	navigateToTrackAWine() {
@@ -48,7 +52,8 @@ export class NavMenuComponent implements OnInit {
 	}
 	
 	navigateToMyWines() {
-		console.log('my wines');
+		this.menuClick();
+		this._router.navigate(['mywines']);
 	}
 	
 	navigateToSearch() {
