@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GalleryViewComponent } from './gallery-view/gallery-view.component';
 import { HomeComponent } from './home/home.component';
+import { MyWinesComponent } from './my-wines/my-wines.component';
 
 
 const routes: Routes = [
 	{
 		path: 'mywines',
-		component: GalleryViewComponent
+		component: MyWinesComponent
 	},
 	
 	{
