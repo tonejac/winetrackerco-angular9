@@ -40,7 +40,9 @@
 	
 <div class="page-title-container">
 	<h1 class="page-title">
-		{{ _title }}
+		{{ navBarConfig.title }}
 	</h1>
-	<div id="cellar-value-total"></div>
+	<div id="cellar-value-total" *ngIf="navBarConfig.cellarTotal">
+		${{ navBarConfig.cellarTotal }}
+	</div>
 </div>

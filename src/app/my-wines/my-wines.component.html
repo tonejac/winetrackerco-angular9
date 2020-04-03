@@ -1,7 +1,7 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar [navBarConfig]="_navBarContent"></app-nav-bar>
 
 <div class="buttons-container">
-	<app-category-button [buttonConfig]="_pastButtonConfig" (click)="testClick($event);"></app-category-button>
-	<app-category-button [buttonConfig]="_cellarButtonConfig" (click)="testClick($event);"></app-category-button>
-	<app-category-button [buttonConfig]="_wishlistButtonConfig" (click)="testClick($event);"></app-category-button>
+	<app-category-button [buttonConfig]="_pastButtonConfig" (click)="navigateTo('pastwines');"></app-category-button>
+	<app-category-button [buttonConfig]="_cellarButtonConfig" (click)="navigateTo('cellarwines');"></app-category-button>
+	<app-category-button [buttonConfig]="_wishlistButtonConfig" (click)="navigateTo('wishlistwines');"></app-category-button>
 </div>

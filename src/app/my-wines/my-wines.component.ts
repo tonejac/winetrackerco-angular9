@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-my-wines',
@@ -7,13 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyWinesComponent implements OnInit {
 	
+	_navBarContent:any;
 	_pastButtonConfig:any;
 	_cellarButtonConfig:any;
 	_wishlistButtonConfig:any;
 	
-	constructor() { }
+	constructor(
+		private _router:Router
+		) { }
 	
 	ngOnInit(): void {
+		
+		this._navBarContent = {
+			"title": "My Wines",
+			"cellarTotal": null
+		}
 		
 		this._pastButtonConfig = {
 			"svgIcon": "past",
@@ -35,8 +44,14 @@ export class MyWinesComponent implements OnInit {
 		
 	}
 	
-	testClick(e:Event) {
-		console.log('e.target', e.target);
+	navigateTo(target:String) {
+		if (target == 'pastwines') {
+			this._router.navigate(['pastwines', 'gallery']);
+		} else if (target == 'cellarwines') {
+			console.log('cellar wines gallery');
+		} else if (target == 'wishlistwines') {
+			console.log('wishlist wines gallery');
+		}
 	}
 	
 }

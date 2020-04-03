@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
 	selector: 'app-nav-bar',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 	
-	_title:String;
+	@Input() navBarConfig:any;
 	
 	constructor() { }
 	
@@ -15,7 +15,4 @@ export class NavBarComponent implements OnInit {
 		
 	}
 	
-	public setTitle(dataObj) {
-		this._title = dataObj.title;
-	}
 }
