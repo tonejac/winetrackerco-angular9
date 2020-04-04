@@ -15,7 +15,15 @@ const routes: Routes = [
 		component: MyWinesComponent
 	},
 	{
-		path: 'pastwines/gallery',
+		path: 'gallery/:category',
+		component: GalleryViewComponent
+	},
+	{
+		path: 'list/:category',
+		component: GalleryViewComponent
+	},
+	{
+		path: 'grid/:category',
 		component: GalleryViewComponent
 	}
 	

@@ -60,6 +60,7 @@ swiper .swiper .swiper-pagination {
 swiper>.swiper.s-wrapper {
 	box-sizing: border-box;
 	padding-top: 38px;
+	z-index: 0;
 }
 
 swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {

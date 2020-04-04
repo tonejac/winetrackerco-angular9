@@ -1,0 +1,364 @@
+.view-switcher-container {
+	display: table;
+	box-sizing: border-box;
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: 10px;
+	height: 37px;
+}
+
+.view-switcher-container div {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	border: none;
+	border-width: 1px 0 1px 1px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.view-switcher-container > div:active {
+	color: #6DBB00;
+	cursor: pointer;
+}
+
+.view-switcher-container > div:active rect,
+.view-switcher-container > div:active path {
+	fill: #6DBB00;
+}
+
+.view-switcher-container > div.list-view-nav {
+	border-radius: 6px 0 0 6px;
+}
+
+.view-switcher-container .list-view-svg-icon {
+	width: 22px;
+	height: 18px;
+	margin-top: 7px;
+}
+
+.view-switcher-container .grid-view-svg-icon {
+	width: 22px;
+	height: 18px;
+	margin-top: 7px;
+}
+
+.view-switcher-container #icon-gallery-view {
+	position: relative;
+	top: 3px;
+}
+
+.view-switcher-container .dropdown-arrow {
+	position: relative;
+	left: -2px;
+	top: -5px;
+}
+
+
+/*****************/
+
+.action-buttons-container {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 3;
+}
+
+.container-for-action-buttons-container-bg {
+	overflow: hidden;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	pointer-events: none;
+}
+
+.action-buttons-container-bg {
+	background-image: radial-gradient(50% 50%, #000000 50%, #000000 50%, rgba(0,0,0,0.00) 100%);
+	background-repeat: no-repeat;
+	width: 600px;
+	height: 600px;
+	position: absolute;
+	right: -300px;
+	top: -300px;
+	opacity: 0.0;
+}
+
+.action-buttons-container button {
+	-webkit-appearence: none;
+	font-size: 0 !important;
+}
+
+.action-buttons-container button:focus {
+	outline: 0;
+}
+
+.action-buttons-container .button-plus-icon {
+	height: 38px;
+	width: 51px;
+	color: #ffffff;
+	font-size: 30px;
+	font-weight: 300;
+	line-height: 103%;
+	box-sizing: border-box;
+	text-align: center;
+	cursor: pointer;
+	/*transition: color 0.2s linear;*/
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: none;
+	border: none;
+	-webkit-appearance: none;
+}
+
+.action-buttons-container .button-plus-icon div {
+	pointer-events: none;
+}
+
+.gallery-view-nav:active svg path,
+.gallery-view-nav:active svg rect {
+	fill: #6DBB00;
+}
+
+.action-buttons-container .sub-nodes {
+	position: absolute;
+	top: 0;
+	right: 40px;
+}
+
+.action-buttons-container .sub-nodes .button-list-view,
+.action-buttons-container .sub-nodes .button-plus-remove-from-cellar,
+.action-buttons-container .sub-nodes .button-plus-remove-from-wishlist,
+.action-buttons-container .sub-nodes .button-drink-it-now-plus,
+.action-buttons-container .sub-nodes .button-grid-view,
+.action-buttons-container .sub-nodes .button-move-to-cellar,
+.action-buttons-container .sub-nodes .button-gallery-view {
+	border-width: 1px;
+	border-radius: 20px;
+	height: 40px;
+	width: 40px;
+	color: #ffffff;
+	font-size: 30px;
+	font-weight: 300;
+	background: radial-gradient(circle at 50% 15%, #6d5e42 0%, #302613 100%);
+	line-height: 103%;
+	border: 1px solid rgba(162, 140, 100, 0.65);
+	box-sizing: border-box;
+	text-align: center;
+	cursor: pointer;
+	/*transition: color 0.2s linear;*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.action-buttons-container .sub-nodes .button-plus-add-another {
+	line-height: 0;
+}
+
+.action-buttons-container .button-add-to-wishlist-plus:active,
+.action-buttons-container .sub-nodes .button-plus-icon:active,
+.action-buttons-container .sub-nodes .button-plus-add-another:active,
+.action-buttons-container .sub-nodes .button-list-view:active,
+.action-buttons-container .sub-nodes .button-plus-remove-from-cellar:active,
+.action-buttons-container .sub-nodes .button-plus-remove-from-wishlist:active,
+.action-buttons-container .sub-nodes .button-drink-it-now-plus:active {
+	color: #6DBB00;
+	cursor: pointer;
+}
+
+.action-buttons-container .button-add-to-wishlist-plus:active,
+.action-buttons-container .sub-nodes .button-plus-icon:active,
+.action-buttons-container .sub-nodes .button-plus-add-another:active,
+.action-buttons-container .sub-nodes .button-list-view:active,
+.action-buttons-container .sub-nodes .button-plus-remove-from-cellarwines:active,
+.action-buttons-container .sub-nodes .button-plus-remove-from-wishlist:active,
+.action-buttons-container .sub-nodes .button-drink-it-now-plus:active {
+	box-shadow: inset 2px 4px 8px -4px rgba(0, 0, 0, 1.0);
+}
+
+.action-buttons-container button svg path,
+.action-buttons-container button svg rect {
+	/*transition: fill 0.2s linear;*/
+}
+
+.action-buttons-container button:active svg path,
+.action-buttons-container button:active svg rect,
+.action-buttons-container button:active div svg rect,
+.action-buttons-container button:active div svg path {
+	fill: #6DBB00;
+}
+
+.action-buttons-container .plus-svg-icon {
+	top: -1px;
+	position: relative;
+	left: 0px
+}
+
+.action-buttons-container .sub-nodes .trash-svg-icon {
+	position: relative;
+	left: 1px;
+	top: 1px;
+}
+
+.action-buttons-container .sub-nodes .camera-svg-icon {
+	position: relative;
+	top: -5px;
+}
+
+.action-buttons-container .sub-nodes .send-svg-icon {
+	position: relative;
+	/*top: 8px;*/
+	width: 27px;
+	left: -2px;
+}
+
+.action-buttons-container .sub-nodes .barrel-svg-icon {
+	height: 30px;
+}
+
+/*.action-buttons-container .button-plus-icon span {
+	transition: transform 0.5s ease-out;
+}
+
+.action-buttons-container .button-plus-icon:active span {
+	transform: rotate(45deg);
+}*/
+
+.action-buttons-container .button-plus-add-another,
+.action-buttons-container .button-list-view,
+.action-buttons-container .button-plus-remove-from-cellar,
+.action-buttons-container .button-plus-remove-from-wishlist {
+	right: 20px;
+}
+
+.action-buttons-container .button-plus-add-another {
+	font-size: 90%;
+	padding-top: 11px;
+	right: 20px;
+}
+
+.action-buttons-container .button-plus-add-another .icon-camera,
+.action-buttons-container .button-list-view .icon-trash,
+.action-buttons-container .button-plus-remove-from-cellar .icon-trash,
+.action-buttons-container .button-plus-remove-from-wishlist .icon-trash {
+	position: relative;
+	left: -2px;
+	top: 1px;
+}
+
+.action-buttons-container .button-list-view .icon-trash,
+.action-buttons-container .button-plus-remove-from-cellar .icon-trash,
+.action-buttons-container .button-plus-remove-from-wishlist .icon-trash {
+	font-size: 26px;
+	top: 8px;
+	left: -3px;
+}
+
+.action-buttons-container .button-plus-icon {
+	z-index: 1;
+}
+
+.grid-view,
+.list-view {
+	top: 0;
+}
+
+.list .grid-view-nav,
+.list .gallery-view-nav {
+	display: none;
+}
+
+.grid .list-view-nav,
+.grid .gallery-view-nav {
+	display: none;
+}
+
+.gallery .list-view-nav,
+.gallery .grid-view-nav {
+	display: none;
+}
+
+
+
+
+
+
+
+#form-add-another {
+	padding: 0;
+	margin: 0;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 40px;
+	box-sizing: border-box;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+#form-add-another .input-add-another {
+	width: 40px;
+	height: 40px;
+	opacity: 0.0;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+.sub-nodes #form-add-another {
+	display: none;
+}
+
+.grid-view .view-switcher-container div.button-add-to-wishlist,
+.list-view .view-switcher-container div.button-add-to-wishlist {
+	display: none;
+}
+
+.scores.list-view .button-plus-remove-from-wishlist,
+.scores.grid-view .button-plus-remove-from-wishlist,
+.wishlist.list-view .button-plus-remove-from-wishlist,
+.wishlist.grid-view .button-plus-remove-from-wishlist,
+.wishlist.list-view .button-plus-drink-it-now,
+.wishlist.grid-view .button-plus-drink-it-now,
+.cellar.list-view .button-plus-remove-from-wishlist,
+.cellar.grid-view .button-plus-remove-from-wishlist,
+.cellar.list-view .button-plus-drink-it-now,
+.cellar.grid-view .button-plus-drink-it-now {
+	display: none;
+}
+
+.scores.list-view .button-plus-add-another,
+.wishlist.list-view .button-plus-add-another,
+.cellar.list-view .button-plus-add-another,
+.scores.grid-view .button-plus-add-another,
+.wishlist.grid-view .button-plus-add-another,
+.cellar.grid-view .button-plus-add-another {
+	border-radius: 6px;
+	border-width: 1px;
+}
+
+.view-switcher-container .list-view-nav {
+	font-size: 140%;
+	display: none;
+}
+
+.view-switcher-container .grid-view-nav {
+	font-size: 120%;
+	display: none;
+}
+
+.view-switcher-container div:active {
+	color: #6DBB00;
+}
+
+.view-switcher-container div.selected {
+	color: #ffffff !important;
+	cursor: default;
+}
