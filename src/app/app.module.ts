@@ -5,6 +5,7 @@ import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-w
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Globals } from './globals';
 import { GalleryViewComponent } from './gallery-view/gallery-view.component';
 import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -40,7 +41,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		{
 			provide: SWIPER_CONFIG,
 			useValue: DEFAULT_SWIPER_CONFIG
-		}
+		},
+		Globals
 	],
 	bootstrap: [AppComponent]
 })

@@ -6,7 +6,7 @@
 	(swiperTransitionStart)="onSwiperEvent('transitionStart')"
 	(swiperTransitionEnd)="onSwiperEvent('transitionEnd')"
 	>
-	<div *ngFor="let slide of slides" class="wine-slide">
+	<div *ngFor="let slide of _slidesContent" class="wine-slide">
 		<img [attr.data-src]="slide.image" class="swiper-lazy wine-image">
 	</div>
 </swiper>

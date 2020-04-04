@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
+import { Globals } from '../globals';
 
 @Component({
 	selector: 'app-gallery-view',
@@ -9,25 +10,6 @@ import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginati
 export class GalleryViewComponent implements OnInit {
 	
 	public type: string = 'component';
-	
-	public slides = [
-		{
-			"image": "https://winetrackerco.imgix.net/900bf4c10ce9b0879a1fdb1c7cd30158?w=&h=1024",
-			"title": "One"
-		},
-		{
-			"image": "https://winetrackerco.imgix.net/1d5187c0ad4d95548213b03810058cbf?w=&h=1024",
-			"title": "Two"
-		},
-		{
-			"image": "https://winetrackerco.imgix.net/4d6d4c42bc5218d64fb134f4a8eb9f5f?w=&h=1024",
-			"title": "Three"
-		},
-		{
-			"image": "https://winetrackerco.imgix.net/859a4f1cf65ec4ab73d7535989a82b1a?w=&h=1024",
-			"title": "Four"
-		}
-	];
 	
 	public config: SwiperConfigInterface = {
 		a11y: true,
@@ -53,12 +35,15 @@ export class GalleryViewComponent implements OnInit {
 	@ViewChild(SwiperComponent, { static: false }) componentRef?: SwiperComponent;
 	@ViewChild(SwiperDirective, { static: false }) directiveRef?: SwiperDirective;
 	
-	_navBarContent:any;
+	public _navBarContent:any;
+	public _slidesContent:any;
 	
-	constructor() { }
+	constructor(
+		private _globals:Globals
+		) { }
 	
 	ngOnInit(): void {
-		
+		this._slidesContent = this._globals._currentWinesList;
 		this._navBarContent = {
 			"title": "My Past Wines",
 			"cellarTotal": null

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Globals } from '../globals';
 
 @Component({
 	selector: 'app-my-wines',
@@ -12,9 +13,11 @@ export class MyWinesComponent implements OnInit {
 	_pastButtonConfig:any;
 	_cellarButtonConfig:any;
 	_wishlistButtonConfig:any;
+	_winesList:any;
 	
 	constructor(
-		private _router:Router
+		private _router:Router,
+		private _globals:Globals
 		) { }
 	
 	ngOnInit(): void {
@@ -42,11 +45,31 @@ export class MyWinesComponent implements OnInit {
 			"row2Text": "Wines I'd like to buy"
 		}
 		
+		this._winesList = [
+			{
+				"image": "https://winetrackerco.imgix.net/900bf4c10ce9b0879a1fdb1c7cd30158?w=&h=1024",
+				"title": "One"
+			},
+			{
+				"image": "https://winetrackerco.imgix.net/1d5187c0ad4d95548213b03810058cbf?w=&h=1024",
+				"title": "Two"
+			},
+			{
+				"image": "https://winetrackerco.imgix.net/4d6d4c42bc5218d64fb134f4a8eb9f5f?w=&h=1024",
+				"title": "Three"
+			},
+			{
+				"image": "https://winetrackerco.imgix.net/859a4f1cf65ec4ab73d7535989a82b1a?w=&h=1024",
+				"title": "Four"
+			}
+		];
+		
 	}
 	
 	navigateTo(target:String) {
 		if (target == 'pastwines') {
 			this._router.navigate(['pastwines', 'gallery']);
+			this._globals._currentWinesList = this._winesList;
 		} else if (target == 'cellarwines') {
 			console.log('cellar wines gallery');
 		} else if (target == 'wishlistwines') {
