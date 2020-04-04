@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MyWinesComponent } from './my-wines/my-wines.component';
 import { GalleryViewComponent } from './gallery-view/gallery-view.component';
+import { GridViewComponent } from './grid-view/grid-view.component';
+import { ListViewComponent } from './list-view/list-view.component';
 
 
 const routes: Routes = [
@@ -20,11 +22,11 @@ const routes: Routes = [
 	},
 	{
 		path: 'list/:category',
-		component: GalleryViewComponent
+		component: ListViewComponent
 	},
 	{
 		path: 'grid/:category',
-		component: GalleryViewComponent
+		component: GridViewComponent
 	}
 	
 ];
