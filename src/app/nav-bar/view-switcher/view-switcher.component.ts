@@ -13,6 +13,7 @@ export class ViewSwitcherComponent implements OnInit {
 	_plusButtonPoints = [];
 	_totalPoints:any;
 	_radius:any;
+	_viewName:String;
 	
 	constructor(
 		private _router:Router,
@@ -20,6 +21,7 @@ export class ViewSwitcherComponent implements OnInit {
 		) { }
 	
 	ngOnInit(): void {
+		this.setViewName();
 		
 		$('.button-plus-icon').unbind('click');
 		$('.button-plus-icon').on('click', ()=> {
@@ -59,19 +61,17 @@ export class ViewSwitcherComponent implements OnInit {
 			}
 		});
 		
-		let view = 'gallery';
-		
-		if (view === 'list') {
+		if (this._viewName === 'list') {
 			$('.nav-bar-view-switcher-container').addClass('list');
 			$('.nav-bar-view-switcher-container').removeClass('grid');
 			$('.nav-bar-view-switcher-container').removeClass('gallery');
 			$('.body-container').addClass('transparent-bg');
-		} else if (view === 'grid') {
+		} else if (this._viewName === 'grid') {
 			$('.nav-bar-view-switcher-container').removeClass('list');
 			$('.nav-bar-view-switcher-container').addClass('grid');
 			$('.nav-bar-view-switcher-container').removeClass('gallery');
 			$('.body-container').addClass('transparent-bg');
-		} else if (view === 'gallery') {
+		} else if (this._viewName === 'gallery') {
 			$('.nav-bar-view-switcher-container').removeClass('list');
 			$('.nav-bar-view-switcher-container').removeClass('grid');
 			$('.nav-bar-view-switcher-container').addClass('gallery');
@@ -93,6 +93,15 @@ export class ViewSwitcherComponent implements OnInit {
 		
 	}
 	
+	setViewName() {
+		if (this._route.snapshot.routeConfig.path.indexOf('gallery') != -1) {
+			this._viewName = 'gallery';
+		} else if (this._route.snapshot.routeConfig.path.indexOf('grid') != -1) {
+			this._viewName = 'grid';
+		} else if (this._route.snapshot.routeConfig.path.indexOf('list') != -1) {
+			this._viewName = 'list';
+		}
+	}
 	
 	closePlusButtonChildren() {
 		for (let i=0; i<(this._plusButtonPoints.length); i++) {
@@ -135,9 +144,9 @@ export class ViewSwitcherComponent implements OnInit {
 		}
 	}
 	
-	switchViewState(view) {
+	switchViewState(newView) {
 		this.closePlusButtonChildren();
-		this._router.navigate([view, this._route.snapshot.paramMap.get('category')]);
+		this._router.navigate([newView, this._route.snapshot.paramMap.get('category')]);
 	}
 	
 }

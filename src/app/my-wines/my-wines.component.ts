@@ -48,18 +48,22 @@ export class MyWinesComponent implements OnInit {
 		this._winesList = [
 			{
 				"image": "https://winetrackerco.imgix.net/900bf4c10ce9b0879a1fdb1c7cd30158?w=&h=1024",
+				"thumbnail": "https://winetrackerco.imgix.net/900bf4c10ce9b0879a1fdb1c7cd30158?w=100&h=100&fit=crop",
 				"title": "One"
 			},
 			{
 				"image": "https://winetrackerco.imgix.net/1d5187c0ad4d95548213b03810058cbf?w=&h=1024",
+				"thumbnail": "https://winetrackerco.imgix.net/1d5187c0ad4d95548213b03810058cbf?w=128&h=128&fit=crop",
 				"title": "Two"
 			},
 			{
 				"image": "https://winetrackerco.imgix.net/4d6d4c42bc5218d64fb134f4a8eb9f5f?w=&h=1024",
+				"thumbnail": "https://winetrackerco.imgix.net/4d6d4c42bc5218d64fb134f4a8eb9f5f?w=128&h=128&fit=crop",
 				"title": "Three"
 			},
 			{
 				"image": "https://winetrackerco.imgix.net/859a4f1cf65ec4ab73d7535989a82b1a?w=&h=1024",
+				"thumbnail": "https://winetrackerco.imgix.net/859a4f1cf65ec4ab73d7535989a82b1a?w=128&h=128&fit=crop",
 				"title": "Four"
 			}
 		];

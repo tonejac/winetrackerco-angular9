@@ -1,1 +1,9 @@
 <app-nav-bar [navBarConfig]="_navBarContent"></app-nav-bar>
+
+<div class="grid-container">
+	<ng-container *ngFor="let wine of _gridContent">
+		<div class="grid-item">
+			<img [src]="wine.thumbnail" width="100%">
+		</div>
+	</ng-container>
+</div>
