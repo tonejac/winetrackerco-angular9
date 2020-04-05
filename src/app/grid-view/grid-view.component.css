@@ -10,6 +10,142 @@
 }
 
 .grid-item {
-	flex-basis: 33%;
-	height: calc(33vw);
+	box-sizing: border-box;
+	border: 1px solid transparent;
+	position: relative;
+}
+
+.score-number {
+	position: absolute;
+	bottom: 0;
+	right: 5px;
+	color: #A48D61;
+	vertical-align: baseline;
+	top: auto;
+	width: auto;
+	max-width: none;
+	box-sizing: border-box;
+	pointer-events: none;
+}
+
+.score-number span {
+	font-size: 20px;
+	font-weight: 700;
+	color: #d7bf94;
+	text-shadow:
+		1px 1px 7px rgba(0,0,0,.5),
+		-1px 1px 4px rgba(0,0,0,.5),
+		1px -1px 7px rgba(0,0,0,.5),
+		-1px -1px 4px rgba(0,0,0,.5);
+}
+
+.score-number span sup {
+	font-size: 10px;
+	letter-spacing: 1px;
+	position: relative;
+	left: 2px;
+	text-shadow:
+		1px 1px 3px rgba(0,0,0,.5),
+		-1px 1px 3px rgba(0,0,0,.5),
+		1px -1px 3px rgba(0,0,0,.5),
+		-1px -1px 3px rgba(0,0,0,.5)
+}
+
+@media only screen and (min-width: 1px) and (max-width: 320px) {
+	
+	.grid-item {
+		flex-basis: 33%;
+		height: calc(33vw);
+	}
+	
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+	
+	.grid-item {
+		flex-basis: 25%;
+		height: calc(25vw);
+	}
+	
+}
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+	
+	.grid-item {
+		flex-basis: 20%;
+		height: calc(20vw);
+	}
+	
+}
+
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+	
+	.grid-item {
+		flex-basis: 16.66%;
+		height: calc(16.66vw);
+	}
+	
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+	
+	.grid-item {
+		flex-basis: 14.28%;
+		height: calc(14.28vw);
+	}
+	
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+	
+	.grid-item {
+		flex-basis: 12.5%;
+		height: calc(12.5vw);
+	}
+	
+}
+
+@media only screen and (min-width: 1281px) and (max-width: 1440px) {
+	
+	.grid-item {
+		flex-basis: 11.11%;
+		height: calc(11.11vw);
+	}
+	
+}
+
+@media only screen and (min-width: 1441px) and (max-width: 1920px) {
+	
+	.grid-item {
+		flex-basis: 10%;
+		height: calc(10vw);
+	}
+	
+}
+
+@media only screen and (min-width: 1921px) and (max-width: 2560px) {
+	
+	.grid-item {
+		flex-basis: 9.09%;
+		height: calc(9.09vw);
+	}
+	
+}
+
+@media only screen and (min-width: 2561px) and (max-width: 3840px) {
+	
+	.grid-item {
+		flex-basis: 8.33%;
+		height: calc(8.33vw);
+	}
+	
+}
+
+@media only screen and (min-width: 3841px) and (max-width: 10000px) {
+	
+	.grid-item {
+		flex-basis: 7.69%;
+		height: calc(7.69vw);
+	}
+	
 }
