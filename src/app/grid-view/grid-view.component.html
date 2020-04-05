@@ -1,8 +1,8 @@
 <app-nav-bar [navBarConfig]="_navBarContent"></app-nav-bar>
 
 <div class="grid-container">
-	<ng-container *ngFor="let wine of _gridContent">
-		<div class="grid-item">
+	<ng-container *ngFor="let wine of _gridContent; let i=index;">
+		<div class="grid-item" (click)="navigateToGallery(i)">
 			<img [src]="wine.thumbnail" width="100%">
 			<div class="score-number">
 				<span class="ng-binding">89<sup class="ng-binding">.3</sup></span>

@@ -1,8 +1,8 @@
 <app-nav-bar [navBarConfig]="_navBarContent"></app-nav-bar>
 
 <div class="list-container">
-	<ng-container *ngFor="let wine of _listContent">
-		<div class="list-item">
+	<ng-container *ngFor="let wine of _listContent; let i=index;">
+		<div class="list-item" (click)="navigateToGallery(i)">
 			<img [src]="wine.thumbnail">
 			<div class="score-container">
 				<span>93<sup>.7</sup></span>

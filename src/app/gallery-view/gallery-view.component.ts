@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { Globals } from '../globals';
 
 @Component({
@@ -39,14 +40,17 @@ export class GalleryViewComponent implements OnInit {
 	public _navBarContent:any;
 	public _slidesContent:any;
 	_category:String;
+	_index:any;
 	
 	constructor(
 		private _globals:Globals,
-		private _route:ActivatedRoute
+		private _route:ActivatedRoute,
+		private _location:Location
 		) { }
 	
 	ngOnInit(): void {
 		this._category = this._route.snapshot.paramMap.get('category');
+		this._index = this._route.snapshot.paramMap.get('index');
 		
 		
 		this._slidesContent = this._globals._currentWinesList;
@@ -56,7 +60,7 @@ export class GalleryViewComponent implements OnInit {
 		}
 		
 		setTimeout(()=> {
-			this.componentRef.directiveRef.setIndex(0);
+			this.componentRef.directiveRef.setIndex(this._index);
 		}, 0);
 	}
 	
@@ -72,6 +76,8 @@ export class GalleryViewComponent implements OnInit {
 	
 	public onIndexChange(index: number): void {
 		console.log('Swiper index: ', index);
+		
+		this._location.replaceState('/gallery/' + this._category + '/' + index);
 	}
 	
 	public onSwiperEvent(event: string): void {

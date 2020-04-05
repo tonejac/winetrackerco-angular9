@@ -49,11 +49,11 @@ export class MyWinesComponent implements OnInit {
 	
 	navigateTo(target:String) {
 		if (target == 'pastwines') {
-			this._router.navigate(['gallery', 'past']);
+			this._router.navigate(['gallery', 'past', '0']);
 		} else if (target == 'cellarwines') {
-			this._router.navigate(['gallery', 'cellar']);
+			this._router.navigate(['gallery', 'cellar', '0']);
 		} else if (target == 'wishlistwines') {
-			this._router.navigate(['gallery', 'wishlist']);
+			this._router.navigate(['gallery', 'wishlist', '0']);
 		}
 	}
 	

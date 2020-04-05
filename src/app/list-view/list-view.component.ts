@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Globals } from '../globals';
 
 @Component({
@@ -15,6 +15,7 @@ export class ListViewComponent implements OnInit {
 	
 	constructor(
 		private _route:ActivatedRoute,
+		private _router:Router,
 		private _globals:Globals
 		) { }
 	
@@ -31,6 +32,10 @@ export class ListViewComponent implements OnInit {
 	
 	getTitle() {
 		
+	}
+	
+	navigateToGallery(index) {
+		this._router.navigate(['gallery', this._category, index]);
 	}
 	
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Globals } from '../globals';
 
 @Component({
@@ -15,6 +15,7 @@ export class GridViewComponent implements OnInit {
 	
 	constructor(
 		private _route:ActivatedRoute,
+		private _router:Router,
 		private _globals:Globals
 		) { }
 	
@@ -38,6 +39,10 @@ export class GridViewComponent implements OnInit {
 		} else if (this._category == 'wishlist') {
 			return 'My Wishlist Wines';
 		}
+	}
+	
+	navigateToGallery(index) {
+		this._router.navigate(['gallery', 'past', index]);
 	}
 	
 }
