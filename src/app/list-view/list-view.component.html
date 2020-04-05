@@ -1,1 +1,15 @@
-<p>list-view works!</p>
+<app-nav-bar [navBarConfig]="_navBarContent"></app-nav-bar>
+
+<div class="list-container">
+	<ng-container *ngFor="let wine of _listContent">
+		<div class="list-item">
+			<img [src]="wine.thumbnail">
+			<div class="score-container">
+				<span>93<sup>.7</sup></span>
+			</div>
+			<div class="description-container">
+				Really fantastic bright Cherry tart aroma with a touch of raisin sweetness. BUT the flavor starts of bright and quickly dives into and awkwardly chalky and tannic nose dive, setting your mouth on edge in a bad way. Just not balanced and weird flavor and finish components to that just are awkward.
+			</div>
+		</div>
+	</ng-container>
+</div>

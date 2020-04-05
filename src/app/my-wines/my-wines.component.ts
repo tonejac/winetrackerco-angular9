@@ -48,7 +48,7 @@ export class MyWinesComponent implements OnInit {
 		this._winesList = [
 			{
 				"image": "https://winetrackerco.imgix.net/900bf4c10ce9b0879a1fdb1c7cd30158?w=&h=1024",
-				"thumbnail": "https://winetrackerco.imgix.net/900bf4c10ce9b0879a1fdb1c7cd30158?w=100&h=100&fit=crop",
+				"thumbnail": "https://winetrackerco.imgix.net/900bf4c10ce9b0879a1fdb1c7cd30158?w=128&h=128&fit=crop",
 				"title": "One"
 			},
 			{
