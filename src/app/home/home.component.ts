@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
 		this._notificationCount = 3;
 	}
 	
+	navigateToTrackAWine() {
+		this._router.navigate(['trackawine']);
+	}
+	
 	navigateToMyWines() {
 		this._router.navigate(['mywines']);
 	}
