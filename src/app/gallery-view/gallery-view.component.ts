@@ -84,4 +84,8 @@ export class GalleryViewComponent implements OnInit {
 		console.log('Swiper event: ', event);
 	}
 	
+	showDetailsPanel(index) {
+		console.log('Show Details Panel for:', index);
+	}
+	
 }
