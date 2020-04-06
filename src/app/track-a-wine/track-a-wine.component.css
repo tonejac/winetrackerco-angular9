@@ -1,0 +1,27 @@
+.content-container {
+	position: absolute;
+	top: 97px;
+	bottom: 0;
+	width: 100%;
+}
+
+.instructions-container {
+	margin: 0 auto;
+	max-width: 290px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	color: #ffffff;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.buttons-container {
+	max-width: 290px;
+	margin: 0 auto;
+}
+
+app-category-button {
+	display: block;
+	margin-bottom: 20px;
+	height: 84px;
+}
