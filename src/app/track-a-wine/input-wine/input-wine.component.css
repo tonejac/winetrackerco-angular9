@@ -1,0 +1,80 @@
+.content-container {
+	position: absolute;
+	top: 97px;
+	bottom: 0;
+	width: 100%;
+}
+
+.instructions-container {
+	margin: 0 auto;
+	max-width: 290px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	color: #ffffff;
+	font-size: 20px;
+	margin-bottom: 24px;
+}
+
+.scoring-sliders-container {
+	max-width: 650px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 30px;
+	box-sizing: border-box;
+}
+
+.label-container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+	padding-left: 4px;
+}
+
+.slider-group label {
+	font-size: 18px;
+	color: #ffffff;
+}
+
+.slider-group .score-label {
+	border: 1px solid #ffffff;
+	background-color: #302613;
+	border-radius: 3px;
+	font-size: 13px;
+	color: #ffffff;
+	padding: 2px 4px;
+	margin-left: 10px;
+}
+
+.slider {
+	-webkit-appearance: none;
+	width: calc(100% - 35px);
+	height: 46px;
+	border-radius: 23px;  
+	background-color: rgba(48,38,19,.8);
+	outline: none;
+	padding: 0 2px;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%; 
+	background: #ffffff;
+	cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	background: #ffffff;
+	cursor: pointer;
+}
+
+.slider-checkmark {
+	position: relative;
+	top: -8px;
+	left: 8px;
+}

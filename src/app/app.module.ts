@@ -16,6 +16,8 @@ import { ListViewComponent } from './list-view/list-view.component';
 import { GridViewComponent } from './grid-view/grid-view.component';
 import { ViewSwitcherComponent } from './nav-bar/view-switcher/view-switcher.component';
 import { TrackAWineComponent } from './track-a-wine/track-a-wine.component';
+import { InputWineComponent } from './track-a-wine/input-wine/input-wine.component';
+import { TouchTagsComponent } from './track-a-wine/touch-tags/touch-tags.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -38,7 +40,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		ListViewComponent,
 		GridViewComponent,
 		ViewSwitcherComponent,
-		TrackAWineComponent
+		TrackAWineComponent,
+		InputWineComponent,
+		TouchTagsComponent
 	],
 	imports: [
 		SwiperModule,

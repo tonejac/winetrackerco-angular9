@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-track-a-wine',
@@ -12,7 +13,9 @@ export class TrackAWineComponent implements OnInit {
 	_addToCellarButtonConfig:any;
 	_addToWishlistButtonConfig:any;
 	
-	constructor() { }
+	constructor(
+		private _router:Router
+		) { }
 	
 	ngOnInit(): void {
 		this._navBarContent = {
@@ -40,8 +43,8 @@ export class TrackAWineComponent implements OnInit {
 		
 	}
 	
-	navigateTo(asdf) {
-		
+	navigateTo(view) {
+		this._router.navigate(['trackawine', 'input', view]);
 	}
 	
 }

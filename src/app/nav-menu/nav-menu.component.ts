@@ -48,7 +48,8 @@ export class NavMenuComponent implements OnInit {
 	}
 	
 	navigateToTrackAWine() {
-		console.log('track a wine');
+		this.menuClick();
+		this._router.navigate(['trackawine']);
 	}
 	
 	navigateToMyWines() {

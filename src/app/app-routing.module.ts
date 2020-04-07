@@ -6,6 +6,7 @@ import { MyWinesComponent } from './my-wines/my-wines.component';
 import { GalleryViewComponent } from './gallery-view/gallery-view.component';
 import { GridViewComponent } from './grid-view/grid-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
+import { InputWineComponent } from './track-a-wine/input-wine/input-wine.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
 	{
 		path: 'trackawine',
 		component: TrackAWineComponent
+	},
+	{
+		path: 'trackawine/input/:mode',
+		component: InputWineComponent
 	},
 	{
 		path: 'mywines',

@@ -1,0 +1,43 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+	selector: 'app-input-wine',
+	templateUrl: './input-wine.component.html',
+	styleUrls: ['./input-wine.component.css']
+})
+export class InputWineComponent implements OnInit {
+	
+	_navBarContent:Object;
+	_instructions:String;
+	_mode:String
+	_aromaScore:String = '0 to 5';
+	
+	constructor(
+		private _route:ActivatedRoute
+		) { }
+	
+	ngOnInit(): void {
+		let mode = this._route.snapshot.paramMap.get('mode');
+		this._mode = mode;
+		let titleFromMode:String;
+		
+		if (mode == 'drinkitnow') {
+			titleFromMode = 'Drink it Now';
+			this._instructions = 'Use the sliders to give your personal opinion of the wine';
+		} else if (mode == 'addtocellar') {
+			titleFromMode = 'Add to Cellar';
+			this._instructions = 'Use the sliders to give your personal opinion of the wine';
+		} else if (mode == 'addtowishlist') {
+			titleFromMode = 'Add to Wishlist';
+			this._instructions = 'Use the sliders to give your personal opinion of the wine';
+		}
+		
+		this._navBarContent = {
+			"title": titleFromMode,
+			"cellarTotal": null
+		}
+		
+	}
+	
+}
