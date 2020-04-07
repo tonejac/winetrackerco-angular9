@@ -4,7 +4,7 @@
 
 .button-container {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	text-decoration: none;
 	font-size: 13px;
 	font-weight: 300;
@@ -35,7 +35,7 @@ svg.past {
 
 svg.cellar {
 	position: relative;
-	top: 1px;
+	top: 5%;
 	left: 2px;
 }
 

@@ -38,6 +38,10 @@ export class TrackAWineComponent implements OnInit {
 			"row2Text": "I want to remember this so I can buy it in the future."
 		}
 		
-	} 
+	}
+	
+	navigateTo(asdf) {
+		
+	}
 	
 }
