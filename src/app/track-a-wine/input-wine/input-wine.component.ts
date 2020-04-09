@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+declare var $:any;
 
 @Component({
 	selector: 'app-input-wine',
@@ -11,7 +12,9 @@ export class InputWineComponent implements OnInit {
 	_navBarContent:Object;
 	_instructions:String;
 	_mode:String
+	_firstSlide:Boolean = true;
 	_aromaScore:String = '0 to 5';
+	_happinessLevel:Number = 0.0;
 	
 	constructor(
 		private _route:ActivatedRoute
@@ -39,5 +42,27 @@ export class InputWineComponent implements OnInit {
 		}
 		
 	}
+	
+	trackInput(e:Event, type:String) {
+		//console.log(type, $(e.target).val());
+		
+		if (this._firstSlide == true) {
+			$('.'+type+'-score').hide();
+			$('#tooltip-for-slider').show();
+			this._firstSlide = false;
+		}
+		this._happinessLevel = $(e.target).val();
+		if (type == 'aroma') {
+			this._aromaScore = Number( $(e.target).val() ).toFixed(1).toString();
+		}
+	}
+	
+	slideDone(e:Event, type:String) {
+		$('.'+type+'-score').show();
+		$('#tooltip-for-slider').hide();
+		this._firstSlide = true;
+	}
+	
+	
 	
 }
