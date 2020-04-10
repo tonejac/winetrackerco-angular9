@@ -14,6 +14,9 @@ export class InputWineComponent implements OnInit {
 	_mode:String
 	_firstSlide:Boolean = true;
 	_aromaScore:String = '0 to 5';
+	_tasteScore:String = '0 to 5';
+	_finishScore:String = '0 to 5';
+	_overallScore:String = '0 to 5';
 	_happinessLevel:Number = 0.0;
 	
 	constructor(
@@ -48,19 +51,42 @@ export class InputWineComponent implements OnInit {
 		
 		if (this._firstSlide == true) {
 			$('.'+type+'-score').hide();
-			$('#tooltip-for-slider').show();
+			$('#tooltip-for-slider').css({
+				'display': 'flex',
+				'top': $('#'+type+'-slider').position().top - 54
+			});
 			this._firstSlide = false;
 		}
+		
 		this._happinessLevel = $(e.target).val();
+		
 		if (type == 'aroma') {
 			this._aromaScore = Number( $(e.target).val() ).toFixed(1).toString();
+		} else if (type == 'taste') {
+			this._tasteScore = Number( $(e.target).val() ).toFixed(1).toString();
+		} else if (type == 'finish') {
+			this._finishScore = Number( $(e.target).val() ).toFixed(1).toString();
+		} else if (type == 'overall') {
+			this._overallScore = Number( $(e.target).val() ).toFixed(1).toString();
 		}
+		
+		$('#tooltip-for-slider').css({
+			'left': this.getSliderPosition(type) + 34 // to compensate for padding offset on left
+		});
+		
 	}
 	
 	slideDone(e:Event, type:String) {
 		$('.'+type+'-score').show();
 		$('#tooltip-for-slider').hide();
 		this._firstSlide = true;
+	}
+	
+	getSliderPosition(type) {
+		let range = $('#'+type+'-slider').width() - 46; // 64px to compensate for padding on slider and sliders container
+		let val = $('#'+type+'-slider').val();
+		let x = range * val / 5.0;
+		return x;
 	}
 	
 	
