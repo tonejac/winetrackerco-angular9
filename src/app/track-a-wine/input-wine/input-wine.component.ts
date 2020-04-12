@@ -228,17 +228,35 @@ export class InputWineComponent implements OnInit {
 	}
 	
 	saveWine() {
+		if (this._mode == 'drinkitnow') {
+			this.savePastWine();
+		} else if (this._mode == 'addtocellar') {
+			this.saveCellarWine();
+		} else if (this._mode == 'addtowishlist') {
+			this.saveWishlistWine();
+		}
+	}
+	
+	savePastWine() {
 		if (
 			this._aromaScore != null &&
 			this._tasteScore != null &&
 			this._finishScore != null &&
 			this._overallScore != null
 		) {
-			console.log('SAVE WINE');
+			console.log('SAVE past wine');
 		} else {
 			// TODO: MAKE GLOBAL ALERT PANEL
 			alert('Please use all the scoring sliders before saving your wine.')
 		}
+	}
+	
+	saveCellarWine() {
+		console.log('save cellar wine');
+	}
+	
+	saveWishlistWine() {
+		console.log('save wishlist wine');
 	}
 	
 }
