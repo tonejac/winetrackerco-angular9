@@ -19,14 +19,30 @@ export class InputWineComponent implements OnInit {
 	_overallScore:any = null;
 	_happinessLevel:Number = 0.0;
 	_totalScore:Number = null;
-	_totalScoreBigPart:Number = null;
-	_totalScoreLittlePart:Number = null;
+	_totalScoreBigPart:any = null;
+	_totalScoreLittlePart:any = null;
+	_quantity:Number = 1;
+	_cancelButtonConfig:any;
+	_saveButtonConfig:any;
+	_bigNumStartValuesArray:any;
+	_smallNumStartValuesArray:any;
+	_numberFlipCounter:any;
 	
 	constructor(
 		private _route:ActivatedRoute
 		) { }
 	
 	ngOnInit(): void {
+		this._cancelButtonConfig = {
+			"value": "Cancel",
+			"type": "secondary"
+		}
+		
+		this._saveButtonConfig = {
+			"value": "Save",
+			"type": "primary"
+		}
+		
 		let mode = this._route.snapshot.paramMap.get('mode');
 		this._mode = mode;
 		let titleFromMode:String;
@@ -46,6 +62,14 @@ export class InputWineComponent implements OnInit {
 			"title": titleFromMode,
 			"cellarTotal": null
 		}
+		
+		// HACK TO DETECT OF USER SETS SLIDER VALUE TO '0', forcing the Slider to still trigger a 'done' event.
+		$(document).on('mouseup touchend', (e:Event)=> {
+			if ( $(e.target).attr('class') == 'slider' &&  $(e.target).val() == 0) {
+				let type = $(e.target).attr('id').split('-')[0];
+				this.slideDone(e, type);
+			}
+		});
 		
 	}
 	
@@ -83,6 +107,7 @@ export class InputWineComponent implements OnInit {
 		$('.'+type+'-score').show();
 		$('#tooltip-for-slider').hide();
 		this._firstSlide = true; // NEED 4 VARS FOR SLIDE FLAG
+		$('.slider-checkmark.'+type).show();
 		this.checkForFinalScore();
 	}
 	
@@ -121,133 +146,71 @@ export class InputWineComponent implements OnInit {
 		let score:any = scoreData.aroma + scoreData.taste + scoreData.finish + scoreData.overall;
 		score = score * 10 + 50;
 		score = score.toFixed(1);
-		console.log('scoreData', scoreData, score);
+		this._totalScore = score;
+		this.prepForNumberAnimation();
 	}
 	
-	/*
+	prepForNumberAnimation() {
+		let numPartsArray = String(this._totalScore).split(".");
+		// if (numPartsArray[1] == undefined) {
+		// 	numPartsArray[1] = "0";
+		// }
+
+		let bigNumArray = String(numPartsArray[0]).split('');
+		let smallNumArray = String(numPartsArray[1]).split('');
+		console.log(bigNumArray, smallNumArray);
 		
-		CalculateScore: function() {
-			
-			// REAL DATA OBJ
-			
-			var scoreData = {
-						aroma: Number( $("#ReviewAroma").val() ),
-						tastetexture: Number( $("#ReviewTasteTexture").val() ),
-						aftertaste: Number( $("#ReviewAfterTaste").val() ),
-						impression: Number( $("#ReviewImpression").val() )
-					};
-			
-			// ADJUST THE VALUES FOR WEIGHTING
-			scoreData.aroma *= 0.195;
-			scoreData.tastetexture *= 0.335;
-			scoreData.aftertaste *= 0.255;
-			scoreData.impression *= 0.215;
-			
-			var result = {};
-			// add raw input
-			result.score = scoreData.aroma + scoreData.tastetexture + scoreData.aftertaste + scoreData.impression;
-			// multiply by 10 to get 50 to 100 range;
-			result.score = result.score *10;
-			// add 50 to make range be 50 to 100;
-			result.score = result.score + 50;
-			// multiply by 10 to do first half of rounding to tenth place decimal;
-			result.score = result.score * 10;
-			// round to nearest whole number
-			result.score = Math.round( result.score );
-			// divide by ten to put number back into range with proper decimal point
-			result.score = result.score / 10;
-			
-			$("#big-number").html(result.scoreBigPart);
-			$("#smaller-number").html(result.scoreSmallPart);
-			$("#ReviewScore").val(result.score);
-			
-			_totalScore = result.score;
-			$("#scoreTotal").val(_totalScore);
-			ViewController.PrepForNumberAnimation();
-		},
+		//populate a new array for the big number digits
+		let i;
 		
-		CheckForFinalScore: function() {
-			//console.log('values', _aromaValue, _tasteValue, _aftertasteValue, _overallImpressionValue);
-			if (
-				_aromaValue != null &&
-				_tasteValue != null &&
-				_aftertasteValue != null &&
-				_overallImpressionValue != null
-			) {
-				if (_firstRunSliders == true) {
-					$('.body-container').animate({
-						scrollTop: 5000
-					}, 'slow', function() {
-						_firstRunSliders = false;
-						ViewController.CalculateScore();
-					});
-				} else {
-					ViewController.CalculateScore();
-				}
-			}
-		},
+		this._bigNumStartValuesArray = [];
+		for (i = 0; i < bigNumArray.length; i++) {
+			this._bigNumStartValuesArray[i] = bigNumArray[i];
+		}
 
-		PrepForNumberAnimation: function() {
+		this._smallNumStartValuesArray = [];
+		for (i = 0; i < smallNumArray.length; i++) {
+			this._smallNumStartValuesArray[i] = smallNumArray[i];
+		}
 
-			var numPartsArray = String(_totalScore).split(".");
-			if (numPartsArray[1] == undefined) {
-				numPartsArray[1] = "0";
-			}
+		for (i = 0; i < this._bigNumStartValuesArray.length; i++) {
+			this._bigNumStartValuesArray[i] -= 10;
+		}
+		
+		for (i = 0; i < this._smallNumStartValuesArray.length; i++) {
+			this._smallNumStartValuesArray[i] -= 10;
+		}
 
-			var bigNumArray = String(numPartsArray[0]).split('');
-			var smallNumArray = String(numPartsArray[1]).split('');
-
-			//populate a new array for the big number digits
-			var i;
-			_bigNumStartValuesArray = [];
-			for (i = 0; i < bigNumArray.length; i++) {
-				_bigNumStartValuesArray[i] = bigNumArray[i];
-			}
-
-			_smallNumStartValuesArray = [];
-			for (i = 0; i < smallNumArray.length; i++) {
-				_smallNumStartValuesArray[i] = smallNumArray[i];
-			}
-
-			for (i = 0; i < _bigNumStartValuesArray.length; i++) {
-				_bigNumStartValuesArray[i] -= 10;
-			}
-			for (i = 0; i < _smallNumStartValuesArray.length; i++) {
-				_smallNumStartValuesArray[i] -= 10;
-			}
-
-			_numberFlipCounter = 0;
-
-			ViewController.NumberCycler();
-		},
-
-		NumberCycler: function() {
-			setTimeout("ViewController.UpdateNumberDisplay()", 30);
-		},
-
-		UpdateNumberDisplay: function() {
-
-			var displayValuesBig = '';
-			var displayValuesSmall = '';
-			var i;
-			
-			if (_numberFlipCounter < 10) {
-				for (i = 0; i < _bigNumStartValuesArray.length; i++) {
-					_bigNumStartValuesArray[i]++;
-					displayValuesBig += String(Math.abs(_bigNumStartValuesArray[i]));
-				}
-				$("#big-number").html(displayValuesBig);
-				for (i = 0; i < _smallNumStartValuesArray.length; i++) {
-					_smallNumStartValuesArray[i]++;
-					displayValuesSmall += String(Math.abs(_smallNumStartValuesArray[i]));
-				}
-				$("#smaller-number").html("." + displayValuesSmall);
-				_numberFlipCounter++;
-				ViewController.NumberCycler();
-			}
-
-		},
-	*/
+		this._numberFlipCounter = 0;
+		
+		this.numberCycler();
+	}
 	
+	numberCycler() {
+		setTimeout(()=> {
+			this.updateNumberDisplay();
+		}, 30);
+	}
+	
+	updateNumberDisplay() {
+		let displayValuesBig = '';
+		let displayValuesSmall = '';
+		var i;
+		
+		if (this._numberFlipCounter < 10) {
+			for (i = 0; i < this._bigNumStartValuesArray.length; i++) {
+				this._bigNumStartValuesArray[i]++;
+				displayValuesBig += Math.abs(this._bigNumStartValuesArray[i]);
+			}
+			this._totalScoreBigPart = displayValuesBig;
+			for (i = 0; i < this._smallNumStartValuesArray.length; i++) {
+				this._smallNumStartValuesArray[i]++;
+				displayValuesSmall += Math.abs(this._smallNumStartValuesArray[i]);
+			}
+			this._totalScoreLittlePart = displayValuesSmall;
+			this._numberFlipCounter++;
+			this.numberCycler();
+		}
+	}
 	
 }

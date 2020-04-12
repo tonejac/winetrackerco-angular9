@@ -18,6 +18,7 @@ import { ViewSwitcherComponent } from './nav-bar/view-switcher/view-switcher.com
 import { TrackAWineComponent } from './track-a-wine/track-a-wine.component';
 import { InputWineComponent } from './track-a-wine/input-wine/input-wine.component';
 import { TouchTagsComponent } from './track-a-wine/touch-tags/touch-tags.component';
+import { RegularButtonComponent } from './regular-button/regular-button.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -42,7 +43,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		ViewSwitcherComponent,
 		TrackAWineComponent,
 		InputWineComponent,
-		TouchTagsComponent
+		TouchTagsComponent,
+		RegularButtonComponent
 	],
 	imports: [
 		SwiperModule,
