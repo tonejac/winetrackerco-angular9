@@ -53,6 +53,8 @@ export class Globals {
 		}
 	];
 	
+	_photoFile:any;
+	
 	constructor() {
 		
 	}

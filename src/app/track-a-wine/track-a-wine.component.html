@@ -5,8 +5,8 @@
 		Choose a Tracking Option to Open the Camera
 	</div>
 	<div class="buttons-container">
-		<app-category-button [buttonConfig]="_trackAWineButtonConfig" (click)="navigateTo('drinkitnow');"></app-category-button>
-		<app-category-button [buttonConfig]="_addToCellarButtonConfig" (click)="navigateTo('addtocellar');"></app-category-button>
-		<app-category-button [buttonConfig]="_addToWishlistButtonConfig" (click)="navigateTo('addtowishlist');"></app-category-button>
+		<app-category-button [buttonConfig]="_trackAWineButtonConfig" (fileAdded)="navigateTo($event)"></app-category-button>
+		<app-category-button [buttonConfig]="_addToCellarButtonConfig" (fileAdded)="navigateTo($event)"></app-category-button>
+		<app-category-button [buttonConfig]="_addToWishlistButtonConfig" (fileAdded)="navigateTo($event)"></app-category-button>
 	</div>
 </div>

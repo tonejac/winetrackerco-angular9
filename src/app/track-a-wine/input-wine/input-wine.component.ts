@@ -54,11 +54,11 @@ export class InputWineComponent implements OnInit {
 			titleFromMode = 'Drink it Now';
 			this._instructions = 'Use the sliders to give your personal opinion of the wine';
 			this._notesPlaceholder = 'Where bought, likes/dislikes, things you want to remember...';
-		} else if (mode == 'addtocellar') {
+		} else if (mode == 'cellar') {
 			titleFromMode = 'Add to Cellar';
 			this._instructions = 'Use the sliders to give your personal opinion of the wine';
 			this._notesPlaceholder = 'Where bought, price, or who gave it to you...';
-		} else if (mode == 'addtowishlist') {
+		} else if (mode == 'wishlist') {
 			titleFromMode = 'Add to Wishlist';
 			this._instructions = 'Use the sliders to give your personal opinion of the wine';
 			this._notesPlaceholder = 'Where you saw it, price, and why you want it, etc...';
@@ -230,9 +230,9 @@ export class InputWineComponent implements OnInit {
 	saveWine() {
 		if (this._mode == 'drinkitnow') {
 			this.savePastWine();
-		} else if (this._mode == 'addtocellar') {
+		} else if (this._mode == 'cellar') {
 			this.saveCellarWine();
-		} else if (this._mode == 'addtowishlist') {
+		} else if (this._mode == 'wishlist') {
 			this.saveWishlistWine();
 		}
 	}

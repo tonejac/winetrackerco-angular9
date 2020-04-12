@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Globals } from '../globals';
+declare var $:any;
 
 @Component({
 	selector: 'app-category-button',
@@ -8,11 +10,22 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CategoryButtonComponent implements OnInit {
 	
 	@Input() buttonConfig:any;
+	@Output() fileAdded = new EventEmitter();
+	_mode;
 	
-	constructor() { }
+	constructor(
+		private _globals:Globals
+		) { }
 	
 	ngOnInit(): void {
+		this._mode = this.buttonConfig.mode;
 		
+		setTimeout(()=> {
+			$('input.'+this._mode).on('change', (e:Event)=> {
+				this._globals._photoFile = $(e.target).prop('files')[0];
+				this.fileAdded.emit(this._mode);
+			});
+		});
 	}
 	
 }

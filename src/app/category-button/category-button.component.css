@@ -1,4 +1,4 @@
-* {
+svg, .text-rows {
 	pointer-events: none;
 }
 
@@ -68,4 +68,18 @@ svg.drinkitnow {
 .row-2 {
 	position: relative;
 	top: -2px;
+}
+
+input[type=file] {
+	display: block;
+	background-color: rgba(255, 0, 0, 0.5);
+	-webkit-appearance: none;
+	appearance: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	opacity: 0.0;
 }

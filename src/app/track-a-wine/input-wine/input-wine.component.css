@@ -6,15 +6,15 @@
 	overflow: auto;
 }
 
-.content-container.addtocellar,
-.content-container.addtowishlist {
+.content-container.cellar,
+.content-container.wishlist {
 	background-color: rgba(0,0,0,.8);
 }
 
-.content-container.addtocellar .quantity-container,
-.content-container.addtocellar .add-a-note-container,
-.content-container .addtowishlist .quantity-container,
-.content-container.addtowishlist .add-a-note-container {
+.content-container.cellar .quantity-container,
+.content-container.cellar .add-a-note-container,
+.content-container .wishlist .quantity-container,
+.content-container.wishlist .add-a-note-container {
 	background: none;
 }
 
