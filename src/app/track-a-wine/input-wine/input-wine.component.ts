@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 declare var $:any;
 
@@ -11,6 +12,7 @@ export class InputWineComponent implements OnInit {
 	
 	_navBarContent:Object;
 	_instructions:String;
+	_notesPlaceholder:String;
 	_mode:String
 	_firstSlide:Boolean = true;
 	_aromaScore:any = null;
@@ -29,7 +31,8 @@ export class InputWineComponent implements OnInit {
 	_numberFlipCounter:any;
 	
 	constructor(
-		private _route:ActivatedRoute
+		private _route:ActivatedRoute,
+		private _location:Location
 		) { }
 	
 	ngOnInit(): void {
@@ -50,12 +53,15 @@ export class InputWineComponent implements OnInit {
 		if (mode == 'drinkitnow') {
 			titleFromMode = 'Drink it Now';
 			this._instructions = 'Use the sliders to give your personal opinion of the wine';
+			this._notesPlaceholder = 'Where bought, likes/dislikes, things you want to remember...';
 		} else if (mode == 'addtocellar') {
 			titleFromMode = 'Add to Cellar';
 			this._instructions = 'Use the sliders to give your personal opinion of the wine';
+			this._notesPlaceholder = 'Where bought, price, or who gave it to you...';
 		} else if (mode == 'addtowishlist') {
 			titleFromMode = 'Add to Wishlist';
 			this._instructions = 'Use the sliders to give your personal opinion of the wine';
+			this._notesPlaceholder = 'Where you saw it, price, and why you want it, etc...';
 		}
 		
 		this._navBarContent = {
@@ -66,7 +72,6 @@ export class InputWineComponent implements OnInit {
 		// HACK TO DETECT OF USER SETS SLIDER VALUE TO '0', forcing the Slider to still trigger a 'done' event.
 		$(document).on('mouseup touchend', (e:Event)=> {
 			if ( $(e.target).attr('class') == 'slider' &&  $(e.target).val() == 0 && this._totalScore == null) {
-				console.log('mouseup hack');
 				let type = $(e.target).attr('id').split('-')[0];
 				this.slideDone(e, type);
 			}
@@ -215,6 +220,24 @@ export class InputWineComponent implements OnInit {
 			this._totalScoreLittlePart = displayValuesSmall;
 			this._numberFlipCounter++;
 			this.numberCycler();
+		}
+	}
+	
+	cancelTrackAWine() {
+		this._location.back();
+	}
+	
+	saveWine() {
+		if (
+			this._aromaScore != null &&
+			this._tasteScore != null &&
+			this._finishScore != null &&
+			this._overallScore != null
+		) {
+			console.log('SAVE WINE');
+		} else {
+			// TODO: MAKE GLOBAL ALERT PANEL
+			alert('Please use all the scoring sliders before saving your wine.')
 		}
 	}
 	

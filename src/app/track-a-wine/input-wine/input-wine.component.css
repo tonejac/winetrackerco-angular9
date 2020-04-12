@@ -6,6 +6,18 @@
 	overflow: auto;
 }
 
+.content-container.addtocellar,
+.content-container.addtowishlist {
+	background-color: rgba(0,0,0,.8);
+}
+
+.content-container.addtocellar .quantity-container,
+.content-container.addtocellar .add-a-note-container,
+.content-container .addtowishlist .quantity-container,
+.content-container.addtowishlist .add-a-note-container {
+	background: none;
+}
+
 .instructions-container {
 	margin: 0 auto;
 	max-width: 290px;

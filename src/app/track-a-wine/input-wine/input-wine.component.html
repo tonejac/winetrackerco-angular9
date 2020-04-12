@@ -1,6 +1,6 @@
 <app-nav-bar [navBarConfig]="_navBarContent"></app-nav-bar>
 
-<div class="content-container">
+<div [ngClass]="['content-container', _mode]">
 	
 	<app-touch-tags *ngIf="_mode=='drinkitnow'"></app-touch-tags>
 	
@@ -8,7 +8,7 @@
 		{{ _instructions }}
 	</div>
 	
-	<div class="scoring-sliders-container">
+	<div *ngIf="_mode=='drinkitnow'" class="scoring-sliders-container">
 		
 		<div class="slider-group">
 			<div class="label-container">
@@ -91,12 +91,12 @@
 		<div class="panel-title">
 			Add a Note
 		</div>
-		<textarea data-ng-model="comment" placeholder="Where bought, likes/dislikes, things you want to remember..."></textarea>
+		<textarea data-ng-model="comment" [placeholder]="_notesPlaceholder"></textarea>
 	</div>
 	
 	<div class="buttons-container">
-		<app-regular-button [buttonConfig]="_cancelButtonConfig"></app-regular-button>
-		<app-regular-button [buttonConfig]="_saveButtonConfig"></app-regular-button>
+		<app-regular-button [buttonConfig]="_cancelButtonConfig" (click)="cancelTrackAWine()"></app-regular-button>
+		<app-regular-button [buttonConfig]="_saveButtonConfig" (click)="saveWine()"></app-regular-button>
 	</div>
 	
 </div>
