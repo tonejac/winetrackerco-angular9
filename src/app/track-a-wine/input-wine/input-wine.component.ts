@@ -76,7 +76,10 @@ export class InputWineComponent implements OnInit {
 				this.slideDone(e, type);
 			}
 		});
-		
+	}
+	
+	openTouchTagsPanel(e:Event) {
+		console.log('open touchtags panel');
 	}
 	
 	trackInput(e:Event, type:String) {

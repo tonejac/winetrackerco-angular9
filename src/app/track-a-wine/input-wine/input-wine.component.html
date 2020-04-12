@@ -2,7 +2,7 @@
 
 <div [ngClass]="['content-container', _mode]">
 	
-	<app-touch-tags *ngIf="_mode=='drinkitnow'"></app-touch-tags>
+	<app-touch-tags *ngIf="_mode=='drinkitnow'" (_triggerTouchTagsPanel)="openTouchTagsPanel($event)"></app-touch-tags>
 	
 	<div *ngIf="_mode=='drinkitnow'" class="instructions-container">
 		{{ _instructions }}
