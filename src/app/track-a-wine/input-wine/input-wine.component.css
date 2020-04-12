@@ -1,8 +1,9 @@
 .content-container {
-	position: absolute;
-	top: 97px;
+	position: fixed;
+	top: 38px;
 	bottom: 0;
 	width: 100%;
+	overflow: auto;
 }
 
 .instructions-container {

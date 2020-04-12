@@ -65,7 +65,8 @@ export class InputWineComponent implements OnInit {
 		
 		// HACK TO DETECT OF USER SETS SLIDER VALUE TO '0', forcing the Slider to still trigger a 'done' event.
 		$(document).on('mouseup touchend', (e:Event)=> {
-			if ( $(e.target).attr('class') == 'slider' &&  $(e.target).val() == 0) {
+			if ( $(e.target).attr('class') == 'slider' &&  $(e.target).val() == 0 && this._totalScore == null) {
+				console.log('mouseup hack');
 				let type = $(e.target).attr('id').split('-')[0];
 				this.slideDone(e, type);
 			}
@@ -125,7 +126,11 @@ export class InputWineComponent implements OnInit {
 			this._finishScore != null &&
 			this._overallScore != null
 		) {
-			this.calculateScore();
+			$('.content-container').animate({
+				scrollTop: 5000 // 5000 is way farther than the bottom of the content-container, this just forces it all the way to the bottom of the UI
+			}, 'slow', ()=> {
+				this.calculateScore();
+			});
 		}
 	}
 	
