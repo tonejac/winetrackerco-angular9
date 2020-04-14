@@ -280,8 +280,6 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 }
 
 
-
-/* NAV BAR */
 app-nav-bar {
 	position: fixed;
 	z-index: 1;
@@ -289,4 +287,12 @@ app-nav-bar {
 	left: 0;
 	width: 100%;
 	height: 38px;
+}
+
+
+app-slide-up-panel {
+	position: fixed;
+	top: 100%;
+	width: 100%;
+	height: 100%;
 }

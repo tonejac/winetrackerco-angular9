@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { SlideUpPanelComponent } from '../../slide-up-panel/slide-up-panel.component';
 
 @Component({
 	selector: 'app-touch-tags',
@@ -8,6 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class TouchTagsComponent implements OnInit {
 	
 	@Output() _triggerTouchTagsPanel = new EventEmitter();
+	@ViewChild(SlideUpPanelComponent, {static:false}) _slideUpPanel:SlideUpPanelComponent;
 	_touchTagsButtonConfig:any;
 	
 	constructor() { }

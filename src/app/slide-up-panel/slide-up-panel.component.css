@@ -1,0 +1,53 @@
+.bg-cover {
+	position: fixed;
+	background-color: #000000;
+	opacity: 0.0;
+	width: 100%;
+	height: 100%;
+	top: 100%;
+}
+
+.panel-container {
+	position: absolute;
+	bottom: 0;
+	height: 85%;
+	max-width: 400px;
+	width: 90%;
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, 0%);
+}
+
+.panel-bg {
+	border-style: solid;
+	border-color: #a48d61;
+	border-width: 5px 5px 0;
+	box-shadow: inset 1px 3px 6px 0 rgba(0,0,0,.8);
+	background-color: #fff;
+	border-radius: 10px 10px 0 0;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.close-button-container {
+	width: 42px;
+	height: 42px;
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+
+.close-button-svg-icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+app-nav-tabs {
+	position: absolute;
+	top: 0;
+	left: 0;
+}

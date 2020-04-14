@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { SlideUpPanelComponent } from '../../slide-up-panel/slide-up-panel.component';
 declare var $:any;
 
 @Component({
@@ -10,6 +11,7 @@ declare var $:any;
 })
 export class InputWineComponent implements OnInit {
 	
+	@ViewChild(SlideUpPanelComponent, {static:false}) _slideUpPanel:SlideUpPanelComponent;
 	_navBarContent:Object;
 	_instructions:String;
 	_notesPlaceholder:String;
@@ -29,6 +31,7 @@ export class InputWineComponent implements OnInit {
 	_bigNumStartValuesArray:any;
 	_smallNumStartValuesArray:any;
 	_numberFlipCounter:any;
+	_tabsConfig:any;
 	
 	constructor(
 		private _route:ActivatedRoute,
@@ -69,6 +72,31 @@ export class InputWineComponent implements OnInit {
 			"cellarTotal": null
 		}
 		
+		this._tabsConfig = {
+			"tabsArray": [
+				{
+					"label": "Visual",
+					"view": "visual"
+				},
+				{
+					"label": "Aroma",
+					"view": "aroma"
+				},
+				{
+					"label": "Taste",
+					"view": "taste"
+				},
+				{
+					"label": "Finish",
+					"view": "finish"
+				},
+				{
+					"label": "Overall",
+					"view": "overall"
+				}
+			]
+		}
+		
 		// HACK TO DETECT OF USER SETS SLIDER VALUE TO '0', forcing the Slider to still trigger a 'done' event.
 		$(document).on('mouseup touchend', (e:Event)=> {
 			if ( $(e.target).attr('class') == 'slider' &&  $(e.target).val() == 0 && this._totalScore == null) {
@@ -79,7 +107,7 @@ export class InputWineComponent implements OnInit {
 	}
 	
 	openTouchTagsPanel(e:Event) {
-		console.log('open touchtags panel');
+		this._slideUpPanel.open();
 	}
 	
 	trackInput(e:Event, type:String) {

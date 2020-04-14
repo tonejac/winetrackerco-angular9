@@ -1,0 +1,7 @@
+<div class="tabs-container">
+	<ng-container *ngFor="let tab of tabsConfig.tabsArray">
+		<div [class]="['tab', tab.view]">
+			{{ tab.label }}
+		</div>
+	</ng-container>
+</div>

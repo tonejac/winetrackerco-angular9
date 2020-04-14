@@ -1,0 +1,16 @@
+.tabs-container {
+	display: flex;
+}
+
+.tab {
+	color: #ffffff;
+	background-color: #5D4D30;
+	font-size: 14px;
+	border-radius: 3px 3px 0 0;
+	padding: 5px 8px 13px 8px;
+	margin-right: 2px;
+}
+
+.tab.selected {
+	background-color: #a48d61;
+}

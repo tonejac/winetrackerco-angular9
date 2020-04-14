@@ -19,6 +19,8 @@ import { TrackAWineComponent } from './track-a-wine/track-a-wine.component';
 import { InputWineComponent } from './track-a-wine/input-wine/input-wine.component';
 import { TouchTagsComponent } from './track-a-wine/touch-tags/touch-tags.component';
 import { RegularButtonComponent } from './regular-button/regular-button.component';
+import { SlideUpPanelComponent } from './slide-up-panel/slide-up-panel.component';
+import { NavTabsComponent } from './slide-up-panel/nav-tabs/nav-tabs.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -44,7 +46,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		TrackAWineComponent,
 		InputWineComponent,
 		TouchTagsComponent,
-		RegularButtonComponent
+		RegularButtonComponent,
+		SlideUpPanelComponent,
+		NavTabsComponent
 	],
 	imports: [
 		SwiperModule,
