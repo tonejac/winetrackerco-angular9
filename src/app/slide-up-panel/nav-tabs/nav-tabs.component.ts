@@ -9,13 +9,32 @@ declare var $:any;
 export class NavTabsComponent implements OnInit {
 	
 	@Input() tabsConfig:any;
+	_tabsArray:any;
 	
 	constructor() { }
 	
 	ngOnInit(): void {
 		setTimeout(()=> {
-			this.setSelected(this.tabsConfig.tabsArray[0].view);
+			this.configureTabs();
 		}, 0);
+		
+		
+	}
+	
+	configureTabs() {
+		this.setSelected(this.tabsConfig.tabsArray[0].view);
+		this._tabsArray = $.find('.tab');
+		console.log('tabsArray', this._tabsArray);
+		$('.tab').on('click', (e:any)=> {
+			this.resetTabStates();
+			$(e.target).addClass('selected');
+		});
+	}
+	
+	resetTabStates() {
+		for (let i=0; i<this._tabsArray.length; i++) {
+			$(this._tabsArray[i]).removeClass('selected');
+		}
 	}
 	
 	setSelected(selectedTab) {

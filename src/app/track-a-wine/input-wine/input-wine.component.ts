@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { SlideUpPanelComponent } from '../../slide-up-panel/slide-up-panel.component';
+import touchTagsJson from '../../../assets/touchtags.json';
 declare var $:any;
 
 @Component({
@@ -32,6 +33,7 @@ export class InputWineComponent implements OnInit {
 	_smallNumStartValuesArray:any;
 	_numberFlipCounter:any;
 	_tabsConfig:any;
+	_touchTagsSchema:any = touchTagsJson;
 	
 	constructor(
 		private _route:ActivatedRoute,
@@ -39,6 +41,7 @@ export class InputWineComponent implements OnInit {
 		) { }
 	
 	ngOnInit(): void {
+		
 		this._cancelButtonConfig = {
 			"value": "Cancel",
 			"type": "secondary"
