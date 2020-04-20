@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { SlideUpPanelComponent } from '../../slide-up-panel/slide-up-panel.component';
-import { TouchTagsComponent } from '../touch-tags/touch-tags.component';
+import { TouchTagsComponent } from '../../slide-up-panel/touch-tags/touch-tags.component';
 import { WineDetailsComponent } from '../../slide-up-panel/wine-details/wine-details.component';
 import touchTagsJson from '../../../assets/touchtags.json';
 declare var $:any;
@@ -109,8 +109,7 @@ export class InputWineComponent implements OnInit {
 			]
 		}
 		
-		// this._contentComponent = TouchTagsComponent;
-		this._contentComponent = WineDetailsComponent;
+		this._contentComponent = TouchTagsComponent;
 		
 		// HACK TO DETECT OF USER SETS SLIDER VALUE TO '0', forcing the Slider to still trigger a 'done' event.
 		$(document).unbind('mouseup touchend');

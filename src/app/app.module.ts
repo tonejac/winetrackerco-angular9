@@ -17,7 +17,7 @@ import { GridViewComponent } from './grid-view/grid-view.component';
 import { ViewSwitcherComponent } from './nav-bar/view-switcher/view-switcher.component';
 import { TrackAWineComponent } from './track-a-wine/track-a-wine.component';
 import { InputWineComponent } from './track-a-wine/input-wine/input-wine.component';
-import { TouchTagsComponent } from './track-a-wine/touch-tags/touch-tags.component';
+import { TouchTagsComponent } from './slide-up-panel/touch-tags/touch-tags.component';
 import { RegularButtonComponent } from './regular-button/regular-button.component';
 import { SlideUpPanelComponent } from './slide-up-panel/slide-up-panel.component';
 import { NavTabsComponent } from './slide-up-panel/nav-tabs/nav-tabs.component';

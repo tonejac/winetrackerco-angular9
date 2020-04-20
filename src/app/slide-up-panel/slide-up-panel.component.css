@@ -37,6 +37,7 @@
 	position: fixed;
 	top: 0;
 	right: 0;
+	z-index: 1;
 }
 
 .close-button-svg-icon {
@@ -55,5 +56,7 @@ app-nav-tabs {
 .panel-content {
 	position: absolute;
 	top: 0;
-	margin: 15px 12px;
+	padding: 15px 12px;
+	width: 100%;
+	box-sizing: border-box;
 }
