@@ -9,11 +9,15 @@ declare var $:any;
 export class SlideUpPanelComponent implements OnInit {
 	
 	@Input() tabsConfig:any;
+	@Input() contentConfig:any;
+	@Input() contentComponents:any;
+	_content:any;
 	
 	constructor() { }
 	
 	ngOnInit():void {
-		
+		console.log('contentConfig',this.contentConfig);
+		this._content = this.contentConfig;
 	}
 	
 	public open():void {

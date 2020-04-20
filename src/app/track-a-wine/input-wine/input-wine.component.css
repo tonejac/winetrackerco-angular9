@@ -6,10 +6,15 @@
 	overflow: auto;
 }
 
-app-touch-tags {
-	max-width: 350px;
+.touch-tags-container {
+	max-width: 650px;
 	margin: 20px auto 30px auto;
 	display: block;
+}
+
+.button-container {
+	text-align: center;
+	margin-top: 10px;
 }
 
 .content-container.cellar,
@@ -32,6 +37,13 @@ app-touch-tags {
 	color: #ffffff;
 	font-size: 20px;
 	margin-bottom: 24px;
+}
+
+.button-container span {
+	font-size: 13px;
+	letter-spacing: 1px;
+	padding-left: 10px;
+	color: #ffffff;
 }
 
 .scoring-sliders-container {

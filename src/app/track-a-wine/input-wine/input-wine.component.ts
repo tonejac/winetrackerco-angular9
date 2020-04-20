@@ -33,7 +33,9 @@ export class InputWineComponent implements OnInit {
 	_smallNumStartValuesArray:any;
 	_numberFlipCounter:any;
 	_tabsConfig:any;
-	_touchTagsSchema:any = touchTagsJson;
+	_touchTagsContent:any = touchTagsJson.touchTags;
+	_touchTagsButtonConfig:any;
+	_contentComponents:any;
 	
 	constructor(
 		private _route:ActivatedRoute,
@@ -49,6 +51,11 @@ export class InputWineComponent implements OnInit {
 		
 		this._saveButtonConfig = {
 			"value": "Save",
+			"type": "primary"
+		}
+		
+		this._touchTagsButtonConfig = {
+			"value": "TouchTag™ the Wine",
 			"type": "primary"
 		}
 		
@@ -100,7 +107,12 @@ export class InputWineComponent implements OnInit {
 			]
 		}
 		
+		this._contentComponents = [
+			
+		]
+		
 		// HACK TO DETECT OF USER SETS SLIDER VALUE TO '0', forcing the Slider to still trigger a 'done' event.
+		$(document).unbind('mouseup touchend');
 		$(document).on('mouseup touchend', (e:Event)=> {
 			if ( $(e.target).attr('class') == 'slider' &&  $(e.target).val() == 0 && this._totalScore == null) {
 				let type = $(e.target).attr('id').split('-')[0];

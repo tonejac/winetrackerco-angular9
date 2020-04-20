@@ -2,7 +2,18 @@
 
 <div [ngClass]="['content-container', _mode]">
 	
+	<!--
 	<app-touch-tags *ngIf="_mode=='drinkitnow'" (_triggerTouchTagsPanel)="openTouchTagsPanel($event)"></app-touch-tags>
+	-->
+	<div *ngIf="_mode=='drinkitnow'" class="touch-tags-container">
+		<div class="instructions-container">
+			Try our new TouchTags&trade; to quickly describe the wine without having to type.
+		</div>
+		<div class="button-container">
+			<app-regular-button [buttonConfig]="_touchTagsButtonConfig" (click)="openTouchTagsPanel($event)"></app-regular-button>
+			<span>(optional)</span>
+		</div>
+	</div>
 	
 	<div *ngIf="_mode=='drinkitnow'" class="instructions-container">
 		{{ _instructions }}
@@ -101,4 +112,8 @@
 	
 </div>
 
-<app-slide-up-panel [tabsConfig]="_tabsConfig"></app-slide-up-panel>
+<app-slide-up-panel
+	[tabsConfig]="_tabsConfig"
+	[contentConfig]="_touchTagsContent"
+	[contentComponents]="_contentComponents"
+></app-slide-up-panel>
