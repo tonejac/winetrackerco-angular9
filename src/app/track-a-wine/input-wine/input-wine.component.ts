@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { SlideUpPanelComponent } from '../../slide-up-panel/slide-up-panel.component';
 import { TouchTagsComponent } from '../../slide-up-panel/touch-tags/touch-tags.component';
 import { WineDetailsComponent } from '../../slide-up-panel/wine-details/wine-details.component';
-import touchTagsJson from '../../../assets/touchtags.json';
 declare var $:any;
 
 @Component({
@@ -35,7 +34,7 @@ export class InputWineComponent implements OnInit {
 	_smallNumStartValuesArray:any;
 	_numberFlipCounter:any;
 	_tabsConfig:any;
-	_touchTagsContent:any = touchTagsJson.touchTags;
+	
 	_touchTagsButtonConfig:any;
 	_contentComponent:any;
 	

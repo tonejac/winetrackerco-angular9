@@ -1,1 +1,13 @@
-<p>Touch Tags Work!</p>
+<div class="instruction">
+	{{ _visualContent.instruction }}
+</div>
+<ng-container *ngFor="let grouping of _visualContent.content">
+	<div class="grouping">
+		<label>{{ grouping.name }}</label>
+		<div class="tags-container">
+			<ng-container *ngFor="let tag of grouping.values">
+				<div class="tag">{{ tag }}</div>
+			</ng-container>
+		</div>
+	</div>
+</ng-container>

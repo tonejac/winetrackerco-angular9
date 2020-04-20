@@ -1,0 +1,41 @@
+.instruction {
+	font-size: 21px;
+	padding: 12px 10px;
+}
+
+.grouping {
+	border-bottom: 1px solid #302613;
+	padding: 0 0 10px 0;
+	margin-bottom: 5px;
+}
+
+label {
+	font-size: 20px;
+	font-weight: 700;
+	display: block;
+	padding: 0 0 5px 10px;
+}
+
+.tags-container {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 0 0 10px;
+}
+
+.tag {
+	border-radius: 3px;
+	border: 1px solid #302716;
+	box-sizing: border-box;
+	position: relative;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 27px;
+	margin: 0 10px 10px 0;
+	padding: 0 10px;
+	cursor: default;
+}
+
+.tag.selected {
+	border-color: #6dbb00;
+	color: #6dbb00;
+}

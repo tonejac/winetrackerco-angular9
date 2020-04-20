@@ -55,8 +55,10 @@ app-nav-tabs {
 
 .panel-content {
 	position: absolute;
-	top: 0;
-	padding: 15px 12px;
-	width: 100%;
+	top: 6px;
+	left: 6px;
+	width: calc(100% - 12px);
 	box-sizing: border-box;
+	height: 100%;
+	overflow: auto;
 }

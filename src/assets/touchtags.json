@@ -2,73 +2,68 @@
 	"touchTags": [
 		{
 			"visual": [{
-					"Clarity": {
-						"values": [
-							"Cloudy",
-							"Slightly Cloudy",
-							"Clear"
-						],
-						"multiselect": false
-					}
+					"name": "Clarity",
+					"values": [
+						"Cloudy",
+						"Slightly Cloudy",
+						"Clear"
+					],
+					"multiselect": false
+					
 				},
 				{
-					"Brightness": {
-						"values": [
-							"Dull",
-							"Bright",
-							"Brilliant"
-						],
-						"multiselect": false
-					}
+					"name": "Brightness",
+					"values": [
+						"Dull",
+						"Bright",
+						"Brilliant"
+					],
+					"multiselect": false
 				},
 				{
-					"Sediment or Particles": {
-						"values": [
-							"Yes",
-							"No"
-						],
-						"multiselect": false
-					}
+					"name": "Sediment or Particles",
+					"values": [
+						"Yes",
+						"No"
+					],
+					"multiselect": false
 				},
 				{
-					"Legs on the side of the glass (Viscosity/Tears)": {
-						"values": [
-							"A Few",
-							"Some",
-							"A Lot"
-						],
-						"multiselect": false
-					}
+					"name": "Legs on the side of the glass (Viscosity/Tears)",
+					"values": [
+						"A Few",
+						"Some",
+						"A Lot"
+					],
+					"multiselect": false
 				},
 				{
-					"Color": {
-						"values": [
-							"Straw",
-							"Yellow",
-							"Gold",
-							"Brown",
-							"Amber",
-							"Orange",
-							"Copper",
-							"Salmon",
-							"Pink",
-							"Ruby",
-							"Purple",
-							"Garnet",
-							"Tawny"
-						],
-						"multiselect": false
-					}
+					"name": "Color",
+					"values": [
+						"Straw",
+						"Yellow",
+						"Gold",
+						"Brown",
+						"Amber",
+						"Orange",
+						"Copper",
+						"Salmon",
+						"Pink",
+						"Ruby",
+						"Purple",
+						"Garnet",
+						"Tawny"
+					],
+					"multiselect": false
 				},
 				{
-					"Color Intensity": {
-						"values": [
-							"Pale",
-							"Medium",
-							"Deep"
-						],
-						"multiselect": false
-					}
+					"name": "Color Intensity",
+					"values": [
+						"Pale",
+						"Medium",
+						"Deep"
+					],
+					"multiselect": false
 				}
 			]
 		},

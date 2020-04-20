@@ -25,6 +25,7 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: 'San Francisco', 'Helvetica Neue', Helvetica, arial, sans-serif;
+	color: #302613;
 	-webkit-font-smoothing: subpixel-antialiased;
 	background: url(//winetrackerco.imgix.net/winetracker-background-2560x1785.jpg) center/cover no-repeat fixed;
 }
@@ -146,7 +147,7 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 	-webkit-animation: fadeOpacity 1.0s infinite;
 	-moz-animation:	fadeOpacity 1.0s infinite;
 	-ms-animation:	 fadeOpacity 1.0s infinite;
-	-o-animation:	  fadeOpacity 1.0s infinite;
+	-o-animation:		fadeOpacity 1.0s infinite;
 	animation:		 fadeOpacity 1.0s infinite;
 	display: block;
 	opacity: 0;
@@ -156,7 +157,7 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 	-webkit-animation: fadeOpacity 1.0s infinite;
 	-moz-animation:	fadeOpacity 1.0s infinite;
 	-ms-animation:	 fadeOpacity 1.0s infinite;
-	-o-animation:	  fadeOpacity 1.0s infinite;
+	-o-animation:		fadeOpacity 1.0s infinite;
 	animation:		 fadeOpacity 1.0s infinite;
 	-webkit-animation-delay: 0.125s;
 	-moz-animation-delay: 0.125s;
@@ -171,7 +172,7 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 	-webkit-animation: fadeOpacity 1.0s infinite;
 	-moz-animation:	fadeOpacity 1.0s infinite;
 	-ms-animation:	 fadeOpacity 1.0s infinite;
-	-o-animation:	  fadeOpacity 1.0s infinite;
+	-o-animation:		fadeOpacity 1.0s infinite;
 	animation:		 fadeOpacity 1.0s infinite;
 	-webkit-animation-delay: 0.250s;
 	-moz-animation-delay: 0.250s;
@@ -186,7 +187,7 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 	-webkit-animation: fadeOpacity 1.0s infinite;
 	-moz-animation:	fadeOpacity 1.0s infinite;
 	-ms-animation:	 fadeOpacity 1.0s infinite;
-	-o-animation:	  fadeOpacity 1.0s infinite;
+	-o-animation:		fadeOpacity 1.0s infinite;
 	animation:		 fadeOpacity 1.0s infinite;
 	-webkit-animation-delay: 0.375s;
 	-moz-animation-delay: 0.375s;
@@ -201,7 +202,7 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 	-webkit-animation: fadeOpacity 1.0s infinite;
 	-moz-animation:	fadeOpacity 1.0s infinite;
 	-ms-animation:	 fadeOpacity 1.0s infinite;
-	-o-animation:	  fadeOpacity 1.0s infinite;
+	-o-animation:		fadeOpacity 1.0s infinite;
 	animation:		 fadeOpacity 1.0s infinite;
 	-webkit-animation-delay: 0.500s;
 	-moz-animation-delay: 0.500s;
@@ -215,7 +216,7 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 	-webkit-animation: fadeOpacity 1.0s infinite;
 	-moz-animation:	fadeOpacity 1.0s infinite;
 	-ms-animation:	 fadeOpacity 1.0s infinite;
-	-o-animation:	  fadeOpacity 1.0s infinite;
+	-o-animation:		fadeOpacity 1.0s infinite;
 	animation:		 fadeOpacity 1.0s infinite;
 	-webkit-animation-delay: 0.625s;
 	-moz-animation-delay: 0.625s;
@@ -229,7 +230,7 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 	-webkit-animation: fadeOpacity 1.0s infinite;
 	-moz-animation:	fadeOpacity 1.0s infinite;
 	-ms-animation:	 fadeOpacity 1.0s infinite;
-	-o-animation:	  fadeOpacity 1.0s infinite;
+	-o-animation:		fadeOpacity 1.0s infinite;
 	animation:		 fadeOpacity 1.0s infinite;
 	-webkit-animation-delay: 0.750s;
 	-moz-animation-delay: 0.750s;
@@ -243,7 +244,7 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 	-webkit-animation: fadeOpacity 1.0s infinite;
 	-moz-animation:	fadeOpacity 1.0s infinite;
 	-ms-animation:	 fadeOpacity 1.0s infinite;
-	-o-animation:	  fadeOpacity 1.0s infinite;
+	-o-animation:		fadeOpacity 1.0s infinite;
 	animation:		 fadeOpacity 1.0s infinite;
 	-webkit-animation-delay: 0.875s;
 	-moz-animation-delay: 0.875s;
@@ -254,27 +255,27 @@ swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 }
 
 @-webkit-keyframes fadeOpacity {
-	0%   { opacity: 0; }
+	0%	 { opacity: 0; }
 	10% { opacity: 1; }
 	100% { opacity: 0; }
 }
 @-moz-keyframes fadeOpacity {
-	0%   { opacity: 0; }
+	0%	 { opacity: 0; }
 	10% { opacity: 1; }
 	100% { opacity: 0; }
 }
 @-ms-keyframes fadeOpacity {
-	0%   { opacity: 0; }
+	0%	 { opacity: 0; }
 	10% { opacity: 1; }
 	100% { opacity: 0; }
 }
 @-o-keyframes fadeOpacity {
-	0%   { opacity: 0; }
+	0%	 { opacity: 0; }
 	10% { opacity: 1; }
 	100% { opacity: 0; }
 }
 @keyframes fadeOpacity {
-	0%   { opacity: 0; }
+	0%	 { opacity: 0; }
 	10% { opacity: 1; }
 	100% { opacity: 0; }
 }
@@ -295,4 +296,59 @@ app-slide-up-panel {
 	top: 100%;
 	width: 100%;
 	height: 100%;
+}
+
+
+@font-face {
+	font-family: "San Francisco";
+	font-weight: 100;
+	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff");
+}
+
+@font-face {
+	font-family: "San Francisco";
+	font-weight: 200;
+	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
+}
+
+@font-face {
+	font-family: "San Francisco";
+	font-weight: 300;
+	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-light-webfont.woff");
+}
+
+@font-face {
+	font-family: "San Francisco";
+	font-weight: 400;
+	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+@font-face {
+	font-family: "San Francisco";
+	font-weight: 500;
+	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff");
+}
+
+@font-face {
+	font-family: "San Francisco";
+	font-weight: 600;
+	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff");
+}
+
+@font-face {
+	font-family: "San Francisco";
+	font-weight: 700;
+	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+}
+
+@font-face {
+	font-family: "San Francisco";
+	font-weight: 800;
+	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-heavy-webfont.woff");
+}
+
+@font-face {
+	font-family: "San Francisco";
+	font-weight: 900;
+	src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-black-webfont.woff");
 }
