@@ -1,7 +1,8 @@
 {
 	"touchTags": [
 		{
-			"visual": [{
+			"visual": [
+				{
 					"name": "Clarity",
 					"values": [
 						"Cloudy",
@@ -68,243 +69,231 @@
 			]
 		},
 		{
-			"aroma": [{
-					"Intensity": {
-						"values": [
-							"Delicate",
-							"Moderate",
-							"Powerful"
-						],
-						"multiselect": false
-					}
+			"aroma": [
+				{
+					"name": "Intensity",
+					"values": [
+						"Delicate",
+						"Moderate",
+						"Powerful"
+					],
+					"multiselect": false
 				},
 				{
-					"Fruit": {
-						"values": [
-							"Apple",
-							"Pear",
-							"Citrus",
-							"Pitted Fruit",
-							"Tropical",
-							"Melon",
-							"Red Fruit",
-							"Black Fruit",
-							"Blue Fruit"
-						],
-						"multiselect": true
-					}
+					"name": "Fruit",
+					"values": [
+						"Apple",
+						"Pear",
+						"Citrus",
+						"Pitted Fruit",
+						"Tropical",
+						"Melon",
+						"Red Fruit",
+						"Black Fruit",
+						"Blue Fruit"
+					],
+					"multiselect": true
 				},
 				{
-					"Fruit Character": {
-						"values": [
-							"Baked",
-							"Stewed",
-							"Dried",
-							"Peel/Skin",
-							"Tart",
-							"Ripe",
-							"Fresh",
-							"Jammy"
-						],
-						"multiselect": true
-					}
+					"name": "Fruit Character",
+					"values": [
+						"Baked",
+						"Stewed",
+						"Dried",
+						"Peel/Skin",
+						"Tart",
+						"Ripe",
+						"Fresh",
+						"Jammy"
+					],
+					"multiselect": true
 				},
 				{
-					"Non-Fruit": {
-						"values": [
-							"Floral",
-							"Vegetal",
-							"Herbal",
-							"Olive",
-							"Spice",
-							"Vanilla",
-							"Chocolate",
-							"Coffee",
-							"Licorice",
-							"Honey",
-							"Meat",
-							"Dairy",
-							"Nuts",
-							"Bread/Yeast",
-							"Cellar",
-							"Band-aid",
-							"Wood",
-							"Smoke",
-							"Tobacco"
-						],
-						"multiselect": true
-					}
+					"name": "Non-Fruit",
+					"values": [
+						"Floral",
+						"Vegetal",
+						"Herbal",
+						"Olive",
+						"Spice",
+						"Vanilla",
+						"Chocolate",
+						"Coffee",
+						"Licorice",
+						"Honey",
+						"Meat",
+						"Dairy",
+						"Nuts",
+						"Bread/Yeast",
+						"Cellar",
+						"Band-aid",
+						"Wood",
+						"Smoke",
+						"Tobacco"
+					],
+					"multiselect": true
 				},
 				{
-					"Organic/Inorganic": {
-						"values": [
-							"Forest Floor",
-							"Compost",
-							"Mushrooms",
-							"Fresh Soil",
-							"Barnyard",
-							"Stone",
-							"Chalk",
-							"Oceanic",
-							"Petrol",
-							"Sulphur",
-							"Rubber"
-						],
-						"multiselect": true
-					}
+					"name": "Organic/Inorganic",
+					"values": [
+						"Forest Floor",
+						"Compost",
+						"Mushrooms",
+						"Fresh Soil",
+						"Barnyard",
+						"Stone",
+						"Chalk",
+						"Oceanic",
+						"Petrol",
+						"Sulphur",
+						"Rubber"
+					],
+					"multiselect": true
 				},
 				{
-					"Oak Intensity": {
-						"values": [
-							"None",
-							"Low",
-							"Moderate",
-							"High"
-						],
-						"multiselect": false
-					}
+					"name": "Oak Intensity",
+					"values": [
+						"None",
+						"Low",
+						"Moderate",
+						"High"
+					],
+					"multiselect": false
 				}
 			]
 		},
 		{
-			"taste": [{
-					"Sweetness": {
-						"values": [
-							"Bone Dry",
-							"Dry",
-							"Off Dry",
-							"Sweet",
-							"Very Sweet"
-						],
-						"multiselect": false
-					}
+			"taste": [
+				{
+					"name": "Sweetness",
+					"values": [
+						"Bone Dry",
+						"Dry",
+						"Off Dry",
+						"Sweet",
+						"Very Sweet"
+					],
+					"multiselect": false
 				},
 				{
-					"Tannins": {
-						"values": [
-							"Low",
-							"Moderately Low",
-							"Moderate",
-							"Moderately High",
-							"High"
-						],
-						"multiselect": false
-					}
+					"name": "Tannins",
+					"values": [
+						"Low",
+						"Moderately Low",
+						"Moderate",
+						"Moderately High",
+						"High"
+					],
+					"multiselect": false
 				},
 				{
-					"Acid": {
-						"values": [
-							"Low",
-							"Moderately Low",
-							"Moderate",
-							"Moderately High",
-							"High"
-						],
-						"multiselect": false
-					}
+					"name": "Acid",
+					"values": [
+						"Low",
+						"Moderately Low",
+						"Moderate",
+						"Moderately High",
+						"High"
+					],
+					"multiselect": false
 				},
 				{
-					"Alcohol": {
-						"values": [
-							"Low",
-							"Moderately Low",
-							"Moderate",
-							"Moderately High",
-							"High"
-						],
-						"multiselect": false
-					}
+					"name": "Alcohol",
+					"values": [
+						"Low",
+						"Moderately Low",
+						"Moderate",
+						"Moderately High",
+						"High"
+					],
+					"multiselect": false
 				},
 				{
-					"Body/Texture": {
-						"values": [
-							"Light",
-							"Medium",
-							"Full"
-						],
-						"multiselect": false
-					}
+					"name": "Body/Texture",
+					"values": [
+						"Light",
+						"Medium",
+						"Full"
+					],
+					"multiselect": false
 				},
 				{
-					"Fruit": {
-						"values": [
-							"Apple",
-							"Pear",
-							"Citrus",
-							"Pitted Fruit",
-							"Tropical",
-							"Melon",
-							"Red Fruit",
-							"Black Fruit",
-							"Blue Fruit"
-						],
-						"multiselect": true
-					}
+					"name": "Fruit",
+					"values": [
+						"Apple",
+						"Pear",
+						"Citrus",
+						"Pitted Fruit",
+						"Tropical",
+						"Melon",
+						"Red Fruit",
+						"Black Fruit",
+						"Blue Fruit"
+					],
+					"multiselect": true
 				},
 				{
-					"Fruit Character": {
-						"values": [
-							"Baked",
-							"Stewed",
-							"Dried",
-							"Peel/Skin",
-							"Tart",
-							"Ripe",
-							"Fresh",
-							"Jammy"
-						],
-						"multiselect": true
-					}
+					"name": "Fruit Character",
+					"values": [
+						"Baked",
+						"Stewed",
+						"Dried",
+						"Peel/Skin",
+						"Tart",
+						"Ripe",
+						"Fresh",
+						"Jammy"
+					],
+					"multiselect": true
 				},
 				{
-					"Non-Fruit": {
-						"values": [
-							"Floral",
-							"Vegetal",
-							"Herbal",
-							"Olive",
-							"Spice",
-							"Vanilla",
-							"Chocolate",
-							"Coffee",
-							"Licorice",
-							"Honey",
-							"Meat",
-							"Dairy",
-							"Nuts",
-							"Bread/Yeast",
-							"Cellar",
-							"Band-aid",
-							"Wood",
-							"Smoke",
-							"Tobacco"
-						],
-						"multiselect": true
-					}
+					"name": "Non-Fruit",
+					"values": [
+						"Floral",
+						"Vegetal",
+						"Herbal",
+						"Olive",
+						"Spice",
+						"Vanilla",
+						"Chocolate",
+						"Coffee",
+						"Licorice",
+						"Honey",
+						"Meat",
+						"Dairy",
+						"Nuts",
+						"Bread/Yeast",
+						"Cellar",
+						"Band-aid",
+						"Wood",
+						"Smoke",
+						"Tobacco"
+					],
+					"multiselect": true
 				},
 				{
-					"Organic/Inorganic": {
-						"values": [
-							"Forest Floor",
-							"Compost",
-							"Mushrooms",
-							"Fresh Soil",
-							"Barnyard",
-							"Stone",
-							"Chalk",
-							"Oceanic",
-							"Petrol",
-							"Sulphur",
-							"Rubber"
-						],
-						"multiselect": true
-					}
+					"name": "Organic/Inorganic",
+					"values": [
+						"Forest Floor",
+						"Compost",
+						"Mushrooms",
+						"Fresh Soil",
+						"Barnyard",
+						"Stone",
+						"Chalk",
+						"Oceanic",
+						"Petrol",
+						"Sulphur",
+						"Rubber"
+					],
+					"multiselect": true
 				}
 			]
 		},
 		{
-			"finish": [{
-				"Length/Finish": {
+			"finish": [
+				{
+					"name": "Length/Finish",
 					"values": [
 						"Short",
 						"Medium Short",
@@ -314,40 +303,38 @@
 					],
 					"multiselect": false
 				}
-			}]
+			]
 		},
 		{
-			"overall": [{
-					"Is the Wine Balanced?": {
-						"values": [
-							"Yes",
-							"No"
-						],
-						"multiselect": false
-					}
+			"overall": [
+				{
+					"name": "Is the Wine Balanced?",
+					"values": [
+						"Yes",
+						"No"
+					],
+					"multiselect": false
 				},
 				{
-					"Balance: If No, Which of the Following Elements Stick Out?": {
-						"values": [
-							"Alcohol",
-							"Acidity",
-							"Tannin",
-							"Oak",
-							"Sweetness",
-							"Fruit Concentration"
-						],
-						"multiselect": true
-					}
+					"name": "Balance: If No, Which of the Following Elements Stick Out?",
+					"values": [
+						"Alcohol",
+						"Acidity",
+						"Tannin",
+						"Oak",
+						"Sweetness",
+						"Fruit Concentration"
+					],
+					"multiselect": true
 				},
 				{
-					"Complexity": {
-						"values": [
-							"Low",
-							"Moderate",
-							"Complex"
-						],
-						"multiselect": false
-					}
+					"name": "Complexity",
+					"values": [
+						"Low",
+						"Moderate",
+						"Complex"
+					],
+					"multiselect": false
 				}
 			]
 		}

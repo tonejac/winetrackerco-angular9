@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { SlideUpPanelDirective } from './slide-up-panel.directive';
 declare var $:any;
 
@@ -13,24 +13,28 @@ export class SlideUpPanelComponent implements OnInit {
 	@Input() contentConfig:any;
 	@Input() contentComponent:any;
 	@ViewChild(SlideUpPanelDirective) slideUpContent: SlideUpPanelDirective;
+	//@ViewChild('slideUpContent', { read: ViewContainerRef }) _slideUpContent: ViewContainerRef;
+	_loadedComponentRef:any;
 	
 	constructor(
 		private componentFactoryResolver: ComponentFactoryResolver
 		) { }
 	
 	ngOnInit():void {
-		console.log('contentComponent',this.contentComponent);
 		setTimeout(()=> {
 			this.loadComponent();
 		});
-		
 	}
 	
 	loadComponent() {
 		let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.contentComponent);
 		
 		this.slideUpContent.viewContainerRef.clear();
-		this.slideUpContent.viewContainerRef.createComponent(componentFactory);
+		this._loadedComponentRef = this.slideUpContent.viewContainerRef.createComponent(componentFactory);
+	}
+	
+	tabClicked(val:any) {
+		this._loadedComponentRef.instance._currentCategory = val;
 	}
 	
 	public open():void {

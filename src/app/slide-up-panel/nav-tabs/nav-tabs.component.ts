@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 declare var $:any;
 
 @Component({
@@ -9,6 +9,7 @@ declare var $:any;
 export class NavTabsComponent implements OnInit {
 	
 	@Input() tabsConfig:any;
+	@Output() tabClicked = new EventEmitter();
 	_tabsArray:any;
 	
 	constructor() { }
@@ -17,18 +18,19 @@ export class NavTabsComponent implements OnInit {
 		setTimeout(()=> {
 			this.configureTabs();
 		}, 0);
-		
-		
+	}
+	
+	tabClick(e:Event, index:Number) {
+		// console.log('tabClick', index);
+		this.resetTabStates();
+		$(e.target).addClass('selected');
+		this.tabClicked.emit(index);
 	}
 	
 	configureTabs() {
-		this.setSelected(this.tabsConfig.tabsArray[0].view);
+		//this.setSelected(this.tabsConfig.tabsArray[0].view);
 		this._tabsArray = $.find('.tab');
-		console.log('tabsArray', this._tabsArray);
-		$('.tab').on('click', (e:any)=> {
-			this.resetTabStates();
-			$(e.target).addClass('selected');
-		});
+		$(this._tabsArray[0]).trigger('click');
 	}
 	
 	resetTabStates() {

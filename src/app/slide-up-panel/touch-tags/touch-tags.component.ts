@@ -14,21 +14,33 @@ export class TouchTagsComponent implements OnInit {
 		"instruction": "Tap the Visual tags you can detect:",
 		"content": this._jsonContent[0].visual
 	}
+	_aromaContent:any = {
+		"instruction": "Tap the Aroma tags you can detect:",
+		"content": this._jsonContent[1].aroma
+	}
+	_tasteContent:any = {
+		"instruction": "Tap the Taste tags you can detect:",
+		"content": this._jsonContent[2].taste
+	}
+	_finishContent:any = {
+		"instruction": "Tap the Finish tags you can detect:",
+		"content": this._jsonContent[3].finish
+	}
+	_overallContent:any = {
+		"instruction": "Tap the Overall tags you can detect:",
+		"content": this._jsonContent[4].overall
+	}
+	
+	_currentCategory:any = 0;
 	
 	constructor() { }
 	
 	ngOnInit(): void {
-		console.log('visual json', this._visualContent.content);
 		
-		setTimeout(()=> {
-			this.configureUi();
-		}, 0);
 	}
 	
-	configureUi() {
-		$('.tag').on('click', function() {
-			$(this).addClass('selected');
-		});
+	public tabClick(index:Number) {
+		this._currentCategory = index;
 	}
 	
 }
