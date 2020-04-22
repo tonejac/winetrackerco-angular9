@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { RegularButtonComponent } from '../../regular-button/regular-button.component';
 import touchTagsJson from '../../../assets/touchtags.json';
 declare var $:any;
 
@@ -8,6 +9,8 @@ declare var $:any;
 	styleUrls: ['./touch-tags.component.css']
 })
 export class TouchTagsComponent implements OnInit {
+	
+	@ViewChild(RegularButtonComponent, {static:true}) bottomBarButton: RegularButtonComponent;
 	
 	_jsonContent:any = touchTagsJson.touchTags;
 	_visualContent:any = {
@@ -32,6 +35,10 @@ export class TouchTagsComponent implements OnInit {
 	}
 	
 	_currentCategory:any = 0;
+	_buttonBottomBar:any = {
+		"value": "Next",
+		"type": "primary mini"
+	}
 	
 	constructor() { }
 	
@@ -41,6 +48,9 @@ export class TouchTagsComponent implements OnInit {
 	
 	public tabClick(index:Number) {
 		this._currentCategory = index;
+		if (this._currentCategory == 4) {
+			this.bottomBarButton.changeLabel('Done');
+		}
 	}
 	
 }

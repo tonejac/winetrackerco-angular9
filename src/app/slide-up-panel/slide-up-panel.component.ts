@@ -34,7 +34,8 @@ export class SlideUpPanelComponent implements OnInit {
 	}
 	
 	tabClicked(val:any) {
-		this._loadedComponentRef.instance._currentCategory = val;
+		this._loadedComponentRef.instance.tabClick(val);
+		$('.panel-content').scrollTop(0);
 	}
 	
 	public open():void {

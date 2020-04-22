@@ -59,6 +59,6 @@ app-nav-tabs {
 	left: 6px;
 	width: calc(100% - 12px);
 	box-sizing: border-box;
-	height: 100%;
+	height: calc(100% - 37px);
 	overflow: auto;
 }
