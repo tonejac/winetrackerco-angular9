@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver, ViewContainerRef, OnDestroy } from '@angular/core';
 import { SlideUpPanelDirective } from './slide-up-panel.directive';
+import { Globals } from '../globals';
 declare var $:any;
 
 @Component({
@@ -13,17 +14,31 @@ export class SlideUpPanelComponent implements OnInit {
 	@Input() contentConfig:any;
 	@Input() contentComponent:any;
 	@ViewChild(SlideUpPanelDirective) slideUpContent: SlideUpPanelDirective;
-	//@ViewChild('slideUpContent', { read: ViewContainerRef }) _slideUpContent: ViewContainerRef;
 	_loadedComponentRef:any;
 	
 	constructor(
-		private componentFactoryResolver: ComponentFactoryResolver
+		private componentFactoryResolver: ComponentFactoryResolver,
+		private _globals:Globals
 		) { }
 	
 	ngOnInit():void {
 		setTimeout(()=> {
 			this.loadComponent();
 		});
+		
+		this._globals._touchTagsCategoryChange.subscribe((data)=> {
+			console.log('global _touchTagsCategoryChange data', data);
+			this.tabClicked(data);
+		});
+		
+		this._globals._bottomBarDone.subscribe((data)=> {
+			this.close();
+		})
+	}
+	
+	ngOnDestroy():void {
+		this._globals._touchTagsCategoryChange.unsubscribe();
+		this._globals._bottomBarDone.unsubscribe();
 	}
 	
 	loadComponent() {
@@ -34,9 +49,13 @@ export class SlideUpPanelComponent implements OnInit {
 	}
 	
 	tabClicked(val:any) {
-		this._loadedComponentRef.instance.tabClick(val);
+		//this._loadedComponentRef.instance.tabClick(val);
 		$('.panel-content').scrollTop(0);
 	}
+	
+	// touchTagsDone(e:Event) {
+	// 	console.log('touchTagsDone', e.target);
+	// }
 	
 	public open():void {
 		$('.bg-cover').css({

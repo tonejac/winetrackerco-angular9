@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()
 export class Globals {
+	
 	_currentWinesList:any = [
 		{
 			"image": "https://winetrackerco.imgix.net/900bf4c10ce9b0879a1fdb1c7cd30158?w=&h=1024",
@@ -54,6 +55,10 @@ export class Globals {
 	];
 	
 	_photoFile:any;
+	
+	_touchTagsCategoryChange = new EventEmitter();
+	_currentTouchTagsCategory:any;
+	_bottomBarDone = new EventEmitter();
 	
 	constructor() {
 		

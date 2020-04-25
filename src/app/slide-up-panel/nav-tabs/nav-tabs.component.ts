@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { Globals } from '../../globals';
 declare var $:any;
 
 @Component({
@@ -12,19 +13,36 @@ export class NavTabsComponent implements OnInit {
 	@Output() tabClicked = new EventEmitter();
 	_tabsArray:any;
 	
-	constructor() { }
+	constructor(
+		private _globals:Globals
+		) { }
 	
 	ngOnInit(): void {
 		setTimeout(()=> {
 			this.configureTabs();
 		}, 0);
+		
+		this._globals._touchTagsCategoryChange.subscribe((data)=> {
+			console.log('global _touchTagsCategoryChange data', data);
+			this.setTabState(data);
+		});
+		this._globals._currentTouchTagsCategory = 0;
 	}
 	
-	tabClick(e:Event, index:Number) {
-		// console.log('tabClick', index);
+	ngOnDestroy():void {
+		this._globals._touchTagsCategoryChange.unsubscribe();
+	}
+	
+	tabClick(index:any) {
+		this._globals._currentTouchTagsCategory = index;
+		//this.tabClicked.emit(index);
+		this._globals._touchTagsCategoryChange.emit(index);
+		this.setTabState(index);
+	}
+	
+	setTabState(index:any) {
 		this.resetTabStates();
-		$(e.target).addClass('selected');
-		this.tabClicked.emit(index);
+		$(this._tabsArray[index]).addClass('selected');
 	}
 	
 	configureTabs() {

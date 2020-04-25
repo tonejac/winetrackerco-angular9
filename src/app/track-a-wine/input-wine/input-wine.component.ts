@@ -120,9 +120,9 @@ export class InputWineComponent implements OnInit {
 		});
 	}
 	
-	tabClicked(e:Event) {
-		console.log('input-wine component tabClicked', e.target);
-	}
+	// tabClicked(e:Event) {
+	// 	console.log('input-wine component tabClicked', e.target);
+	// }
 	
 	openTouchTagsPanel(e:Event) {
 		this._slideUpPanel.open();

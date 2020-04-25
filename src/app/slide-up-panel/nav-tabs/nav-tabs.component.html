@@ -1,6 +1,6 @@
 <div class="tabs-container">
 	<ng-container *ngFor="let tab of tabsConfig.tabsArray; let i=index;">
-		<div [class]="['tab', tab.view]" (click)="tabClick($event, i)">
+		<div [class]="['tab', tab.view]" (click)="tabClick(i)">
 			{{ tab.label }}
 		</div>
 	</ng-container>

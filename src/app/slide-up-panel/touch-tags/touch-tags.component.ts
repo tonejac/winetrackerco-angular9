@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, ViewChild } from '@angular/core';
 import { RegularButtonComponent } from '../../regular-button/regular-button.component';
+import { Globals } from '../../globals';
 import touchTagsJson from '../../../assets/touchtags.json';
 declare var $:any;
 
@@ -10,7 +11,8 @@ declare var $:any;
 })
 export class TouchTagsComponent implements OnInit {
 	
-	@ViewChild(RegularButtonComponent, {static:true}) bottomBarButton: RegularButtonComponent;
+	@ViewChild(RegularButtonComponent, {static:true}) _bottomBarButton: RegularButtonComponent;
+	// @Output() _bottomBarDoneButtonClick = new EventEmitter();
 	
 	_jsonContent:any = touchTagsJson.touchTags;
 	_visualContent:any = {
@@ -40,16 +42,34 @@ export class TouchTagsComponent implements OnInit {
 		"type": "primary mini"
 	}
 	
-	constructor() { }
+	constructor(
+		private _globals:Globals
+		) { }
 	
 	ngOnInit(): void {
-		
+		this._globals._touchTagsCategoryChange.subscribe((data)=> {
+			console.log('touch-tags context data num', data);
+			this._globals._currentTouchTagsCategory = data;
+			this._currentCategory = this._globals._currentTouchTagsCategory;
+			if (this._globals._currentTouchTagsCategory == 4) {
+				this._bottomBarButton.changeLabel('Done');
+			} else {
+				this._bottomBarButton.changeLabel('Next');
+			}
+		})
 	}
 	
-	public tabClick(index:Number) {
-		this._currentCategory = index;
-		if (this._currentCategory == 4) {
-			this.bottomBarButton.changeLabel('Done');
+	ngOnDestroy():void {
+		this._globals._touchTagsCategoryChange.unsubscribe();
+	}
+	
+	nextTouchTagCategory() {
+		if (this._globals._currentTouchTagsCategory < 4) {
+			this._globals._currentTouchTagsCategory++;
+			this._currentCategory = this._globals._currentTouchTagsCategory;
+			this._globals._touchTagsCategoryChange.emit(this._currentCategory);
+		} else {
+			this._globals._bottomBarDone.emit('done');
 		}
 	}
 	
