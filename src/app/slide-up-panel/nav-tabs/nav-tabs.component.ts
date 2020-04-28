@@ -23,7 +23,7 @@ export class NavTabsComponent implements OnInit {
 		}, 0);
 		
 		this._globals._touchTagsCategoryChange.subscribe((data)=> {
-			console.log('global _touchTagsCategoryChange data', data);
+			// console.log('global _touchTagsCategoryChange data', data);
 			this.setTabState(data);
 		});
 		this._globals._currentTouchTagsCategory = 0;
@@ -58,7 +58,7 @@ export class NavTabsComponent implements OnInit {
 	}
 	
 	setSelected(selectedTab) {
-		console.log('setSelected', selectedTab);
+		// console.log('setSelected', selectedTab);
 		$('.tab.'+selectedTab).addClass('selected');
 	}
 	

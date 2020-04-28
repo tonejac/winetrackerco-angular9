@@ -27,7 +27,7 @@ export class SlideUpPanelComponent implements OnInit {
 		});
 		
 		this._globals._touchTagsCategoryChange.subscribe((data)=> {
-			console.log('global _touchTagsCategoryChange data', data);
+			// console.log('global _touchTagsCategoryChange data', data);
 			this.tabClicked(data);
 		});
 		
@@ -53,10 +53,6 @@ export class SlideUpPanelComponent implements OnInit {
 		$('.panel-content').scrollTop(0);
 	}
 	
-	// touchTagsDone(e:Event) {
-	// 	console.log('touchTagsDone', e.target);
-	// }
-	
 	public open():void {
 		$('.bg-cover').css({
 			'top': '0'
@@ -69,7 +65,7 @@ export class SlideUpPanelComponent implements OnInit {
 		}, 300, 'easeOutQuad');
 		
 		$('app-nav-tabs').transition({
-			'top': '-25px',
+			'top': '-26px',
 			'delay': 280
 		}, 200, 'easeOutQuad');
 		

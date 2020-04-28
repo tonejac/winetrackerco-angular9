@@ -1,82 +1,82 @@
-<ng-container *ngIf="_currentCategory==0">
+<div class="category visual" [ngStyle]="{'display': displayCategory(0)}">
 	<div class="instruction">
 		{{ _visualContent.instruction }}
 	</div>
 	<ng-container *ngFor="let grouping of _visualContent.content">
 		<div class="grouping">
 			<label>{{ grouping.name }}</label>
-			<div class="tags-container">
+			<div class="tags-container" [attr.data-multiselect]="grouping.multiselect">
 				<ng-container *ngFor="let tag of grouping.values">
-					<div class="tag">{{ tag }}</div>
+					<div class="tag" (click)="toggleTag($event)">{{ tag }}</div>
 				</ng-container>
 			</div>
 		</div>
 	</ng-container>
-</ng-container>
+</div>
 
-<ng-container *ngIf="_currentCategory==1">
+<div class="category aroma" [ngStyle]="{'display': displayCategory(1)}">
 	<div class="instruction">
 		{{ _aromaContent.instruction }}
 	</div>
 	<ng-container *ngFor="let grouping of _aromaContent.content">
 		<div class="grouping">
 			<label>{{ grouping.name }}</label>
-			<div class="tags-container">
+			<div class="tags-container" [attr.data-multiselect]="grouping.multiselect">
 				<ng-container *ngFor="let tag of grouping.values">
-					<div class="tag">{{ tag }}</div>
+					<div class="tag" (click)="toggleTag($event)">{{ tag }}</div>
 				</ng-container>
 			</div>
 		</div>
 	</ng-container>
-</ng-container>
+</div>
 
-<ng-container *ngIf="_currentCategory==2">
+<div class="category taste" [ngStyle]="{'display': displayCategory(2)}">
 	<div class="instruction">
 		{{ _tasteContent.instruction }}
 	</div>
 	<ng-container *ngFor="let grouping of _tasteContent.content">
 		<div class="grouping">
 			<label>{{ grouping.name }}</label>
-			<div class="tags-container">
+			<div class="tags-container" [attr.data-multiselect]="grouping.multiselect">
 				<ng-container *ngFor="let tag of grouping.values">
-					<div class="tag">{{ tag }}</div>
+					<div class="tag" (click)="toggleTag($event)">{{ tag }}</div>
 				</ng-container>
 			</div>
 		</div>
 	</ng-container>
-</ng-container>
+</div>
 
-<ng-container *ngIf="_currentCategory==3">
+<div class="category finish" [ngStyle]="{'display': displayCategory(3)}">
 	<div class="instruction">
 		{{ _finishContent.instruction }}
 	</div>
 	<ng-container *ngFor="let grouping of _finishContent.content">
 		<div class="grouping">
 			<label>{{ grouping.name }}</label>
-			<div class="tags-container">
+			<div class="tags-container" [attr.data-multiselect]="grouping.multiselect">
 				<ng-container *ngFor="let tag of grouping.values">
-					<div class="tag">{{ tag }}</div>
+					<div class="tag" (click)="toggleTag($event)">{{ tag }}</div>
 				</ng-container>
 			</div>
 		</div>
 	</ng-container>
-</ng-container>
+</div>
 
-<ng-container *ngIf="_currentCategory==4">
+<div class="category overall" [ngStyle]="{'display': displayCategory(4)}">
 	<div class="instruction">
 		{{ _overallContent.instruction }}
 	</div>
 	<ng-container *ngFor="let grouping of _overallContent.content">
 		<div class="grouping">
 			<label>{{ grouping.name }}</label>
-			<div class="tags-container">
+			<div class="tags-container" [attr.data-multiselect]="grouping.multiselect">
 				<ng-container *ngFor="let tag of grouping.values">
-					<div class="tag">{{ tag }}</div>
+					<div class="tag" (click)="toggleTag($event)">{{ tag }}</div>
 				</ng-container>
 			</div>
 		</div>
 	</ng-container>
-</ng-container>
+</div>
 
 <div class="bottom-bar">
 	<app-regular-button #bottomBarButton (click)="nextTouchTagCategory()" [buttonConfig]="_buttonBottomBar"></app-regular-button>
