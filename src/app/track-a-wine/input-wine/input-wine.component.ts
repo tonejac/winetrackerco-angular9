@@ -293,11 +293,19 @@ export class InputWineComponent implements OnInit {
 			this._finishScore != null &&
 			this._overallScore != null
 		) {
+			/* TODO
+				- get all slider and comment input values
+				- call getTouchTags? values and stringify them
+				- create the API service to save a wine
+			*/
 			console.log('SAVE past wine');
 		} else {
 			// TODO: MAKE GLOBAL ALERT PANEL
 			alert('Please use all the scoring sliders before saving your wine.')
 		}
+		
+		
+		
 	}
 	
 	saveCellarWine() {
