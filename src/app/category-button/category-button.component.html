@@ -35,5 +35,5 @@
 		</div>
 	</div>
 	
-	<input type="file" [class]="_mode">
+	<input *ngIf="_mode!='undefined'" type="file" [class]="_mode" (change)="fileAddedChange($event)">
 </div>
