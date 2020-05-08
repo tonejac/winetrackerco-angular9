@@ -24,6 +24,8 @@ import { NavTabsComponent } from './slide-up-panel/nav-tabs/nav-tabs.component';
 import { SlideUpPanelDirective } from './slide-up-panel/slide-up-panel.directive';
 import { WineDetailsComponent } from './slide-up-panel/wine-details/wine-details.component';
 import { LoginChoiceComponent } from './user/login-choice/login-choice.component';
+import { SignupComponent } from './user/signup/signup.component';
+import { SigninComponent } from './user/signin/signin.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -54,7 +56,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		NavTabsComponent,
 		SlideUpPanelDirective,
 		WineDetailsComponent,
-		LoginChoiceComponent
+		LoginChoiceComponent,
+		SignupComponent,
+		SigninComponent
 	],
 	imports: [
 		SwiperModule,

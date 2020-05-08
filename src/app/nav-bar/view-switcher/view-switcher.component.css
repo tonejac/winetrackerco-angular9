@@ -77,7 +77,7 @@
 }
 
 .action-buttons-container-bg {
-	background-image: radial-gradient(50% 50%, #000000 50%, #000000 50%, rgba(0,0,0,0.00) 100%);
+	background-image: radial-gradient(circle at 50% 50%, #000000 40%, rgba(0,0,0,0.00) 70%);
 	background-repeat: no-repeat;
 	width: 600px;
 	height: 600px;

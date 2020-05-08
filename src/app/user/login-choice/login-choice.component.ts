@@ -27,7 +27,7 @@ export class LoginChoiceComponent implements OnInit {
 	}
 	
 	buttonClick(view:String):void {
-		this._router.navigate([view]);
+		this._router.navigate(['user', view]);
 	}
 	
 }

@@ -1,0 +1,25 @@
+<app-nav-bar [navBarConfig]="_navBarContent"></app-nav-bar>
+
+<form class="signin" autocomplete="off">
+	<div class="form-group">
+		<label for="username">Username <span>(case sensitive)</span></label>
+		<input type="text" id="username" name="username" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control ng-valid ng-dirty" data-ng-model="credentials.username">
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<div class="password-container">
+			<input type="password" id="password" name="password" class="form-control ng-valid ng-dirty" data-ng-model="credentials.password">
+			<div class="show-hide-button" ng-click="showHidePassword();">
+				<span class="ng-binding">SHOW</span>
+			</div>
+		</div>
+		<br>
+		<div ng-click="navigateTo('/password/forgot');" class="forgot-password-link panel-link">Forgot your password or username?</div>
+	</div>
+	<div data-ng-show="error" class="text-center text-danger signin ng-hide">
+		<span data-ng-bind="error" class="ng-binding"></span>
+	</div>
+	<div class="text-center form-group">
+		<button type="submit" class="btn btn-primary">Sign in</button>
+	</div>
+</form>

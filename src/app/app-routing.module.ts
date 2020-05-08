@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginChoiceComponent } from './user/login-choice/login-choice.component';
+import { SigninComponent } from './user/signin/signin.component';
+import { SignupComponent } from './user/signup/signup.component';
 import { TrackAWineComponent } from './track-a-wine/track-a-wine.component';
 import { MyWinesComponent } from './my-wines/my-wines.component';
 import { GalleryViewComponent } from './gallery-view/gallery-view.component';
@@ -16,8 +18,16 @@ const routes: Routes = [
 		component: HomeComponent
 	},
 	{
-		path: 'login-choice',
+		path: 'user/login-choice',
 		component: LoginChoiceComponent
+	},
+	{
+		path: 'user/signin',
+		component: SigninComponent
+	},
+	{
+		path: 'user/signup',
+		component: SignupComponent
 	},
 	{
 		path: 'trackawine',

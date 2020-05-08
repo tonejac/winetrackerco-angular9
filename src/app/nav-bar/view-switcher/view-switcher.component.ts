@@ -146,7 +146,11 @@ export class ViewSwitcherComponent implements OnInit {
 	
 	switchViewState(newView) {
 		this.closePlusButtonChildren();
-		this._router.navigate([newView, this._route.snapshot.paramMap.get('category')]);
+		if (newView == 'gallery') {
+			this._router.navigate([newView, this._route.snapshot.paramMap.get('category'), '0']);
+		} else {
+			this._router.navigate([newView, this._route.snapshot.paramMap.get('category')]);
+		}
 	}
 	
 }
