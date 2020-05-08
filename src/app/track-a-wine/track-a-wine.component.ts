@@ -47,7 +47,7 @@ export class TrackAWineComponent implements OnInit {
 	}
 	
 	navigateTo(view) {
-		console.log('emit navigateTo', view);
+		//console.log('emit navigateTo', view);
 		this._router.navigate(['trackawine', 'input', view]);
 	}
 	

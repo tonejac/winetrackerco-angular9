@@ -1,4 +1,5 @@
 .secondary {
+	width: 100%;
 	color: #ffffff;
 	background-color: rgba(0,0,0,.65);
 	border: 1px solid rgba(255,255,255,.5);
@@ -11,9 +12,11 @@
 	font-weight: 300;
 	cursor: pointer;
 	display: inline-block;
+	box-sizing: border-box;
 }
 
 .primary {
+	width: 100%;
 	color: #ffffff;
 	background-color: #6dbb00;
 	border: 1px solid #6dbb00;
@@ -26,6 +29,7 @@
 	font-weight: 300;
 	cursor: pointer;
 	display: inline-block;
+	box-sizing: border-box;
 }
 
 .primary.mini {
