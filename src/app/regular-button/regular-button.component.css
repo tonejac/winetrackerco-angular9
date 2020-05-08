@@ -32,7 +32,16 @@
 	box-sizing: border-box;
 }
 
-.primary.mini {
+.primary-mini {
+	width: 100%;
+	color: #ffffff;
+	background-color: #6dbb00;
+	border: 1px solid #6dbb00;
+	font-family: 'San Francisco','Helvetica Neue',Helvetica,arial,sans-serif;
+	font-weight: 300;
+	cursor: pointer;
+	display: inline-block;
+	box-sizing: border-box;
 	padding: 5px 10px;
 	font-size: 14px;
 	border-radius: 2px;

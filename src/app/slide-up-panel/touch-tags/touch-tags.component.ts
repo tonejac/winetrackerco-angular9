@@ -39,7 +39,7 @@ export class TouchTagsComponent implements OnInit {
 	_currentCategory:any = 0;
 	_buttonBottomBar:any = {
 		"value": "Next",
-		"type": "primary mini"
+		"type": "primary-mini"
 	}
 	
 	_visualTags:any;

@@ -10,7 +10,7 @@
 			Try our new TouchTags&trade; to quickly describe the wine without having to type.
 		</div>
 		<div class="button-container">
-			<app-regular-button [buttonConfig]="_touchTagsButtonConfig" (click)="openTouchTagsPanel($event)"></app-regular-button>
+			<app-regular-button class="touch-tag-button" [buttonConfig]="_touchTagsButtonConfig" (click)="openTouchTagsPanel($event)"></app-regular-button>
 			<span>(optional)</span>
 		</div>
 	</div>
@@ -106,8 +106,8 @@
 	</div>
 	
 	<div class="buttons-container">
-		<app-regular-button [buttonConfig]="_cancelButtonConfig" (click)="cancelTrackAWine()"></app-regular-button>
-		<app-regular-button [buttonConfig]="_saveButtonConfig" (click)="saveWine()"></app-regular-button>
+		<app-regular-button class="cancel-button" [buttonConfig]="_cancelButtonConfig" (click)="cancelTrackAWine()"></app-regular-button>
+		<app-regular-button class="save-button" [buttonConfig]="_saveButtonConfig" (click)="saveWine()"></app-regular-button>
 	</div>
 	
 </div>

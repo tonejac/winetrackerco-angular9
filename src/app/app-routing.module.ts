@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { LoginChoiceComponent } from './login-choice/login-choice.component';
+import { LoginChoiceComponent } from './user/login-choice/login-choice.component';
 import { TrackAWineComponent } from './track-a-wine/track-a-wine.component';
 import { MyWinesComponent } from './my-wines/my-wines.component';
 import { GalleryViewComponent } from './gallery-view/gallery-view.component';

@@ -23,7 +23,7 @@ import { SlideUpPanelComponent } from './slide-up-panel/slide-up-panel.component
 import { NavTabsComponent } from './slide-up-panel/nav-tabs/nav-tabs.component';
 import { SlideUpPanelDirective } from './slide-up-panel/slide-up-panel.directive';
 import { WineDetailsComponent } from './slide-up-panel/wine-details/wine-details.component';
-import { LoginChoiceComponent } from './login-choice/login-choice.component';
+import { LoginChoiceComponent } from './user/login-choice/login-choice.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,

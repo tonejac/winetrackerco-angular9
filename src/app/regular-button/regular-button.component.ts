@@ -11,7 +11,7 @@ export class RegularButtonComponent implements OnInit {
 	@Input() buttonConfig:any;
 	_buttonLabel:String;
 	
-	constructor() { }
+	constructor() {}
 	
 	ngOnInit(): void {
 		this._buttonLabel = this.buttonConfig.value;
