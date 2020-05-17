@@ -9,3 +9,83 @@
 	right: 0;
 	z-index: -1;
 }
+
+form {
+	margin-top: 78px;
+	width: 100%;
+	max-width: 270px;
+	margin: 40px auto;
+	position: relative;
+	top: 38px;
+}
+
+label {
+	margin: 0 0 5px;
+	white-space: nowrap;
+	font-size: 20px;
+	font-weight: 300;
+	color: #fff;
+	display: block;
+}
+
+label span {
+	font-size: 14px;
+}
+
+input {
+	border: 2px solid transparent;
+	border-radius: 3px;
+	background-color: rgba(255,255,255,1);
+	font-family: 'San Francisco','Helvetica Neue',Helvetica,arial,sans-serif;
+	font-size: 16px!important;
+	color: #302613;
+	padding: 7px 10px;
+	width: 270px;
+	box-sizing: border-box;
+	outline: 0;
+}
+
+#username {
+	width: 200px;
+	margin-bottom: 16px;
+}
+
+#password {
+	width: 270px;
+}
+
+.password-container {
+	position: relative;
+}
+
+.password-container input {
+	position: relative;
+}
+
+.show-hide-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 12px;
+	font-weight: 500;
+	color: #59bb00;
+	cursor: default;
+	height: 100%;
+	line-height: 36px;
+	padding: 0 7px;
+}
+
+.forgot-password-link {
+	font-size: 13px;
+	color: #6dbb00;
+	margin-bottom: 10px;
+	cursor: pointer;
+	display: block;
+	margin: 17px 0 27px 0;
+}
+
+app-regular-button {
+	width: 130px;
+	display: block;
+	cursor: pointer;
+}

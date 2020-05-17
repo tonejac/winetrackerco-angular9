@@ -66,7 +66,8 @@ export class NavMenuComponent implements OnInit {
 	}
 	
 	navigateToMyAccount() {
-		console.log('my account');
+		this.menuClick();
+		this._router.navigate(['user', 'login-choice']);
 	}
 	
 	navigateToAbout() {
