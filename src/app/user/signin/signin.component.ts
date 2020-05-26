@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../api.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
+import { User } from '../../user';
+import { Globals } from '../../globals';
 declare var $:any;
+declare var window:any;
 
 @Component({
 	selector: 'app-signin',
@@ -14,7 +18,9 @@ export class SigninComponent implements OnInit {
 	_showHide:String = 'hide';
 	
 	constructor(
-		private _apiService:ApiService
+		private _router:Router,
+		private _authService:AuthService,
+		private _globals:Globals
 		) { }
 	
 	ngOnInit(): void {
@@ -30,11 +36,49 @@ export class SigninComponent implements OnInit {
 	}
 	
 	signin() {
-		this._apiService.signin({
+		let userObj:User = {
 			"username": $('#username').val(),
 			"password": $('#password').val()
-		}).subscribe((response:any)=> {
+		}
+		this._authService.signin(userObj).subscribe((response:any)=> {
 			console.log('SIGNIN response', response);
+			
+			if (this._globals._destinationRoute) {
+				this._router.navigateByUrl(this._globals._destinationRoute);
+			} else {
+				this._router.navigateByUrl('/');
+			}
+			
+			// mixpanel.identify(response.username);
+			// mixpanel.people.set({
+			// 	'$username': response.username,
+			// 	'$membersince': response.created,
+			// 	'$firstname': response.firstName,
+			// 	'$email': response.email,
+			// 	'$id': response._id,
+			// 	'$lastlogin': new Date()
+			// });
+			//mixpanel.track('signin-manual');
+			
+			var confirmationMessage = '';
+			confirmationMessage += '<strong>Hello!</strong>';
+			confirmationMessage += '<br>';
+			confirmationMessage += '<br>';
+			confirmationMessage += 'Welcome back ' + response.username + ', you are now logged in.'
+			confirmationMessage += '<br>';
+			confirmationMessage += '<br>';
+			confirmationMessage += '<button id="okay-button" class="btn">Okay</div>';
+			
+			//ViewController.ShowSignupConfirm(confirmationMessage);
+			// TODO: make confirmation message component
+			
+			// if (window.destinationRoute != '' && window.destinationRoute != undefined) {
+			// 	this._router.navigate(window.destinationRoute);
+			// 	window.destinationRoute = '';
+			// } else {
+			// 	window.location = '/';
+			// }
+			
 		})
 	}
 	

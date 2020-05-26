@@ -1,7 +1,10 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { UrlTree } from '@angular/router';
 
 @Injectable()
 export class Globals {
+	
+	_destinationRoute:UrlTree;
 	
 	_currentWinesList:any = [
 		{

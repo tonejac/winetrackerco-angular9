@@ -13,19 +13,23 @@ export class ApiService {
 	
 	constructor(
 		private _httpClient:HttpClient,
-		) {}
+		) {
+			
+	}
 	
-	public signin(dataObj:any) {
+	public getMyWinesCount(dataObj:any) {
 		let dataObjString = JSON.stringify(dataObj);
 		let httpOptions = {
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json; charset=utf-8',
-				'Accept': 'application/json'
+				'Accept': 'application/json',
+				'Authorization': 'Bearer '+localStorage.getItem('winetrackerCookie')
 			})
 		};
 		
-		return this._httpClient.post(this._domain + '/auth/signin?sessionId='+this.getSessionId(), dataObjString, httpOptions).pipe(map(
+		return this._httpClient.post(this._domain + '/api/wines/user/count', dataObjString, httpOptions).pipe(map(
 			data => {
+				//localStorage.setItem('winetrackerCookie', String(data));
 				return data;
 			},
 			error => {
@@ -33,19 +37,6 @@ export class ApiService {
 				return error;
 			}
 		))
-	}
-	
-	
-	public getSessionId():any {
-		var sessionId = window.localStorage.getItem('winetrackerCookie');
-		
-		if (sessionId) {
-			return sessionId;
-		} else {
-			sessionId = uuid();
-			window.localStorage.setItem('winetrackerCookie', sessionId);
-			return sessionId;
-		}
 	}
 	
 	

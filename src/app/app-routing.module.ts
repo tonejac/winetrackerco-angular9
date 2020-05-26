@@ -10,6 +10,7 @@ import { GalleryViewComponent } from './gallery-view/gallery-view.component';
 import { GridViewComponent } from './grid-view/grid-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { InputWineComponent } from './track-a-wine/input-wine/input-wine.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
 	},
 	{
 		path: 'mywines',
-		component: MyWinesComponent
+		component: MyWinesComponent,
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'gallery/:category/:index',

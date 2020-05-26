@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Globals } from '../globals';
+import { ApiService } from '../api.service';
 
 @Component({
 	selector: 'app-my-wines',
@@ -17,7 +18,8 @@ export class MyWinesComponent implements OnInit {
 	
 	constructor(
 		private _router:Router,
-		private _globals:Globals
+		private _globals:Globals,
+		private _apiService:ApiService
 		) { }
 	
 	ngOnInit(): void {
@@ -44,6 +46,12 @@ export class MyWinesComponent implements OnInit {
 			"row1Text": "My Wishlist",
 			"row2Text": "Wines I'd like to buy"
 		}
+		
+		this._apiService.getMyWinesCount({
+			"userId": "12345"
+		}).subscribe((response:any)=> {
+			console.log('getMyWinesCount response:', response);
+		});
 		
 	}
 	

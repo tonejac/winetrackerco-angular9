@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 	
+	_sessionId = window.localStorage.getItem('winetrackerCookie');
 	_notificationCount:Number;
 	
 	constructor(
@@ -23,6 +24,9 @@ export class HomeComponent implements OnInit {
 	}
 	
 	navigateToMyWines() {
+		if (this._sessionId) {
+			
+		}
 		this._router.navigate(['mywines']);
 	}
 	

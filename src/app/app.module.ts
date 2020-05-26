@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRouteSnapshot } from '@angular/router';
 
 import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 
@@ -27,6 +28,7 @@ import { WineDetailsComponent } from './slide-up-panel/wine-details/wine-details
 import { LoginChoiceComponent } from './user/login-choice/login-choice.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { SigninComponent } from './user/signin/signin.component';
+import { AuthGuard } from './auth.guard';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -72,7 +74,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 			provide: SWIPER_CONFIG,
 			useValue: DEFAULT_SWIPER_CONFIG
 		},
-		Globals
+		Globals,
+		AuthGuard
 	],
 	bootstrap: [AppComponent]
 })
