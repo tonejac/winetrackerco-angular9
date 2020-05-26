@@ -19,7 +19,6 @@ export class CategoryButtonComponent implements OnInit {
 	
 	ngOnInit(): void {
 		this._mode = this.buttonConfig.mode;
-		console.log('_mode', this._mode);
 		// setTimeout(()=> {
 		// 	if (this.buttonConfig.mode) {
 		// 		$('input').show();

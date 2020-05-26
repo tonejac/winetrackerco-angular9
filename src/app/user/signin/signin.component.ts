@@ -69,15 +69,9 @@ export class SigninComponent implements OnInit {
 			confirmationMessage += '<br>';
 			confirmationMessage += '<button id="okay-button" class="btn">Okay</div>';
 			
-			//ViewController.ShowSignupConfirm(confirmationMessage);
-			// TODO: make confirmation message component
-			
-			// if (window.destinationRoute != '' && window.destinationRoute != undefined) {
-			// 	this._router.navigate(window.destinationRoute);
-			// 	window.destinationRoute = '';
-			// } else {
-			// 	window.location = '/';
-			// }
+			this._globals._confirmationTitle = 'Hello!';
+			this._globals._confirmationMessage = 'Welcome back ' + response.username + ', you are now logged in.';
+			this._globals._confirmationUpdate.emit();
 			
 		})
 	}

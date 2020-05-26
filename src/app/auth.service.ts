@@ -27,7 +27,7 @@ export class AuthService {
 		
 		return this._httpClient.post(this._domain + '/auth/signin-jwt', dataObjString, httpOptions).pipe(map(
 			data => {
-				localStorage.setItem('winetrackerCookie', String(data));
+				localStorage.setItem('winetrackerCookie', String(data['token']));
 				return data;
 			},
 			error => {

@@ -63,6 +63,10 @@ export class Globals {
 	_currentTouchTagsCategory:any;
 	_bottomBarDone = new EventEmitter();
 	
+	_confirmationUpdate = new EventEmitter();
+	_confirmationTitle:String;
+	_confirmationMessage:String;
+	
 	constructor() {
 		
 	}

@@ -29,6 +29,7 @@ import { LoginChoiceComponent } from './user/login-choice/login-choice.component
 import { SignupComponent } from './user/signup/signup.component';
 import { SigninComponent } from './user/signin/signin.component';
 import { AuthGuard } from './auth.guard';
+import { ConfirmationMessageComponent } from './confirmation-message/confirmation-message.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -61,7 +62,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		WineDetailsComponent,
 		LoginChoiceComponent,
 		SignupComponent,
-		SigninComponent
+		SigninComponent,
+		ConfirmationMessageComponent
 	],
 	imports: [
 		SwiperModule,
