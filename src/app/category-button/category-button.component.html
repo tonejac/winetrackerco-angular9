@@ -29,11 +29,17 @@
 	<div class="text-rows">
 		<div class="row-1">
 			{{ buttonConfig.row1Text }}
+			<span *ngIf="buttonConfig.count">
+				({{ buttonConfig.count }})
+			</span>
 		</div>
 		<div class="row-2">
 			{{ buttonConfig.row2Text }}
+			<span *ngIf="buttonConfig.total">
+				, valued at ${{ buttonConfig.total }} <sup>USD</sup>
+			</span>
 		</div>
 	</div>
 	
-	<input *ngIf="_mode!='undefined'" type="file" [class]="_mode" (change)="fileAddedChange($event)">
+	<input *ngIf="_mode!=undefined" type="file" [class]="_mode" (change)="fileAddedChange($event)">
 </div>

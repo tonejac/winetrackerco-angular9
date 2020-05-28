@@ -32,25 +32,38 @@ export class MyWinesComponent implements OnInit {
 		this._pastButtonConfig = {
 			"svgIcon": "past",
 			"row1Text": "Past Wines",
-			"row2Text": "Wines I've already drank"
+			"row2Text": "Wines I've already drank",
+			"mode": undefined,
+			"count": null
 		}
 		
 		this._cellarButtonConfig = {
 			"svgIcon": "cellar",
 			"row1Text": "My Cellar",
-			"row2Text": "Wines I own, valued at $nnn"
+			"row2Text": "Wines I own",
+			"mode": undefined,
+			"count": null,
+			"total": null
 		}
 		
 		this._wishlistButtonConfig = {
 			"svgIcon": "wishlist",
 			"row1Text": "My Wishlist",
-			"row2Text": "Wines I'd like to buy"
+			"row2Text": "Wines I'd like to buy",
+			"mode": undefined,
+			"count": null
 		}
 		
-		this._apiService.getMyWinesCount({
-			"userId": "12345"
-		}).subscribe((response:any)=> {
+		this._apiService.getMyWinesCount({}).subscribe((response:any)=> {
 			console.log('getMyWinesCount response:', response);
+			this._pastButtonConfig.count = response.past;
+			this._cellarButtonConfig.count = response.cellar;
+			this._wishlistButtonConfig.count = response.wishlist;
+		});
+		
+		this._apiService.getCellarValue().subscribe((response:any)=> {
+			this._cellarButtonConfig.total = response.cellarValue;
+			console.log('celar value', response.cellarValue);
 		});
 		
 	}

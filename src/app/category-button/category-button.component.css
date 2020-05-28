@@ -65,6 +65,10 @@ svg.drinkitnow {
 	padding-bottom: 1px;
 }
 
+.row-1 span {
+	font-weight: 300;
+}
+
 .row-2 {
 	position: relative;
 	top: -2px;
@@ -82,4 +86,10 @@ input[type=file] {
 	bottom: 0;
 	width: 100%;
 	opacity: 0.0;
+}
+
+span sup {
+	font-size: 70%;
+	position: relative;
+	top: 2px;
 }

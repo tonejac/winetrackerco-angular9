@@ -17,19 +17,22 @@ export class ApiService {
 			
 	}
 	
-	public getMyWinesCount(dataObj:any) {
-		let dataObjString = JSON.stringify(dataObj);
-		let httpOptions = {
+	getHeaders():any {
+		let options = {
 			headers: new HttpHeaders({
 				'Content-Type': 'application/json; charset=utf-8',
 				'Accept': 'application/json',
 				'Authorization': 'Bearer '+localStorage.getItem('winetrackerCookie')
 			})
-		};
+		}
+		return options;
+	}
+	
+	public getMyWinesCount(dataObj:any) {
+		let dataObjString = JSON.stringify(dataObj);
 		
-		return this._httpClient.post(this._domain + '/api/wines/user/count', dataObjString, httpOptions).pipe(map(
+		return this._httpClient.post(this._domain + '/api/wines/user/count', dataObjString, this.getHeaders()).pipe(map(
 			data => {
-				//localStorage.setItem('winetrackerCookie', String(data));
 				return data;
 			},
 			error => {
@@ -37,6 +40,19 @@ export class ApiService {
 				return error;
 			}
 		))
+	}
+	
+	public getCellarValue() {
+		// JWT from 'winetrackerCookie' will determine the userid
+		return this._httpClient.post(this._domain + '/api/wines/cellar/value', {"mode": "cellar"}, this.getHeaders()).pipe(map(
+			data => {
+				return data;
+			},
+			error => {
+				console.log('Error', error);
+				return error;
+			}
+		));
 	}
 	
 	
