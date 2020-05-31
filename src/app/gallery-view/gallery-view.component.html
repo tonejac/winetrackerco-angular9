@@ -6,15 +6,17 @@
 	(swiperTransitionStart)="onSwiperEvent('transitionStart')"
 	(swiperTransitionEnd)="onSwiperEvent('transitionEnd')"
 	>
-	<div *ngFor="let slide of _slidesContent; let i=index;" class="wine-slide">
-		<img [attr.data-src]="slide.image" class="swiper-lazy wine-image">
-		<div class="score-and-button-container">
-			<div class="score-container">
-				{{ 93 }}<sup>.{{ 7 }}</sup>
-			</div>
-			<div class="view-details-button" (click)="showDetailsPanel(i)">
-				View Details
+	<ng-container *ngIf="_slidesContent">
+		<div *ngFor="let slide of _slidesContent; let i=index;" class="wine-slide">
+			<img [attr.data-src]="'https://winetrackerco.imgix.net/'+slide.photoURL+'?w=&h=1024'" class="swiper-lazy wine-image">
+			<div class="score-and-button-container">
+				<div class="score-container">
+					{{ getFirstPartOfScore(slide.scoreTotal) }}<sup>.{{ getLastPartOfScore(slide.scoreTotal) }}</sup>
+				</div>
+				<div class="view-details-button" (click)="showDetailsPanel(i)">
+					View Details
+				</div>
 			</div>
 		</div>
-	</div>
+	</ng-container>
 </swiper>

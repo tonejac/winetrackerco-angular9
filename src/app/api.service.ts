@@ -55,9 +55,23 @@ export class ApiService {
 		));
 	}
 	
+	public getPastWines() {
+		return this._httpClient.post(this._domain + '/wines/my', {
+			"mode": "past"
+		}, this.getHeaders()).pipe(map(
+			data => {
+				return data;
+			},
+			error => {
+				console.log('Error', error);
+				return error;
+			}
+		));
+	}
+	
 	
 	/*
-	
+	// EXAMPLE OF A GET REQUEST /////////////////
 	public getBinData(binId) {
 		return this.httpClient.get('https://service.stockpilereports.com/fc/getFixedPileData.php?id='+binId);
 	}

@@ -62,10 +62,15 @@ swiper>.swiper.s-wrapper {
 	box-sizing: border-box;
 	padding-top: 38px;
 	z-index: 0;
+	background-color: rgba(0, 0, 0, 0.85);
 }
 
 swiper>.swiper.s-wrapper .swiper-wrapper .swiper-slide {
 	overflow: hidden !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+	color: rgb(255, 255, 255, 0.8) !important;
 }
 
 #system-message {
