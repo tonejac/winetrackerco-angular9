@@ -32,6 +32,7 @@ import { AuthGuard } from './auth.guard';
 import { ConfirmationMessageComponent } from './confirmation-message/confirmation-message.component';
 import { GroupTastingComponent } from './group-tasting/group-tasting.component';
 import { WinesViewerComponent } from './wines-viewer/wines-viewer.component';
+import { ApiResolver } from './api.resolver';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -81,7 +82,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 			useValue: DEFAULT_SWIPER_CONFIG
 		},
 		Globals,
-		AuthGuard
+		AuthGuard,
+		ApiResolver
 	],
 	bootstrap: [AppComponent]
 })

@@ -12,6 +12,7 @@ import { ListViewComponent } from './list-view/list-view.component';
 import { InputWineComponent } from './track-a-wine/input-wine/input-wine.component';
 import { AuthGuard } from './auth.guard';
 import { WinesViewerComponent } from './wines-viewer/wines-viewer.component';
+import { ApiResolver } from './api.resolver';
 
 
 const routes: Routes = [
@@ -48,7 +49,13 @@ const routes: Routes = [
 	},
 	{
 		path: 'mywines/:category/:type/:index',
-		component: WinesViewerComponent
+		component: WinesViewerComponent,
+		resolve: {
+			apiData: ApiResolver
+		},
+		data: {
+			resolveMethod: 'getMyWinesData'
+		}
 	}
 	
 ];
