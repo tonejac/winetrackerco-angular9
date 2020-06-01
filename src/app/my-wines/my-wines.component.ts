@@ -70,11 +70,11 @@ export class MyWinesComponent implements OnInit {
 	
 	navigateTo(target:String) {
 		if (target == 'pastwines') {
-			this._router.navigate(['gallery', 'past', '0']);
+			this._router.navigate(['mywines', 'past', 'gallery', '0']);
 		} else if (target == 'cellarwines') {
-			this._router.navigate(['gallery', 'cellar', '0']);
+			this._router.navigate(['mywines', 'cellar', 'gallery', '0']);
 		} else if (target == 'wishlistwines') {
-			this._router.navigate(['gallery', 'wishlist', '0']);
+			this._router.navigate(['mywines', 'wishlist', 'gallery', '0']);
 		}
 	}
 	

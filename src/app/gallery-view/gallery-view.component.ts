@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Globals } from '../globals';
 import { ApiService } from '../api.service';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-gallery-view',
@@ -11,6 +12,8 @@ import { ApiService } from '../api.service';
 	styleUrls: ['./gallery-view.component.css']
 })
 export class GalleryViewComponent implements OnInit {
+	
+	@Input() winesConfig:any;
 	
 	public type: string = 'component';
 	
@@ -34,52 +37,34 @@ export class GalleryViewComponent implements OnInit {
 		) { }
 	
 	ngOnInit(): void {
-		this._category = this._route.snapshot.paramMap.get('category');
 		this._index = this._route.snapshot.paramMap.get('index');
 		
-		this._navBarContent = {
-			"title": this.getTitle(),
-			"cellarTotal": null
-		}
+		this._slidesContent = this.winesConfig;
 		
-		this._apiService.getPastWines().subscribe((response:any)=> {
-			console.log('past wines:', response);
-			this._slidesContent = response;
-			setTimeout(()=> {
-				this.config = {
-					a11y: true,
-					direction: 'horizontal',
-					slidesPerView: 1,
-					keyboard: true,
-					navigation: true,
-					pagination: true,
-					preloadImages: false,
-					watchSlidesVisibility: true,
-					lazy: {
-						loadPrevNext: true
-					},
-					threshold: 10
-				};
-				
-				this.pagination = {
-					el: '.swiper-pagination',
-					clickable: true,
-					hideOnClick: false
-				};
-				this.componentRef.directiveRef.setIndex(this._index);
-			}, 0);
-		});
+		setTimeout(()=> {
+			this.config = {
+				a11y: true,
+				direction: 'horizontal',
+				slidesPerView: 1,
+				keyboard: true,
+				navigation: true,
+				pagination: true,
+				preloadImages: false,
+				watchSlidesVisibility: true,
+				lazy: {
+					loadPrevNext: true
+				},
+				threshold: 10
+			};
+			
+			this.pagination = {
+				el: '.swiper-pagination',
+				clickable: true,
+				hideOnClick: false
+			};
+			this.componentRef.directiveRef.setIndex(this._index);
+		}, 0);
 		
-	}
-	
-	getTitle() {
-		if (this._category == 'past') {
-			return 'My Past Wines';
-		} else if (this._category == 'cellar') {
-			return 'My Cellar Wines';
-		} else if (this._category == 'wishlist') {
-			return 'My Wishlist Wines';
-		}
 	}
 	
 	public onIndexChange(index: number): void {

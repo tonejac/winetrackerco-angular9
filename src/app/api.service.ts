@@ -2,7 +2,7 @@ import { Injectable, } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { v4 as uuid } from 'uuid';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
 	providedIn: 'root'
@@ -13,6 +13,7 @@ export class ApiService {
 	
 	constructor(
 		private _httpClient:HttpClient,
+		private _route:ActivatedRoute
 		) {
 			
 	}
@@ -55,9 +56,9 @@ export class ApiService {
 		));
 	}
 	
-	public getPastWines() {
+	public getMyWines(category:String) {
 		return this._httpClient.post(this._domain + '/wines/my', {
-			"mode": "past"
+			"mode": category
 		}, this.getHeaders()).pipe(map(
 			data => {
 				return data;

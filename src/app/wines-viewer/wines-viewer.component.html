@@ -1,0 +1,6 @@
+<app-nav-bar [navBarConfig]="_navBarContent"></app-nav-bar>
+
+<app-gallery-view [winesConfig]="_winesData" *ngIf="isGallery()"></app-gallery-view>
+<app-grid-view [winesConfig]="_winesData" *ngIf="isGrid()"></app-grid-view>
+<app-list-view [winesConfig]="_winesData" *ngIf="isList()"></app-list-view>
+

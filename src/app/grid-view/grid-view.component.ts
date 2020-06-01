@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Globals } from '../globals';
 
@@ -9,6 +9,7 @@ import { Globals } from '../globals';
 })
 export class GridViewComponent implements OnInit {
 	
+	@Input() winesConfig:any;
 	public _navBarContent:any;
 	public _category:any;
 	public _gridContent:any;

@@ -11,6 +11,7 @@ import { GridViewComponent } from './grid-view/grid-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { InputWineComponent } from './track-a-wine/input-wine/input-wine.component';
 import { AuthGuard } from './auth.guard';
+import { WinesViewerComponent } from './wines-viewer/wines-viewer.component';
 
 
 const routes: Routes = [
@@ -32,11 +33,13 @@ const routes: Routes = [
 	},
 	{
 		path: 'trackawine',
-		component: TrackAWineComponent
+		component: TrackAWineComponent,
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'trackawine/input/:mode',
-		component: InputWineComponent
+		component: InputWineComponent,
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'mywines',
@@ -44,16 +47,8 @@ const routes: Routes = [
 		canActivate: [AuthGuard]
 	},
 	{
-		path: 'gallery/:category/:index',
-		component: GalleryViewComponent
-	},
-	{
-		path: 'list/:category',
-		component: ListViewComponent
-	},
-	{
-		path: 'grid/:category',
-		component: GridViewComponent
+		path: 'mywines/:category/:type/:index',
+		component: WinesViewerComponent
 	}
 	
 ];

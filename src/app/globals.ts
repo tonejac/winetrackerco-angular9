@@ -1,5 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { UrlTree } from '@angular/router';
+import { ActivatedRoute, UrlTree } from '@angular/router';
+import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class Globals {
@@ -67,7 +69,14 @@ export class Globals {
 	_confirmationTitle:String;
 	_confirmationMessage:String;
 	
-	constructor() {
+	_category:String;
+	_index:Number;
+	
+	constructor(
+		private _route:ActivatedRoute,
+		private _apiService:ApiService
+		) {
 		
 	}
+	
 }
