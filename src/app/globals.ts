@@ -61,6 +61,8 @@ export class Globals {
 	
 	_photoFile:any;
 	
+	_wineViewerCategoryChange = new EventEmitter();
+	
 	_touchTagsCategoryChange = new EventEmitter();
 	_currentTouchTagsCategory:any;
 	_bottomBarDone = new EventEmitter();

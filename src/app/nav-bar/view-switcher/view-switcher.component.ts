@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Globals } from '../../globals';
 declare var $:any;
 
 @Component({
@@ -17,12 +18,11 @@ export class ViewSwitcherComponent implements OnInit {
 	
 	constructor(
 		private _router:Router,
-		private _route:ActivatedRoute
+		private _route:ActivatedRoute,
+		private _globals:Globals
 		) { }
 	
 	ngOnInit(): void {
-		this.setViewName();
-		
 		$('.button-plus-icon').unbind('click');
 		$('.button-plus-icon').on('click', ()=> {
 			
@@ -61,6 +61,7 @@ export class ViewSwitcherComponent implements OnInit {
 			}
 		});
 		
+		this._viewName = this._route.snapshot.paramMap.get('type');
 		if (this._viewName === 'list') {
 			$('.nav-bar-view-switcher-container').addClass('list');
 			$('.nav-bar-view-switcher-container').removeClass('grid');
@@ -91,16 +92,6 @@ export class ViewSwitcherComponent implements OnInit {
 			// DELETE THE WINE
 		});
 		
-	}
-	
-	setViewName() {
-		if (this._route.snapshot.routeConfig.path.indexOf('gallery') != -1) {
-			this._viewName = 'gallery';
-		} else if (this._route.snapshot.routeConfig.path.indexOf('grid') != -1) {
-			this._viewName = 'grid';
-		} else if (this._route.snapshot.routeConfig.path.indexOf('list') != -1) {
-			this._viewName = 'list';
-		}
 	}
 	
 	closePlusButtonChildren() {
@@ -146,11 +137,9 @@ export class ViewSwitcherComponent implements OnInit {
 	
 	switchViewState(newView) {
 		this.closePlusButtonChildren();
-		if (newView == 'gallery') {
-			this._router.navigate([newView, this._route.snapshot.paramMap.get('category'), '0']);
-		} else {
-			this._router.navigate([newView, this._route.snapshot.paramMap.get('category')]);
-		}
+		let category = this._route.snapshot.paramMap.get('category');
+		this._router.navigate(['mywines', category, newView, '0']);
+		this._globals._wineViewerCategoryChange.emit();
 	}
 	
 }

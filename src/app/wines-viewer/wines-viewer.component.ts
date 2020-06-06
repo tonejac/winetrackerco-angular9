@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { Globals } from '../globals';
 
 @Component({
 	selector: 'app-wines-viewer',
@@ -14,10 +15,14 @@ export class WinesViewerComponent implements OnInit {
 	_category:String;
 	_type:String;
 	_winesData:Object = null;
+	_isGallery:Boolean = false;
+	_isGrid:Boolean = false;
+	_isList:Boolean = false;
 	
 	constructor(
 		private _route:ActivatedRoute,
-		private _apiService:ApiService
+		private _apiService:ApiService,
+		private _globals:Globals
 		) { }
 	
 	ngOnInit(): void {
@@ -32,6 +37,19 @@ export class WinesViewerComponent implements OnInit {
 		this._apiService.getMyWines(this._category).subscribe((response:any)=> {
 			this._winesData = response;
 		});
+		
+		this._globals._wineViewerCategoryChange.subscribe(()=> {
+			this.setType();
+		});
+		
+		this.setType();
+	}
+	
+	setType():void {
+		this._type = this._route.snapshot.paramMap.get('type');
+		this.isGallery();
+		this.isGrid();
+		this.isList();
 	}
 	
 	getTitle() {
@@ -44,27 +62,27 @@ export class WinesViewerComponent implements OnInit {
 		}
 	}
 	
-	isGallery():Boolean {
+	isGallery():void {
 		if (this._type == 'gallery') {
-			return true;
+			this._isGallery = true;
 		} else {
-			return false;
+			this._isGallery = false;
 		}
 	}
 	
-	isGrid():Boolean {
+	isGrid():void {
 		if (this._type == 'grid') {
-			return true;
+			this._isGrid = true;
 		} else {
-			return false;
+			this._isGrid = false;
 		}
 	}
 	
-	isList():Boolean {
+	isList():void {
 		if (this._type == 'list') {
-			return true;
+			this._isList = true;
 		} else {
-			return false;
+			this._isList = false;
 		}
 	}
 	
