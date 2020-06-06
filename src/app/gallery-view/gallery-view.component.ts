@@ -62,8 +62,11 @@ export class GalleryViewComponent implements OnInit {
 				clickable: true,
 				hideOnClick: false
 			};
-			this.componentRef.directiveRef.setIndex(this._index);
 		}, 0);
+		
+		setTimeout(()=> {
+			this.componentRef.directiveRef.setIndex(this._index);
+		}, 1);
 		
 	}
 	
