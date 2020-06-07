@@ -6,6 +6,8 @@
 	flex-wrap: wrap;
 	align-content: flex-start;
 	background-color: rgba(0,0,0,.8);
+	min-height: 100%;
+	box-sizing: border-box;
 }
 
 .grid-item {

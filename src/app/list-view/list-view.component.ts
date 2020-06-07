@@ -37,12 +37,21 @@ export class ListViewComponent implements OnInit {
 	}
 	
 	getFirstPartOfScore(scoreNumber:String):String {
+		if (scoreNumber == '0' || scoreNumber == null) {
+			return '--';
+		}
 		let wholeNumber = String(scoreNumber).split('.')[0];
 		return wholeNumber;
 	}
 	
 	getLastPartOfScore(scoreNumber:String):String {
+		if (scoreNumber == '0' || scoreNumber == null) {
+			return '-';
+		}
 		let decimal = String(scoreNumber).split('.')[1];
+		if (decimal == undefined) {
+			decimal = '0';
+		}
 		return decimal;
 	}
 	

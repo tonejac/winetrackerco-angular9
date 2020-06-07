@@ -4,7 +4,7 @@
 			<div class="grid-item" (click)="navigateToGallery(i)">
 				<img [src]="'https://winetrackerco.imgix.net/' + wine.photoURL + '?w=320&h=320&fit=crop'" width="100%">
 				<div class="score-number">
-					<span>{{ getFirstPartOfScore(wine.scoreTotal) }}<sup>.{{ getLastPartOfScore(wine.scoreTotal) || '0' }}</sup></span>
+					<span>{{ getFirstPartOfScore(wine.scoreTotal) }}<sup>.{{ getLastPartOfScore(wine.scoreTotal) }}</sup></span>
 				</div>
 			</div>
 		</ng-container>
