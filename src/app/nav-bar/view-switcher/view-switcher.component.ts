@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Globals } from '../../globals';
+import { filter } from 'rxjs/operators'
 declare var $:any;
 
 @Component({
@@ -23,44 +24,6 @@ export class ViewSwitcherComponent implements OnInit {
 		) { }
 	
 	ngOnInit(): void {
-		$('.button-plus-icon').unbind('click');
-		$('.button-plus-icon').on('click', ()=> {
-			
-			if ( $('.button-plus-icon').attr('data-state') == "open" ) {
-				this.closePlusButtonChildren();
-				$('.button-plus-icon').find('svg rect, svg path').css({
-					'fill':'#a48d61'
-				});
-				$('.button-plus-icon').attr('data-state', 'closed');
-			} else if ( $('.button-plus-icon').attr('data-state') == 'closed' ) {
-				this._buttonsList = $('.action-buttons-container .sub-nodes').find('button');
-				var centerX = 0;
-				var centerY = 0;
-				
-				this.calculateButtonPositions( 4, {xPos:centerX, yPos:centerY}, 110 );
-
-				for (var i=0; i<(this._plusButtonPoints.length); i++) {
-					$(this._buttonsList[i]).css({'display':'block'}).transition({
-						x:(this._plusButtonPoints[i].xPos+'px'),
-						y:(this._plusButtonPoints[i].yPos+'px'),
-						width:'50px',
-						height:'50px',
-						borderRadius:'25px',
-						opacity:'1.0'
-					}, 300, 'easeOutQuad');
-				}
-				$(this).attr('data-state', 'open');
-				
-				$('.button-plus-icon').find('svg rect, svg path').css({
-					'fill':'#ffffff'
-				});
-				
-				$('.action-buttons-container-bg').transition({
-					opacity:'0.75'
-				}, 300, 'linear');
-			}
-		});
-		
 		this._viewName = this._route.snapshot.paramMap.get('type');
 		if (this._viewName === 'list') {
 			$('.nav-bar-view-switcher-container').addClass('list');
@@ -87,11 +50,48 @@ export class ViewSwitcherComponent implements OnInit {
 		
 		$('.nav-bar-view-switcher-container').show();
 		
-		
-		$(".button-plus-remove-from-past-wines").on("click", function() {
-			// DELETE THE WINE
+		this._router.events.pipe(
+			filter(event => event instanceof NavigationEnd)
+		).subscribe(() => {
+			this._globals._wineViewerCategoryChange.emit();
 		});
-		
+	}
+	
+	
+	openViewSwitcher() {
+		if ( $('.button-plus-icon').attr('data-state') == "open" ) {
+			this.closePlusButtonChildren();
+			$('.button-plus-icon').find('svg rect, svg path').css({
+				'fill':'#a48d61'
+			});
+			$('.button-plus-icon').attr('data-state', 'closed');
+		} else if ( $('.button-plus-icon').attr('data-state') == 'closed' ) {
+			this._buttonsList = $('.action-buttons-container .sub-nodes').find('button');
+			var centerX = 0;
+			var centerY = 0;
+			
+			this.calculateButtonPositions( 4, {xPos:centerX, yPos:centerY}, 110 );
+
+			for (var i=0; i<(this._plusButtonPoints.length); i++) {
+				$(this._buttonsList[i]).css({'display':'block'}).transition({
+					x:(this._plusButtonPoints[i].xPos+'px'),
+					y:(this._plusButtonPoints[i].yPos+'px'),
+					width:'50px',
+					height:'50px',
+					borderRadius:'25px',
+					opacity:'1.0'
+				}, 300, 'easeOutQuad');
+			}
+			$(this).attr('data-state', 'open');
+			
+			$('.button-plus-icon').find('svg rect, svg path').css({
+				'fill':'#ffffff'
+			});
+			
+			$('.action-buttons-container-bg').transition({
+				opacity:'0.75'
+			}, 300, 'linear');
+		}
 	}
 	
 	closePlusButtonChildren() {
@@ -137,9 +137,9 @@ export class ViewSwitcherComponent implements OnInit {
 	
 	switchViewState(newView) {
 		this.closePlusButtonChildren();
+		
 		let category = this._route.snapshot.paramMap.get('category');
 		this._router.navigate(['mywines', category, newView, '0']);
-		this._globals._wineViewerCategoryChange.emit();
 	}
 	
 }

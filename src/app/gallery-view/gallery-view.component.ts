@@ -38,7 +38,7 @@ export class GalleryViewComponent implements OnInit {
 	
 	ngOnInit(): void {
 		this._index = this._route.snapshot.paramMap.get('index');
-		
+		this._category = this._route.snapshot.paramMap.get('category');
 		this._slidesContent = this.winesConfig;
 		
 		setTimeout(()=> {
@@ -73,7 +73,7 @@ export class GalleryViewComponent implements OnInit {
 	public onIndexChange(index: number): void {
 		console.log('Swiper index: ', index);
 		
-		this._location.replaceState('/gallery/' + this._category + '/' + index);
+		this._location.replaceState('/mywines/' + this._category + '/gallery/' + index);
 	}
 	
 	public onSwiperEvent(event: string): void {

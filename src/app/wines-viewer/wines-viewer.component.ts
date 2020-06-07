@@ -46,6 +46,7 @@ export class WinesViewerComponent implements OnInit {
 	}
 	
 	setType():void {
+		console.log('setType');
 		this._type = this._route.snapshot.paramMap.get('type');
 		this.isGallery();
 		this.isGrid();

@@ -5,13 +5,14 @@
 	top: 38px;
 	bottom: 0;
 	width: 100%;
-	max-width: 600px;
-	background-color: rgba(0,0,0,.8);
 	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 5px 0 5px 0;
 }
 
 .list-item {
 	display: flex;
+	max-width: 600px;
 }
 
 .list-item:active {
@@ -42,7 +43,8 @@
 
 .score-container span sup {
 	font-size: 17px;
-	
+	position: relative;
+	top: 2px;
 }
 
 .description-container {

@@ -23,7 +23,8 @@ export class ListViewComponent implements OnInit {
 	ngOnInit(): void {
 		this._category = this._route.snapshot.paramMap.get('category');
 		
-		this._listContent = this._globals._currentWinesList;
+		this._listContent = this.winesConfig;
+		console.log('_listContent', this._listContent);
 		
 		this._navBarContent = {
 			"title": this.getTitle(),
@@ -33,6 +34,16 @@ export class ListViewComponent implements OnInit {
 	
 	getTitle() {
 		
+	}
+	
+	getFirstPartOfScore(scoreNumber:String):String {
+		let wholeNumber = String(scoreNumber).split('.')[0];
+		return wholeNumber;
+	}
+	
+	getLastPartOfScore(scoreNumber:String):String {
+		let decimal = String(scoreNumber).split('.')[1];
+		return decimal;
 	}
 	
 	navigateToGallery(index) {

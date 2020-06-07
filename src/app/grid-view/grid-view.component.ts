@@ -23,7 +23,7 @@ export class GridViewComponent implements OnInit {
 	ngOnInit(): void {
 		this._category = this._route.snapshot.paramMap.get('category');
 		
-		this._gridContent = this._globals._currentWinesList;
+		this._gridContent = this.winesConfig;
 		
 		this._navBarContent = {
 			"title": this.getTitle(),
