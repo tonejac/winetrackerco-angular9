@@ -2,9 +2,9 @@
 	<div class="grid-container">
 		<ng-container *ngFor="let wine of _gridContent; let i=index;">
 			<div class="grid-item" (click)="navigateToGallery(i)">
-				<img [src]="wine.thumbnail" width="100%">
+				<img [src]="'https://winetrackerco.imgix.net/' + wine.photoURL + '?w=320&h=320&fit=crop'" width="100%">
 				<div class="score-number">
-					<span class="ng-binding">89<sup class="ng-binding">.3</sup></span>
+					<span>{{ getFirstPartOfScore(wine.scoreTotal) }}<sup>.{{ getLastPartOfScore(wine.scoreTotal) || '0' }}</sup></span>
 				</div>
 			</div>
 		</ng-container>

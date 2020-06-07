@@ -47,7 +47,7 @@ export class ListViewComponent implements OnInit {
 	}
 	
 	navigateToGallery(index) {
-		this._router.navigate(['gallery', this._category, index]);
+		this._router.navigate(['mywines', 'past', 'gallery', index]);
 	}
 	
 }

@@ -3,7 +3,7 @@
 		<ng-container *ngFor="let wine of _listContent; let i=index;">
 			<div class="list-item" (click)="navigateToGallery(i)">
 				{{ wine.thumbnail }}
-				<img [src]="'https://winetrackerco.imgix.net/' + wine.photoURL + '?w=90&h=90&fit=crop'">
+				<img [src]="'https://winetrackerco.imgix.net/' + wine.photoURL + '?w=320&h=320&fit=crop'">
 				<div class="score-container">
 					<span>{{ getFirstPartOfScore(wine.scoreTotal) }}<sup>.{{ getLastPartOfScore(wine.scoreTotal) || '0' }}</sup></span>
 				</div>

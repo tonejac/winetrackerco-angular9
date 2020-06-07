@@ -42,8 +42,18 @@ export class GridViewComponent implements OnInit {
 		}
 	}
 	
+	getFirstPartOfScore(scoreNumber:String):String {
+		let wholeNumber = String(scoreNumber).split('.')[0];
+		return wholeNumber;
+	}
+	
+	getLastPartOfScore(scoreNumber:String):String {
+		let decimal = String(scoreNumber).split('.')[1];
+		return decimal;
+	}
+	
 	navigateToGallery(index) {
-		this._router.navigate(['gallery', 'past', index]);
+		this._router.navigate(['mywines', 'past', 'gallery', index]);
 	}
 	
 }

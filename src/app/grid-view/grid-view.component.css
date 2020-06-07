@@ -1,7 +1,6 @@
 .grid-container {
 	display: flex;
-	position: absolute;
-	top: 38px;
+	padding-top: 39px;
 	bottom: 0;
 	width: 100%;
 	flex-wrap: wrap;
