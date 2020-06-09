@@ -55,7 +55,6 @@ export class MyWinesComponent implements OnInit {
 		}
 		
 		this._apiService.getMyWinesCount({}).subscribe((response:any)=> {
-			console.log('getMyWinesCount response:', response);
 			this._pastButtonConfig.count = response.past;
 			this._cellarButtonConfig.count = response.cellar;
 			this._wishlistButtonConfig.count = response.wishlist;
@@ -63,7 +62,6 @@ export class MyWinesComponent implements OnInit {
 		
 		this._apiService.getCellarValue().subscribe((response:any)=> {
 			this._cellarButtonConfig.total = response.cellarValue;
-			console.log('celar value', response.cellarValue);
 		});
 		
 	}

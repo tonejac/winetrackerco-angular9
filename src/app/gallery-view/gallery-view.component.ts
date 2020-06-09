@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { WineDetailsComponent } from '../slide-up-panel/wine-details/wine-details.component';
+import { SlideUpPanelComponent } from '../slide-up-panel/slide-up-panel.component';
 import { Globals } from '../globals';
 import { ApiService } from '../api.service';
 import { Observable } from 'rxjs';
@@ -14,20 +16,19 @@ import { Observable } from 'rxjs';
 export class GalleryViewComponent implements OnInit {
 	
 	@Input() winesConfig:any;
-	
+	@ViewChild(SlideUpPanelComponent, {static:false}) _slideUpPanel:SlideUpPanelComponent;
 	public type: string = 'component';
-	
 	public config:SwiperConfigInterface;
-	
 	private pagination:SwiperPaginationInterface;
-	
 	@ViewChild(SwiperComponent, { static: false }) componentRef?: SwiperComponent;
 	@ViewChild(SwiperDirective, { static: false }) directiveRef?: SwiperDirective;
-	
 	public _navBarContent:any;
 	public _slidesContent:any = null;
 	_category:String;
 	_index:any;
+	_tabsConfig:any;
+	_contentComponent:any;
+	
 	
 	constructor(
 		private _globals:Globals,
@@ -40,6 +41,33 @@ export class GalleryViewComponent implements OnInit {
 		this._index = this._route.snapshot.paramMap.get('index');
 		this._category = this._route.snapshot.paramMap.get('category');
 		this._slidesContent = this.winesConfig;
+		
+		this._tabsConfig = {
+			"tabsArray": [
+				{
+					"label": "Visual",
+					"view": "visual"
+				},
+				{
+					"label": "Aroma",
+					"view": "aroma"
+				},
+				{
+					"label": "Taste",
+					"view": "taste"
+				},
+				{
+					"label": "Finish",
+					"view": "finish"
+				},
+				{
+					"label": "Overall",
+					"view": "overall"
+				}
+			]
+		}
+		
+		this._contentComponent = WineDetailsComponent;
 		
 		setTimeout(()=> {
 			this.config = {
@@ -82,6 +110,7 @@ export class GalleryViewComponent implements OnInit {
 	
 	showDetailsPanel(index) {
 		console.log('Show Details Panel for:', index);
+		this._slideUpPanel.open();
 	}
 	
 	getFirstPartOfScore(scoreNumber:String):String {
@@ -97,7 +126,6 @@ export class GalleryViewComponent implements OnInit {
 			return '-';
 		}
 		let decimal = String(scoreNumber).split('.')[1];
-		console.log('decimal', decimal);
 		if (decimal == undefined) {
 			decimal = '0';
 		}
