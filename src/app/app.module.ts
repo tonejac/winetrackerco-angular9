@@ -33,6 +33,10 @@ import { ConfirmationMessageComponent } from './confirmation-message/confirmatio
 import { GroupTastingComponent } from './group-tasting/group-tasting.component';
 import { WinesViewerComponent } from './wines-viewer/wines-viewer.component';
 import { ApiResolver } from './api.resolver';
+import { MyWineDetailsComponent } from './slide-up-panel/wine-details/my-wine-details/my-wine-details.component';
+import { UniversalWineDetailsComponent } from './slide-up-panel/wine-details/universal-wine-details/universal-wine-details.component';
+import { WineScoresComponent } from './slide-up-panel/wine-details/wine-scores/wine-scores.component';
+import { CommentsComponent } from './slide-up-panel/wine-details/comments/comments.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -68,7 +72,11 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		SigninComponent,
 		ConfirmationMessageComponent,
 		GroupTastingComponent,
-		WinesViewerComponent
+		WinesViewerComponent,
+		MyWineDetailsComponent,
+		UniversalWineDetailsComponent,
+		WineScoresComponent,
+		CommentsComponent
 	],
 	imports: [
 		SwiperModule,

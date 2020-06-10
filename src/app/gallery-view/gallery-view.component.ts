@@ -45,24 +45,20 @@ export class GalleryViewComponent implements OnInit {
 		this._tabsConfig = {
 			"tabsArray": [
 				{
-					"label": "Visual",
-					"view": "visual"
+					"label": "Me",
+					"view": "my"
 				},
 				{
-					"label": "Aroma",
-					"view": "aroma"
+					"label": "Overview",
+					"view": "overview"
 				},
 				{
-					"label": "Taste",
-					"view": "taste"
+					"label": "Scores",
+					"view": "scores"
 				},
 				{
-					"label": "Finish",
-					"view": "finish"
-				},
-				{
-					"label": "Overall",
-					"view": "overall"
+					"label": "Comments",
+					"view": "comments"
 				}
 			]
 		}
