@@ -57,7 +57,7 @@ export class ApiService {
 	}
 	
 	public getMyWines(category:String) {
-		return this._httpClient.post(this._domain + '/wines/my', {
+		return this._httpClient.post(this._domain + '/wines/mywines', { // original: '/wines/my'
 			"mode": category
 		}, this.getHeaders()).pipe(map(
 			data => {
