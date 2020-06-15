@@ -26,8 +26,8 @@ export class SlideUpPanelComponent implements OnInit {
 			this.loadComponent();
 		});
 		
-		this._globals._touchTagsCategoryChange.subscribe((data)=> {
-			// console.log('global _touchTagsCategoryChange data', data);
+		this._globals._slideupPanelCategoryChange.subscribe((data)=> {
+			// console.log('global _slideupPanelCategoryChange data', data);
 			this.tabClicked(data);
 		});
 		
@@ -37,7 +37,7 @@ export class SlideUpPanelComponent implements OnInit {
 	}
 	
 	ngOnDestroy():void {
-		this._globals._touchTagsCategoryChange.unsubscribe();
+		this._globals._slideupPanelCategoryChange.unsubscribe();
 		this._globals._bottomBarDone.unsubscribe();
 	}
 	

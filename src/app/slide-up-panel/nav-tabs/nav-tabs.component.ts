@@ -22,21 +22,21 @@ export class NavTabsComponent implements OnInit {
 			this.configureTabs();
 		}, 0);
 		
-		this._globals._touchTagsCategoryChange.subscribe((data)=> {
-			// console.log('global _touchTagsCategoryChange data', data);
+		this._globals._slideupPanelCategoryChange.subscribe((data)=> {
+			// console.log('global _slideupPanelCategoryChange data', data);
 			this.setTabState(data);
 		});
-		this._globals._currentTouchTagsCategory = 0;
+		this._globals._currentSlideupPanelCategory = 0;
 	}
 	
 	ngOnDestroy():void {
-		this._globals._touchTagsCategoryChange.unsubscribe();
+		this._globals._slideupPanelCategoryChange.unsubscribe();
 	}
 	
 	tabClick(index:any) {
-		this._globals._currentTouchTagsCategory = index;
+		this._globals._currentSlideupPanelCategory = index;
 		//this.tabClicked.emit(index);
-		this._globals._touchTagsCategoryChange.emit(index);
+		this._globals._slideupPanelCategoryChange.emit(index);
 		this.setTabState(index);
 	}
 	

@@ -34,6 +34,7 @@ export class ApiService {
 		
 		return this._httpClient.post(this._domain + '/api/wines/user/count', dataObjString, this.getHeaders()).pipe(map(
 			data => {
+				console.log('wines count:', data);
 				return data;
 			},
 			error => {

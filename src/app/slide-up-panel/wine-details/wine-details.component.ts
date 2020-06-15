@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Globals } from '../../globals';
 
 @Component({
 	selector: 'app-wine-details',
@@ -7,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WineDetailsComponent implements OnInit {
 	
-	constructor() { }
+	_currentCategory:any = 0;
+	
+	constructor(
+		private _globals:Globals
+	) { }
 	
 	ngOnInit(): void {
-		
+		this._globals._slideupPanelCategoryChange.subscribe((data)=> {
+			this._globals._currentSlideupPanelCategory = data;
+			this._currentCategory = this._globals._currentSlideupPanelCategory;
+		});
+	}
+	
+	displayComponent(num:Number) {
+		if (this._globals._currentSlideupPanelCategory == num) {
+			return 'block';
+		}
 	}
 	
 }

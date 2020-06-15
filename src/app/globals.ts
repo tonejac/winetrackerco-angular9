@@ -63,8 +63,8 @@ export class Globals {
 	
 	_wineViewerCategoryChange = new EventEmitter();
 	
-	_touchTagsCategoryChange = new EventEmitter();
-	_currentTouchTagsCategory:any;
+	_slideupPanelCategoryChange = new EventEmitter();
+	_currentSlideupPanelCategory:any;
 	_bottomBarDone = new EventEmitter();
 	
 	_confirmationUpdate = new EventEmitter();

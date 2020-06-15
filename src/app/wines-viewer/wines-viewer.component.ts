@@ -23,7 +23,9 @@ export class WinesViewerComponent implements OnInit {
 		private _route:ActivatedRoute,
 		private _apiService:ApiService,
 		private _globals:Globals
-		) { }
+	) {
+		
+	}
 	
 	ngOnInit(): void {
 		this._category = this._route.snapshot.paramMap.get('category');
@@ -34,15 +36,15 @@ export class WinesViewerComponent implements OnInit {
 			"cellarTotal": null
 		}
 		
-		this._apiService.getMyWines(this._category).subscribe((response:any)=> {
-			this._winesData = response;
-		});
-		
+		this._winesData = this._route.snapshot.data.apiData;
+		console.log(this._winesData);
+			
 		this._globals._wineViewerCategoryChange.subscribe(()=> {
 			this.setType();
 		});
 		
 		this.setType();
+		
 	}
 	
 	setType():void {

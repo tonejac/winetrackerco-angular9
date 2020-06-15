@@ -53,11 +53,11 @@ export class TouchTagsComponent implements OnInit {
 		) { }
 	
 	ngOnInit(): void {
-		this._globals._touchTagsCategoryChange.subscribe((data)=> {
+		this._globals._slideupPanelCategoryChange.subscribe((data)=> {
 			// console.log('touch-tags context data num', data);
-			this._globals._currentTouchTagsCategory = data;
-			this._currentCategory = this._globals._currentTouchTagsCategory;
-			if (this._globals._currentTouchTagsCategory == 4) {
+			this._globals._currentSlideupPanelCategory = data;
+			this._currentCategory = this._globals._currentSlideupPanelCategory;
+			if (this._globals._currentSlideupPanelCategory == 4) {
 				this._bottomBarButton.changeLabel('Done');
 			} else {
 				this._bottomBarButton.changeLabel('Next');
@@ -66,7 +66,7 @@ export class TouchTagsComponent implements OnInit {
 	}
 	
 	displayCategory(num:Number) {
-		if (this._globals._currentTouchTagsCategory == num) {
+		if (this._globals._currentSlideupPanelCategory == num) {
 			return 'block';
 		}
 	}
@@ -138,14 +138,14 @@ export class TouchTagsComponent implements OnInit {
 	}
 	
 	ngOnDestroy():void {
-		this._globals._touchTagsCategoryChange.unsubscribe();
+		this._globals._slideupPanelCategoryChange.unsubscribe();
 	}
 	
 	nextTouchTagCategory() {
-		if (this._globals._currentTouchTagsCategory < 4) {
-			this._globals._currentTouchTagsCategory++;
-			this._currentCategory = this._globals._currentTouchTagsCategory;
-			this._globals._touchTagsCategoryChange.emit(this._currentCategory);
+		if (this._globals._currentSlideupPanelCategory < 4) {
+			this._globals._currentSlideupPanelCategory++;
+			this._currentCategory = this._globals._currentSlideupPanelCategory;
+			this._globals._slideupPanelCategoryChange.emit(this._currentCategory);
 		} else {
 			this._globals._bottomBarDone.emit('done');
 		}
