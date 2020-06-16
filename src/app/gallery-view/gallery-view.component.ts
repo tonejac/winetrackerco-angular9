@@ -98,6 +98,8 @@ export class GalleryViewComponent implements OnInit {
 		console.log('Swiper index: ', index);
 		
 		this._location.replaceState('/mywines/' + this._category + '/gallery/' + index);
+		this._globals._currentWine = this._globals._currentWinesList[index];
+		this._globals._currentWineChange.emit();
 	}
 	
 	public onSwiperEvent(event: string): void {

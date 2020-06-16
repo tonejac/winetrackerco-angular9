@@ -58,6 +58,8 @@ export class Globals {
 			"id": "8754"
 		}
 	];
+	_currentWine:any;
+	_currentWineChange = new EventEmitter();
 	
 	_photoFile:any;
 	

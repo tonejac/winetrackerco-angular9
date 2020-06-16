@@ -26,6 +26,9 @@ export class MyWineDetailsComponent implements OnInit {
 		this._index = this._route.snapshot.paramMap.get('index');
 		this._currentWine = this._globals._currentWinesList[this._index];
 		console.log('currentWineData', this._currentWine);
+		this._globals._currentWineChange.subscribe(()=> {
+			this._currentWine = this._globals._currentWine;
+		});
 		
 		this.calculateBarWidths();
 	}
