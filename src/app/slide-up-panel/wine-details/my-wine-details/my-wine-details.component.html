@@ -1,1 +1,39 @@
-<p>my-wine-details works!</p>
+<div class="score-and-slider-values-container">
+	<span class="score-container">
+		{{ getFirstPartOfScore(_currentWine.scoreTotal) }}<sup>.{{ getLastPartOfScore(_currentWine.scoreTotal) }}</sup>
+	</span>
+	<div class="scoring-bars-container">
+		<div class="scoring-key">
+			<div class="left">0</div>
+			<div class="right">5</div>
+		</div>
+		<div class="aroma">
+			<div class="bar-container">
+				<span class="bar-background"></span>
+				<span class="bar-foreground" [ngStyle]="{'width': _aromaBarWidth+'px'}"></span>
+			</div>
+			<span class="label">AROMA</span>
+		</div>
+		<div class="taste">
+			<div class="bar-container">
+				<span class="bar-background"></span>
+				<span class="bar-foreground" [ngStyle]="{'width': _tasteBarWidth+'px'}"></span>
+			</div>
+			<span class="label">TASTE</span>
+		</div>
+		<div class="finish">
+			<div class="bar-container">
+				<span class="bar-background"></span>
+				<span class="bar-foreground" [ngStyle]="{'width': _finishBarWidth+'px'}"></span>
+			</div>
+			<span class="label">FINISH</span>
+		</div>
+		<div class="overall">
+			<div class="bar-container">
+				<span class="bar-background"></span>
+				<span class="bar-foreground" [ngStyle]="{'width': _overallBarWidth+'px'}"></span>
+			</div>
+			<span class="label">OVERALL</span>
+		</div>
+	</div>
+</div>

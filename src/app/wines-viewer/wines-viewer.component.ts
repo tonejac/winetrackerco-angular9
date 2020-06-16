@@ -37,6 +37,7 @@ export class WinesViewerComponent implements OnInit {
 		}
 		
 		this._winesData = this._route.snapshot.data.apiData;
+		this._globals._currentWinesList = this._winesData;
 		console.log(this._winesData);
 			
 		this._globals._wineViewerCategoryChange.subscribe(()=> {

@@ -3,5 +3,6 @@ app-universal-wine-details,
 app-wine-scores,
 app-comments {
 	display: none;
+	padding: 10px 8px 0 18px;
 }
 

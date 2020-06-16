@@ -1,0 +1,75 @@
+.score-and-slider-values-container {
+	display: flex;
+}
+
+span.score-container {
+	font-size: 70px;
+}
+
+span.score-container sup {
+	font-size: 35px;
+}
+
+.scoring-bars-container {
+	flex-grow: 2;
+	padding-top: 2px;
+	padding-left: 18px;
+}
+
+.scoring-key {
+	display: flex;
+	font-size: 10px;
+	width: 78px;
+}
+
+.scoring-key .right {
+	flex-grow: 1;
+}
+
+.scoring-key .right {
+	flex-grow: 1;
+	text-align: right;
+}
+
+.aroma,
+.taste,
+.finish,
+.overall {
+	display: flex;
+	margin-bottom: 2px;
+}
+
+.aroma .label,
+.taste .label,
+.finish .label,
+.overall .label {
+	font-size: 10px;
+	flex-grow: 1;
+	padding-left: 5px;
+}
+
+.bar-container {
+	width: 78px;
+	position: relative;
+}
+
+.bar-background {
+	display: block;
+	height: 8px;
+	border-radius: 4px;
+	position: absolute;
+	background-color: #A48D61;
+	width: 78px;
+	top: 1px;
+}
+
+.bar-foreground {
+	display: block;
+	height: 6px;
+	border-radius: 3px;
+	position: absolute;
+	background-color: #fff;
+	width: 35px;
+	top: 2px;
+	left: 1px;
+}
