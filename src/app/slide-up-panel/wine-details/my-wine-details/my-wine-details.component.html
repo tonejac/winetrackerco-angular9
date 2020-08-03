@@ -37,3 +37,91 @@
 		</div>
 	</div>
 </div>
+
+<div class="date-time-stamp">
+	{{ _dateTimeStamp }}
+</div>
+
+<div class="buttons-container">
+	<app-icon-button [config]="_removeButton"></app-icon-button>
+	<app-icon-button [config]="_editButton"></app-icon-button>
+	<app-icon-button [config]="_shareButton"></app-icon-button>
+</div>
+
+<div class="tags-container">
+	
+	<div class="tag-section-container ng-scope" ng-if="currentSlide.obj.visualTags">
+		<div class="tag-category-title">
+			Visual Description
+		</div>
+		<div class="outer-container ng-scope" ng-repeat="(key, values) in touchTagsVisual">
+			<div ng-repeat="(key, values) in values" class="ng-scope">
+				<div class="tag-group-container ng-scope" ng-if="key != 'multi-select'">
+					<div class="tag-group-title">
+						<span class="ng-binding">Clarity</span>
+					</div>
+					<div class="middle-bracket"></div>
+					<div class="vertical-bracket"></div>
+					<div class="tags-list">
+						<div ng-repeat="tagValue in values.values" data-key="Clarity" class="ng-binding ng-scope">
+							Cloudy
+						</div>
+						<div ng-repeat="tagValue in values.values" data-key="Clarity" class="ng-binding ng-scope">
+							Slightly Cloudy
+						</div>
+						<div ng-repeat="tagValue in values.values" data-key="Clarity" class="ng-binding ng-scope selected">
+							Clear
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="outer-container ng-scope" ng-repeat="(key, values) in touchTagsVisual">
+			<div ng-repeat="(key, values) in values" class="ng-scope">
+				<div class="tag-group-container ng-scope" ng-if="key != 'multi-select'">
+					<div class="tag-group-title">
+						<span class="ng-binding">Color</span>
+					</div>
+					<div class="middle-bracket"></div>
+					<div class="vertical-bracket"></div>
+					<div class="tags-list">
+						<div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Straw
+						</div>
+						<div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Yellow
+						</div>
+						<div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope selected">
+							Gold
+						</div>
+						<div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Brown
+						</div>
+						<div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Amber
+						</div><!-- end ngRepeat: tagValue in values.values --><div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Orange
+						</div><!-- end ngRepeat: tagValue in values.values --><div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Copper
+						</div><!-- end ngRepeat: tagValue in values.values --><div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Salmon
+						</div><!-- end ngRepeat: tagValue in values.values --><div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Pink
+						</div><!-- end ngRepeat: tagValue in values.values --><div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Ruby
+						</div><!-- end ngRepeat: tagValue in values.values --><div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Purple
+						</div><!-- end ngRepeat: tagValue in values.values --><div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Garnet
+						</div><!-- end ngRepeat: tagValue in values.values --><div ng-repeat="tagValue in values.values" data-key="Color" class="ng-binding ng-scope">
+							Tawny
+						</div><!-- end ngRepeat: tagValue in values.values -->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div>

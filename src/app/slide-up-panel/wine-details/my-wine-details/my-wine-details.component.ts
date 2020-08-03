@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Globals } from '../../../globals';
+declare var $:any;
+declare var moment:any;
 
 @Component({
 	selector: 'app-my-wine-details',
@@ -16,6 +18,10 @@ export class MyWineDetailsComponent implements OnInit {
 	_tasteBarWidth:Number;
 	_finishBarWidth:Number;
 	_overallBarWidth:Number;
+	_dateTimeStamp:any;
+	_removeButton:any;
+	_editButton:any;
+	_shareButton:any;
 	
 	constructor(
 		private _globals:Globals,
@@ -28,9 +34,31 @@ export class MyWineDetailsComponent implements OnInit {
 		console.log('currentWineData', this._currentWine);
 		this._globals._currentWineChange.subscribe(()=> {
 			this._currentWine = this._globals._currentWine;
+			this.calculateBarWidths();
+			this.generateDateTimeStamp();
 		});
 		
 		this.calculateBarWidths();
+		this.generateDateTimeStamp();
+		
+		this._removeButton = {
+			"label": "Remove",
+			"icon": "remove"
+		}
+		this._editButton = {
+			"label": "Edit",
+			"icon": "edit"
+		}
+		this._shareButton = {
+			"label": "Share",
+			"icon": "share"
+		}
+	}
+	
+	generateDateTimeStamp():void {
+		let dateTimeStamp = moment(this._currentWine.created, 'YYYYMMDD').fromNow();
+		let dateTimeStamp2 = moment(this._currentWine.created).format('dddd[,] Do MMM[,] YYYY [at] h:mm a');
+		this._dateTimeStamp = 'You scored this wine ' + dateTimeStamp + ' on ' + dateTimeStamp2;
 	}
 	
 	calculateBarWidths():void {

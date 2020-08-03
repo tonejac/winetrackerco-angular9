@@ -37,6 +37,7 @@ import { MyWineDetailsComponent } from './slide-up-panel/wine-details/my-wine-de
 import { UniversalWineDetailsComponent } from './slide-up-panel/wine-details/universal-wine-details/universal-wine-details.component';
 import { WineScoresComponent } from './slide-up-panel/wine-details/wine-scores/wine-scores.component';
 import { CommentsComponent } from './slide-up-panel/wine-details/comments/comments.component';
+import { IconButtonComponent } from './icon-button/icon-button.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 	observer: true,
@@ -76,7 +77,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		MyWineDetailsComponent,
 		UniversalWineDetailsComponent,
 		WineScoresComponent,
-		CommentsComponent
+		CommentsComponent,
+		IconButtonComponent
 	],
 	imports: [
 		SwiperModule,

@@ -4,6 +4,8 @@
 
 span.score-container {
 	font-size: 70px;
+	width: 135px;
+	text-align: right;
 }
 
 span.score-container sup {
@@ -72,4 +74,93 @@ span.score-container sup {
 	width: 35px;
 	top: 2px;
 	left: 1px;
+}
+
+.date-time-stamp {
+	padding: 5px 0 10px 0;
+	font-size: 14px;
+}
+
+.buttons-container {
+	display: flex;
+	margin: 7px 0 0 0;
+	padding-bottom: 12px;
+}
+
+app-icon-button {
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.tags-container {
+	
+}
+
+.tags-section-container {
+	
+}
+
+.tag-category-title {
+	font-size: 17px;
+	font-weight: 700;
+	border-top: 1px solid #302716;
+	padding-top: 6px;
+	text-transform: capitalize;
+}
+
+.tags-container .outer-container {
+	box-sizing: border-box;
+	padding-left: 30px;
+}
+
+.tag-group-container {
+	font-size: 14px;
+	display: flex;
+	margin: 20px 0;
+}
+
+.tag-group-title {
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+	align-self: center;
+	margin-right: 7px;
+	position: relative;
+	top: -1px;
+	flex: 1;
+	justify-content: flex-end;
+	text-align: right;
+}
+
+.middle-bracket {
+	width: 10px;
+	height: 1px;
+	background-color: #302716;
+	display: flex;
+	flex-direction: row;
+	align-self: center;
+}
+
+.vertical-bracket {
+	width: 10px;
+	border-style: solid;
+	border-color: #302716;
+	border-width: 1px 0 1px 1px;
+	display: flex;
+	flex-direction: row;
+	margin-right: 7px;
+}
+
+.tags-list {
+	display: inline-block;
+	flex: 1;
+	padding: 5px 0 7px;
+}
+
+.tags-list .selected {
+	font-weight: 700;
+}
+
+.tags-list .selected::before {
+	content: '\27a4 \20';
 }
