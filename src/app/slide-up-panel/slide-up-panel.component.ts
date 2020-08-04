@@ -15,6 +15,8 @@ export class SlideUpPanelComponent implements OnInit {
 	@Input() contentComponent:any;
 	@ViewChild(SlideUpPanelDirective) slideUpContent: SlideUpPanelDirective;
 	_loadedComponentRef:any;
+	_slideUpPanelCategoryChangeSubscriptionObject:any;
+	_bottomBarDoneSubscriptionObject:any;
 	
 	constructor(
 		private componentFactoryResolver: ComponentFactoryResolver,
@@ -26,26 +28,33 @@ export class SlideUpPanelComponent implements OnInit {
 			this.loadComponent();
 		});
 		
-		this._globals._slideupPanelCategoryChange.subscribe((data)=> {
+		this._slideUpPanelCategoryChangeSubscriptionObject = this._globals._slideupPanelCategoryChange.subscribe((data)=> {
 			// console.log('global _slideupPanelCategoryChange data', data);
 			this.tabClicked(data);
 		});
 		
-		this._globals._bottomBarDone.subscribe((data)=> {
+		this._bottomBarDoneSubscriptionObject = this._globals._bottomBarDone.subscribe((data)=> {
 			this.close();
 		})
 	}
 	
 	ngOnDestroy():void {
-		this._globals._slideupPanelCategoryChange.unsubscribe();
-		this._globals._bottomBarDone.unsubscribe();
+		if (this._slideUpPanelCategoryChangeSubscriptionObject) {
+			this._slideUpPanelCategoryChangeSubscriptionObject.unsubscribe();
+		}
+		if (this._bottomBarDoneSubscriptionObject) {
+			this._bottomBarDoneSubscriptionObject.unsubscribe();
+		}
 	}
 	
 	loadComponent() {
 		let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.contentComponent);
 		
-		this.slideUpContent.viewContainerRef.clear();
-		this._loadedComponentRef = this.slideUpContent.viewContainerRef.createComponent(componentFactory);
+		if (this.slideUpContent) {
+			this.slideUpContent.viewContainerRef.clear();
+			this._loadedComponentRef = this.slideUpContent.viewContainerRef.createComponent(componentFactory);
+		}
+		
 	}
 	
 	tabClicked(val:any) {

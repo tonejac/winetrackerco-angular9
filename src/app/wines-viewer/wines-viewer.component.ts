@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { Globals } from '../globals';
@@ -9,7 +9,7 @@ import { Globals } from '../globals';
 	styleUrls: ['./wines-viewer.component.css']
 })
 
-export class WinesViewerComponent implements OnInit {
+export class WinesViewerComponent implements OnInit, OnDestroy {
 	
 	_navBarContent:Object;
 	_category:String;
@@ -18,6 +18,7 @@ export class WinesViewerComponent implements OnInit {
 	_isGallery:Boolean = false;
 	_isGrid:Boolean = false;
 	_isList:Boolean = false;
+	_categorySubscriptionObject:any;
 	
 	constructor(
 		private _route:ActivatedRoute,
@@ -40,12 +41,16 @@ export class WinesViewerComponent implements OnInit {
 		this._globals._currentWinesList = this._winesData;
 		console.log(this._winesData);
 			
-		this._globals._wineViewerCategoryChange.subscribe(()=> {
+		this._categorySubscriptionObject = this._globals._wineViewerCategoryChange.subscribe(()=> {
 			this.setType();
 		});
 		
 		this.setType();
 		
+	}
+	
+	ngOnDestroy():void {
+		this._categorySubscriptionObject.unsubscribe();
 	}
 	
 	setType():void {

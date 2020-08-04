@@ -12,6 +12,7 @@ export class NavTabsComponent implements OnInit {
 	@Input() tabsConfig:any;
 	@Output() tabClicked = new EventEmitter();
 	_tabsArray:any;
+	_categoryChangeSubscriptionObject:any;
 	
 	constructor(
 		private _globals:Globals
@@ -22,7 +23,7 @@ export class NavTabsComponent implements OnInit {
 			this.configureTabs();
 		}, 0);
 		
-		this._globals._slideupPanelCategoryChange.subscribe((data)=> {
+		this._categoryChangeSubscriptionObject = this._globals._slideupPanelCategoryChange.subscribe((data)=> {
 			// console.log('global _slideupPanelCategoryChange data', data);
 			this.setTabState(data);
 		});
@@ -30,7 +31,7 @@ export class NavTabsComponent implements OnInit {
 	}
 	
 	ngOnDestroy():void {
-		this._globals._slideupPanelCategoryChange.unsubscribe();
+		this._categoryChangeSubscriptionObject.unsubscribe();
 	}
 	
 	tabClick(index:any) {

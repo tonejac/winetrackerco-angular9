@@ -47,13 +47,14 @@ export class TouchTagsComponent implements OnInit {
 	_tastTags:any;
 	_finishTags:any;
 	_overallTags:any;
+	_categoryChangeSubscriptionObject:any;
 	
 	constructor(
 		private _globals:Globals
 		) { }
 	
 	ngOnInit(): void {
-		this._globals._slideupPanelCategoryChange.subscribe((data)=> {
+		this._categoryChangeSubscriptionObject = this._globals._slideupPanelCategoryChange.subscribe((data)=> {
 			// console.log('touch-tags context data num', data);
 			this._globals._currentSlideupPanelCategory = data;
 			this._currentCategory = this._globals._currentSlideupPanelCategory;
@@ -138,7 +139,7 @@ export class TouchTagsComponent implements OnInit {
 	}
 	
 	ngOnDestroy():void {
-		this._globals._slideupPanelCategoryChange.unsubscribe();
+		this._categoryChangeSubscriptionObject.unsubscribe();
 	}
 	
 	nextTouchTagCategory() {
