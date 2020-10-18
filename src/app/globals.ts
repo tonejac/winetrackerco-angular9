@@ -76,6 +76,8 @@ export class Globals {
 	_category:String;
 	_index:Number;
 	
+	_winePhotoInput:any;
+	
 	constructor(
 		private _route:ActivatedRoute,
 		private _apiService:ApiService

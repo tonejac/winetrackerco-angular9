@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SlideUpPanelComponent } from '../../slide-up-panel/slide-up-panel.component';
 import { TouchTagsComponent } from '../../slide-up-panel/touch-tags/touch-tags.component';
 import { WineDetailsComponent } from '../../slide-up-panel/wine-details/wine-details.component';
+import { Globals } from '../../globals';
 declare var $:any;
 
 @Component({
@@ -40,7 +41,8 @@ export class InputWineComponent implements OnInit {
 	
 	constructor(
 		private _route:ActivatedRoute,
-		private _location:Location
+		private _location:Location,
+		private _globals:Globals
 		) { }
 	
 	ngOnInit(): void {
@@ -298,10 +300,100 @@ export class InputWineComponent implements OnInit {
 				- call getTouchTags? values and stringify them
 				- create the API service to save a wine
 			*/
+			
+			
+			// Create new Wine object
+			let winemode = 'past';
+			
+			//get user's local time and store it to .created property
+			let usersTime = Date.now();
+			
+			let commentContent = $('#review-item-comments-input').val() || '';
+			
+			let scoreAromaVal = $('#ReviewAroma').val(); // '' empty strings when applying this to Cellar or Wishlist
+			let scoreTasteVal = $('#ReviewTasteTexture').val();
+			let scoreFinishVal = $('#ReviewAfterTaste').val();
+			let scoreOverallImpressionVal = $('#ReviewImpression').val();
+			let scoreTotalVal = $('#scoreTotal').val();
+			
+			let quantityInput = $('#input-quantity').val() || 1; // I think this only applies to cellar wines
+			
+			let groupDescriptionVal = 'none';
+			
+			let wineObj = new Object();
+			wineObj["create"] = usersTime;
+			wineObj["comment"] = commentContent;
+			wineObj["quantity"] = quantityInput;
+			wineObj["groupDescription"] = groupDescriptionVal;
+			wineObj["scoreAroma"] = scoreAromaVal;
+			wineObj["scoreTaste"] = scoreTasteVal;
+			wineObj["scoreFinish"] = scoreFinishVal;
+			wineObj["scoreOverallImpression"] = scoreOverallImpressionVal;
+			wineObj["scoreTotal"] = scoreTotalVal;
+			
+			wineObj["photo"] = this._globals._photoFile;
+			wineObj["mode"] = winemode;
+			wineObj["hidden"] = false;
+			// wineObj["visualTags"] = JSON.stringify( $scope.selectedVisualTags );
+			// wineObj["aromaTags"] =  JSON.stringify( $scope.selectedAromaTags );
+			// wineObj["tasteTags"] = JSON.stringify( $scope.selectedTasteTags );
+			// wineObj["finishTags"] = JSON.stringify( $scope.selectedFinishTags );
+			// wineObj["overallTags"] = JSON.stringify( $scope.selectedOverallTags );
+			console.log('wineObj:', wineObj);
+			console.log('_contentComponent', this._slideUpPanel._loadedComponentRef.instance.getSelectedTouchTags() );
+			return;
+			
+			// ViewController.ShowSpinner('Uploading...');
+			/*
+			window.currentWineIndex = 0;
+			$location.search().index = 0;
+			var destination = 'my/wines/' + winemode + '/gallery';
+			
+			wine.$save(function(response) {
+				ViewController.HideUploading();
+				ViewController.ResetSliders();
+				delete window.__file;
+				
+				mixpanel.track('created a wine: '+response.mode, {
+					'wine_id': response._id,
+					'mode': response.mode,
+					'photoURL': 'https://winetrackerco.imgix.net/'+response.photoURL,
+					'scoreTotal': response.scoreTotal,
+					'comment': response.comment
+				});
+				
+				$scope.resetViewStates();
+				
+				$location.path( destination );
+				
+				setTimeout(function() {
+					$scope.displaySharingPanel( response );
+				}, 2000);
+				
+				
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+			*/
+			
+			
 			console.log('SAVE past wine');
 		} else {
+			
 			// TODO: MAKE GLOBAL ALERT PANEL
-			alert('Please use all the scoring sliders before saving your wine.')
+			/*
+			if ($scope.launchFromCordova) {
+				navigator.notification.alert(
+					'Please use all the scoring sliders before saving your wine.',  // message
+					$scope.alertCallback('wishlist'),         // callback
+					'Not Done Yet',            // title
+					'Okay'                  // buttonName
+				);
+			} else {
+			*/
+				alert('Please use all the scoring sliders before saving your wine.');
+			// }
+			return;
 		}
 		
 		

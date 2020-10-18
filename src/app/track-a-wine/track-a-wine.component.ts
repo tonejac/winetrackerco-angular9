@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Globals } from '../globals';
 
 @Component({
 	selector: 'app-track-a-wine',
@@ -14,7 +15,8 @@ export class TrackAWineComponent implements OnInit {
 	_addToWishlistButtonConfig:any;
 	
 	constructor(
-		private _router:Router
+		private _router:Router,
+		private _globals:Globals
 		) { }
 	
 	ngOnInit(): void {
@@ -47,7 +49,6 @@ export class TrackAWineComponent implements OnInit {
 	}
 	
 	navigateTo(view) {
-		//console.log('emit navigateTo', view);
 		this._router.navigate(['trackawine', 'input', view]);
 	}
 	

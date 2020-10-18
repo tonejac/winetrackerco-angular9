@@ -116,7 +116,7 @@ export class TouchTagsComponent implements OnInit {
 			
 		}
 		
-		console.log(selectedTouchTags);
+		return selectedTouchTags;
 		
 	}
 	
