@@ -299,7 +299,6 @@ export class InputWineComponent implements OnInit {
 			this._overallScore != null
 		) {
 			/* TODO
-				- get all slider and comment input values
 				- call getTouchTags? values and stringify them
 				- create the API service to save a wine
 			*/
@@ -353,9 +352,12 @@ export class InputWineComponent implements OnInit {
 			// window.currentWineIndex = 0;
 			// $location.search().index = 0;
 			
+			$('.loading-icon-container span').text('Uploading...');
+			$('.loading-icon-container').show();
+			
 			this._apiService.saveWine(wineObj, this._globals._photoFile).subscribe((response:any)=> {
 				console.log('api saveWine Reponse:', response);
-				this._router.navigate(['mywines','past', 'gallery', '0']);
+				this._router.navigate(['mywines','past', 'gallery', '0']); // loading icon container will be hid by mywines view
 			});
 			
 			//wine.$save(function(response) {

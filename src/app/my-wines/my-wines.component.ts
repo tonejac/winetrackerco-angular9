@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Globals } from '../globals';
 import { ApiService } from '../api.service';
+declare var $:any;
 
 @Component({
 	selector: 'app-my-wines',
@@ -67,6 +68,8 @@ export class MyWinesComponent implements OnInit {
 	}
 	
 	navigateTo(target:String) {
+		$('.loading-icon-container span').text('Loading...');
+		$('.loading-icon-container').show();
 		if (target == 'pastwines') {
 			this._router.navigate(['mywines', 'past', 'gallery', '0']);
 		} else if (target == 'cellarwines') {

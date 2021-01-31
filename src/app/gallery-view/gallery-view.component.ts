@@ -7,6 +7,7 @@ import { SlideUpPanelComponent } from '../slide-up-panel/slide-up-panel.componen
 import { Globals } from '../globals';
 import { ApiService } from '../api.service';
 import { Observable } from 'rxjs';
+declare var $:any;
 
 @Component({
 	selector: 'app-gallery-view',
@@ -86,6 +87,8 @@ export class GalleryViewComponent implements OnInit {
 				clickable: true,
 				hideOnClick: false
 			};
+			
+			$('.loading-icon-container').hide();
 		}, 0);
 		
 		setTimeout(()=> {
