@@ -33,6 +33,12 @@ export class SigninComponent implements OnInit {
 			"value": "Sign In",
 			"type": "primary"
 		}
+		
+		$('#username, #password').on('keypress', (e)=> {
+			if(e.which == 13) {
+				this.signin();
+			}
+		});
 	}
 	
 	signin() {
@@ -40,6 +46,12 @@ export class SigninComponent implements OnInit {
 			"username": $('#username').val(),
 			"password": $('#password').val()
 		}
+		
+		if (userObj.username == '' || userObj.password == '') {
+			alert('Make sure to enter both your username and password.');
+			return false;
+		}
+		
 		this._authService.signin(userObj).subscribe((response:any)=> {
 			console.log('SIGNIN response', response);
 			
