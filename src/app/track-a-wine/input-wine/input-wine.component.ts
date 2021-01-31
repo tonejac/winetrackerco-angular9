@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SlideUpPanelComponent } from '../../slide-up-panel/slide-up-panel.component';
 import { TouchTagsComponent } from '../../slide-up-panel/touch-tags/touch-tags.component';
 import { WineDetailsComponent } from '../../slide-up-panel/wine-details/wine-details.component';
+import { ApiService } from '../../api.service';
 import { Globals } from '../../globals';
 declare var $:any;
 
@@ -42,6 +43,7 @@ export class InputWineComponent implements OnInit {
 	constructor(
 		private _route:ActivatedRoute,
 		private _location:Location,
+		private _apiService:ApiService,
 		private _globals:Globals
 		) { }
 	
@@ -308,13 +310,13 @@ export class InputWineComponent implements OnInit {
 			//get user's local time and store it to .created property
 			let usersTime = Date.now();
 			
-			let commentContent = $('#review-item-comments-input').val() || '';
+			let commentContent = $('#comments-input').val() || '';
 			
-			let scoreAromaVal = $('#ReviewAroma').val(); // '' empty strings when applying this to Cellar or Wishlist
-			let scoreTasteVal = $('#ReviewTasteTexture').val();
-			let scoreFinishVal = $('#ReviewAfterTaste').val();
-			let scoreOverallImpressionVal = $('#ReviewImpression').val();
-			let scoreTotalVal = $('#scoreTotal').val();
+			let scoreAromaVal = $('#aroma-slider').val(); // '' empty strings when applying this to Cellar or Wishlist
+			let scoreTasteVal = $('#taste-slider').val();
+			let scoreFinishVal = $('#finish-slider').val();
+			let scoreOverallImpressionVal = $('#overall-slider').val();
+			let scoreTotalVal = this._totalScore;
 			
 			let quantityInput = $('#input-quantity').val() || 1; // I think this only applies to cellar wines
 			
@@ -331,7 +333,8 @@ export class InputWineComponent implements OnInit {
 			wineObj["scoreOverallImpression"] = scoreOverallImpressionVal;
 			wineObj["scoreTotal"] = scoreTotalVal;
 			
-			wineObj["photo"] = this._globals._photoFile;
+			// wineObj["photo"] = this._globals._photoFile; // Probably don't need this attribute to create a new wine since it will be a photoURL that gets generated on the back-end.
+			
 			wineObj["mode"] = winemode;
 			wineObj["hidden"] = false;
 			// wineObj["visualTags"] = JSON.stringify( $scope.selectedVisualTags );
@@ -341,40 +344,47 @@ export class InputWineComponent implements OnInit {
 			// wineObj["overallTags"] = JSON.stringify( $scope.selectedOverallTags );
 			console.log('wineObj:', wineObj);
 			console.log('_contentComponent', this._slideUpPanel._loadedComponentRef.instance.getSelectedTouchTags() );
-			return;
 			
+			
+			// TODO
 			// ViewController.ShowSpinner('Uploading...');
-			/*
-			window.currentWineIndex = 0;
-			$location.search().index = 0;
-			var destination = 'my/wines/' + winemode + '/gallery';
 			
-			wine.$save(function(response) {
-				ViewController.HideUploading();
-				ViewController.ResetSliders();
-				delete window.__file;
-				
-				mixpanel.track('created a wine: '+response.mode, {
-					'wine_id': response._id,
-					'mode': response.mode,
-					'photoURL': 'https://winetrackerco.imgix.net/'+response.photoURL,
-					'scoreTotal': response.scoreTotal,
-					'comment': response.comment
-				});
-				
-				$scope.resetViewStates();
-				
-				$location.path( destination );
-				
-				setTimeout(function() {
-					$scope.displaySharingPanel( response );
-				}, 2000);
-				
-				
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
+			// window.currentWineIndex = 0;
+			// $location.search().index = 0;
+			let destination = 'mywines/past/gallery/0';
+			
+			this._apiService.saveWine(wineObj, this._globals._photoFile).subscribe((response:any)=> {
+				console.log('api saveWine Reponse:', response);
 			});
-			*/
+			
+			//wine.$save(function(response) {
+				// ViewController.HideUploading();
+				// ViewController.ResetSliders();
+				// delete window.__file;
+				
+				// mixpanel.track('created a wine: '+response.mode, {
+				// 	'wine_id': response._id,
+				// 	'mode': response.mode,
+				// 	'photoURL': 'https://winetrackerco.imgix.net/'+response.photoURL,
+				// 	'scoreTotal': response.scoreTotal,
+				// 	'comment': response.comment
+				// });
+				
+				// $scope.resetViewStates();
+				
+				// $location.path( destination );
+				
+				// setTimeout(function() {
+					// TODO
+					// $scope.displaySharingPanel( response );
+				// }, 2000);
+				
+				
+			// }, function(errorResponse) {
+			// 	console.log('ERROR', errorResponse.data.message);
+			// 	return false;
+			// });
+			
 			
 			
 			console.log('SAVE past wine');

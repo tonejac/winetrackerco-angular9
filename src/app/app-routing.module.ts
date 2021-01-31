@@ -55,7 +55,8 @@ const routes: Routes = [
 		},
 		data: {
 			resolveMethod: 'getMyWinesData'
-		}
+		},
+		canActivate: [AuthGuard]
 	}
 	
 ];

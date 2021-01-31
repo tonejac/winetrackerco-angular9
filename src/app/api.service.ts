@@ -9,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ApiService {
 	
-	_domain = 'http://54.144.195.181:8080';
+	//_domain = 'http://54.144.195.181:8080';
+	_domain = 'http://dev-api.winetracker.co:8080';
 	
 	constructor(
 		private _httpClient:HttpClient,
@@ -27,6 +28,17 @@ export class ApiService {
 			})
 		}
 		return options;
+	}
+	
+	getHeadersMultipart():any {
+		let options = {
+			headers: new HttpHeaders({
+				'enctype': 'multipart/form-data',
+				'Content-Type': 'application/json; charset=utf-8',
+				'Accept': 'application/json',
+				'Authorization': 'Bearer '+localStorage.getItem('winetrackerCookie')
+			})
+		}
 	}
 	
 	public getMyWinesCount(dataObj:any) {
@@ -58,9 +70,32 @@ export class ApiService {
 	}
 	
 	public getMyWines(category:String) {
-		return this._httpClient.post(this._domain + '/wines/mywines', { // original: '/wines/my'
+		return this._httpClient.post(this._domain + '/api/wines/mywines', {
 			"mode": category
 		}, this.getHeaders()).pipe(map(
+			data => {
+				return data;
+			},
+			error => {
+				console.log('Error', error);
+				return error;
+			}
+		));
+	}
+	
+	public saveWine(wineObj:any, fileObj:any) {
+		console.log('angular saveWine:::', wineObj, fileObj);
+		
+		const dataObj = JSON.stringify(wineObj);
+		const formData = new FormData();
+		formData.append( 'data', dataObj );
+		formData.append( 'user', localStorage.getItem('winetrackerCookie') );
+		if (fileObj) {
+			formData.append('file', fileObj, fileObj.name);
+		}
+		
+		
+		return this._httpClient.post(this._domain + '/api/wines/create', formData, this.getHeadersMultipart()).pipe(map(
 			data => {
 				return data;
 			},
