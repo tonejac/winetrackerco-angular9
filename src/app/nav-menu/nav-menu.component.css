@@ -99,23 +99,22 @@ li section {
 	flex-basis: auto;
 }
 
-ul.navigation-list-container li:active a,
-ul.navigation-list-container li:active section {
-	color: #6DBB00;
+ul.navigation-list-container li {
 	cursor: pointer;
 }
 
-ul.navigation-list-container li a svg path,
-ul.navigation-list-container li a svg rect,
-ul.navigation-list-container li section svg path,
-ul.navigation-list-container li section svg rect {
+ul.navigation-list-container li:active label {
+	color: #6DBB00;
+}
+
+ul.navigation-list-container li svg path,
+ul.navigation-list-container li svg rect,
+ul.navigation-list-container li label {
 	pointer-events: none;
 }
 
-ul.navigation-list-container li:active a svg path,
-ul.navigation-list-container li:active a svg rect,
-ul.navigation-list-container li:active section svg path,
-ul.navigation-list-container li:active section svg rect {
+ul.navigation-list-container li:active svg path,
+ul.navigation-list-container li:active svg rect {
 	fill: #6DBB00;
 }
 

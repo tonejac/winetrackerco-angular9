@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SlideUpPanelComponent } from '../../slide-up-panel/slide-up-panel.component';
 import { TouchTagsComponent } from '../../slide-up-panel/touch-tags/touch-tags.component';
 import { WineDetailsComponent } from '../../slide-up-panel/wine-details/wine-details.component';
@@ -42,6 +42,7 @@ export class InputWineComponent implements OnInit {
 	
 	constructor(
 		private _route:ActivatedRoute,
+		private _router:Router,
 		private _location:Location,
 		private _apiService:ApiService,
 		private _globals:Globals
@@ -342,7 +343,7 @@ export class InputWineComponent implements OnInit {
 			// wineObj["tasteTags"] = JSON.stringify( $scope.selectedTasteTags );
 			// wineObj["finishTags"] = JSON.stringify( $scope.selectedFinishTags );
 			// wineObj["overallTags"] = JSON.stringify( $scope.selectedOverallTags );
-			console.log('wineObj:', wineObj);
+			// console.log('wineObj:', wineObj);
 			console.log('_contentComponent', this._slideUpPanel._loadedComponentRef.instance.getSelectedTouchTags() );
 			
 			
@@ -351,10 +352,10 @@ export class InputWineComponent implements OnInit {
 			
 			// window.currentWineIndex = 0;
 			// $location.search().index = 0;
-			let destination = 'mywines/past/gallery/0';
 			
 			this._apiService.saveWine(wineObj, this._globals._photoFile).subscribe((response:any)=> {
 				console.log('api saveWine Reponse:', response);
+				this._router.navigate(['mywines','past', 'gallery', '0']);
 			});
 			
 			//wine.$save(function(response) {
