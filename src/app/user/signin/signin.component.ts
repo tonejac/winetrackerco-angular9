@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 import { User } from '../../user';
@@ -11,7 +11,7 @@ declare var window:any;
 	templateUrl: './signin.component.html',
 	styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent implements OnInit, OnDestroy {
 	
 	_navBarContent:any;
 	_signinButtonConfig:any;
@@ -39,6 +39,10 @@ export class SigninComponent implements OnInit {
 				this.signin();
 			}
 		});
+	}
+	
+	ngOnDestroy():void {
+		$('#username, #password').unbind('keypress');
 	}
 	
 	signin() {

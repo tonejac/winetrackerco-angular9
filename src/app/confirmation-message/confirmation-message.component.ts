@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Globals } from '../globals';
 declare var $:any;
 
@@ -7,7 +7,7 @@ declare var $:any;
 	templateUrl: './confirmation-message.component.html',
 	styleUrls: ['./confirmation-message.component.css']
 })
-export class ConfirmationMessageComponent implements OnInit {
+export class ConfirmationMessageComponent implements OnInit, OnDestroy {
 	
 	@Input() messageConfig:any;
 	_okayButtonConfig:any;
@@ -29,6 +29,16 @@ export class ConfirmationMessageComponent implements OnInit {
 			this._message = this._globals._confirmationMessage;
 			$('app-confirmation-message').show();
 		});
+		
+		$(document).on('keyup', (e)=> {
+			if (e.key == 'Escape') {
+				this.buttonClick();
+			}
+		});
+	}
+	
+	ngOnDestroy(): void {
+		$(document).unbind('keyup');
 	}
 	
 	buttonClick():void {

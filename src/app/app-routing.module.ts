@@ -13,6 +13,7 @@ import { InputWineComponent } from './track-a-wine/input-wine/input-wine.compone
 import { AuthGuard } from './auth.guard';
 import { WinesViewerComponent } from './wines-viewer/wines-viewer.component';
 import { ApiResolver } from './api.resolver';
+import { Globals } from './globals';
 
 
 const routes: Routes = [
@@ -48,13 +49,38 @@ const routes: Routes = [
 		canActivate: [AuthGuard]
 	},
 	{
-		path: 'mywines/:category/:type/:index',
+		path: 'mywines/past/:type/:index',
 		component: WinesViewerComponent,
 		resolve: {
 			apiData: ApiResolver
 		},
 		data: {
-			resolveMethod: 'getMyWinesData'
+			resolveMethod: 'getMyWinesData',
+			category: 'past'
+		},
+		canActivate: [AuthGuard]
+	},
+	{
+		path: 'mywines/cellar/:type/:index',
+		component: WinesViewerComponent,
+		resolve: {
+			apiData: ApiResolver
+		},
+		data: {
+			resolveMethod: 'getMyWinesData',
+			category: 'cellar'
+		},
+		canActivate: [AuthGuard]
+	},
+	{
+		path: 'mywines/wishlist/:type/:index',
+		component: WinesViewerComponent,
+		resolve: {
+			apiData: ApiResolver
+		},
+		data: {
+			resolveMethod: 'getMyWinesData',
+			category: 'wishlist'
 		},
 		canActivate: [AuthGuard]
 	}

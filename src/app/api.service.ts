@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ApiService {
 	
 	//_domain = 'http://54.144.195.181:8080';
+	// TODO:
+	// • have domain logic for DEV vs. PRODUCTION
 	_domain = 'http://dev-api.winetracker.co:8080';
 	
 	constructor(
@@ -70,7 +72,16 @@ export class ApiService {
 	}
 	
 	public getMyWines(category:String) {
-		return this._httpClient.post(this._domain + '/api/wines/mywines', {
+		let path;
+		if (category == 'past') {
+			path = '/api/wines/mywinespast';
+		} else if (category == 'cellar') {
+			path = '/api/wines/mywinescellar';
+		} else if (category == 'wishlist') {
+			path = '/api/wines/mywineswishlist';
+		}
+		
+		return this._httpClient.post(this._domain + path, {
 			"mode": category
 		}, this.getHeaders()).pipe(map(
 			data => {
