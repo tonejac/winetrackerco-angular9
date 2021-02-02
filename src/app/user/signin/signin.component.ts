@@ -39,6 +39,8 @@ export class SigninComponent implements OnInit, OnDestroy {
 				this.signin();
 			}
 		});
+		
+		$('#username').focus();
 	}
 	
 	ngOnDestroy():void {
