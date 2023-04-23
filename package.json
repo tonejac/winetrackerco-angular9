@@ -22,7 +22,7 @@
     "jquery": "^3.6.4",
     "jquery.transit": "^0.9.12",
     "moment": "^2.29.4",
-    "ngx-swiper-wrapper": "^9.0.1",
+    "ngx-splide": "0.0.16",
     "rxjs": "^6.6.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
