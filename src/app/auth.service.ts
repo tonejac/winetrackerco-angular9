@@ -9,7 +9,8 @@ import { User } from './user';
 
 export class AuthService {
 	
-	_domain = 'http://54.144.195.181:8080';
+	// _domain = 'http://54.144.195.181:8080';
+	_domain = 'http://127.0.0.1:3000';
 	
 	constructor(
 		private _httpClient:HttpClient,

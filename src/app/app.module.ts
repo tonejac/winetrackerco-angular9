@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRouteSnapshot } from '@angular/router';
 
-import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+// import { SwiperModule, SwiperConfigInterface, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,14 +40,14 @@ import { WineScoresComponent } from './slide-up-panel/wine-details/wine-scores/w
 import { CommentsComponent } from './slide-up-panel/wine-details/comments/comments.component';
 import { IconButtonComponent } from './icon-button/icon-button.component';
 
-const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
-	observer: true,
-	direction: 'horizontal',
-	threshold: 50,
-	spaceBetween: 5,
-	slidesPerView: 1,
-	centeredSlides: true
-};
+// const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+// 	observer: true,
+// 	direction: 'horizontal',
+// 	threshold: 50,
+// 	spaceBetween: 5,
+// 	slidesPerView: 1,
+// 	centeredSlides: true
+// };
 
 @NgModule({
 	declarations: [
@@ -81,20 +82,21 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 		IconButtonComponent
 	],
 	imports: [
-		SwiperModule,
+		// SwiperModule,
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule
 	],
 	providers: [
-		{
-			provide: SWIPER_CONFIG,
-			useValue: DEFAULT_SWIPER_CONFIG
-		},
+		// {
+		// 	provide: SWIPER_CONFIG,
+		// 	useValue: DEFAULT_SWIPER_CONFIG
+		// },
 		Globals,
 		AuthGuard,
 		ApiResolver
 	],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

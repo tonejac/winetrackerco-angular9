@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
+// import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { WineDetailsComponent } from '../slide-up-panel/wine-details/wine-details.component';
@@ -19,10 +19,10 @@ export class GalleryViewComponent implements OnInit {
 	@Input() winesConfig:any;
 	@ViewChild(SlideUpPanelComponent, {static:false}) _slideUpPanel:SlideUpPanelComponent;
 	public type: string = 'component';
-	public config:SwiperConfigInterface;
-	private pagination:SwiperPaginationInterface;
-	@ViewChild(SwiperComponent, { static: false }) componentRef?: SwiperComponent;
-	@ViewChild(SwiperDirective, { static: false }) directiveRef?: SwiperDirective;
+	// public config:SwiperConfigInterface;
+	// private pagination:SwiperPaginationInterface;
+	// @ViewChild(SwiperComponent, { static: false }) componentRef?: SwiperComponent;
+	// @ViewChild(SwiperDirective, { static: false }) directiveRef?: SwiperDirective;
 	public _navBarContent:any;
 	public _slidesContent:any = null;
 	_category:String;
@@ -67,32 +67,32 @@ export class GalleryViewComponent implements OnInit {
 		this._contentComponent = WineDetailsComponent;
 		
 		setTimeout(()=> {
-			this.config = {
-				a11y: true,
-				direction: 'horizontal',
-				slidesPerView: 1,
-				keyboard: true,
-				navigation: true,
-				pagination: true,
-				preloadImages: false,
-				watchSlidesVisibility: true,
-				lazy: {
-					loadPrevNext: true
-				},
-				threshold: 10
-			};
+			// this.config = {
+			// 	a11y: true,
+			// 	direction: 'horizontal',
+			// 	slidesPerView: 1,
+			// 	keyboard: true,
+			// 	navigation: true,
+			// 	pagination: true,
+			// 	preloadImages: false,
+			// 	watchSlidesVisibility: true,
+			// 	lazy: {
+			// 		loadPrevNext: true
+			// 	},
+			// 	threshold: 10
+			// };
 			
-			this.pagination = {
-				el: '.swiper-pagination',
-				clickable: true,
-				hideOnClick: false
-			};
+			// this.pagination = {
+			// 	el: '.swiper-pagination',
+			// 	clickable: true,
+			// 	hideOnClick: false
+			// };
 			
 			$('.loading-icon-container').hide();
 		}, 0);
 		
 		setTimeout(()=> {
-			this.componentRef.directiveRef.setIndex(this._index);
+			// this.componentRef.directiveRef.setIndex(this._index);
 		}, 1);
 		
 	}

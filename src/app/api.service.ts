@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ApiService {
 	
-	//_domain = 'http://54.144.195.181:8080';
+	// _domain = 'http://54.144.195.181:8080';
 	// TODO:
 	// • have domain logic for DEV vs. PRODUCTION
-	_domain = 'http://dev-api.winetracker.co:8080';
+	// _domain = 'http://dev-api.winetracker.co:8080';
+	_domain = 'http://127.0.0.1:3000';
 	
 	constructor(
 		private _httpClient:HttpClient,
