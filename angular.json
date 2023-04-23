@@ -116,8 +116,7 @@
 				}
 			}
 		}
-	},
-	"defaultProject": "winetrackerco",
+  },
 	"cli": {
 		"analytics": "a4adcc1b-2046-4cbf-9878-662a2ab0a973"
 	}
