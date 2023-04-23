@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TouchTagsComponent } from './touch-tags.component';
 
@@ -6,7 +6,7 @@ describe('TouchTagsComponent', () => {
   let component: TouchTagsComponent;
   let fixture: ComponentFixture<TouchTagsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TouchTagsComponent ]
     })
