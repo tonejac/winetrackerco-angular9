@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-// import { SwiperComponent, SwiperDirective, SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
+// import { SwiperComponent, SwiperDirective } from 'ngx-swiper-wrapper';
+import { Swiper } from 'swiper';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { WineDetailsComponent } from '../slide-up-panel/wine-details/wine-details.component';
@@ -7,7 +8,6 @@ import { SlideUpPanelComponent } from '../slide-up-panel/slide-up-panel.componen
 import { Globals } from '../globals';
 import { ApiService } from '../api.service';
 import { Observable } from 'rxjs';
-declare var $:any;
 
 @Component({
 	selector: 'app-gallery-view',
@@ -88,7 +88,7 @@ export class GalleryViewComponent implements OnInit {
 			// 	hideOnClick: false
 			// };
 			
-			$('.loading-icon-container').hide();
+			(document.querySelector('.loading-icon-container') as HTMLElement).style.display = "none";
 		}, 0);
 		
 		setTimeout(()=> {
